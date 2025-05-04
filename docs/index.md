@@ -1,21 +1,15 @@
-# Welcome to MkDocs
+---
+title: Index for learning in my Personal Notes on Github pages
+tags:
+  - index
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Navigation
 
-## Customization
+## [[After install]](./Notes/afterinstallDEBIAN.md)
 
-`https://squidfunk.github.io/mkdocs-material/setup/` 
+## [Selfhost](Selfhost/Selfhost.md) [Link](https://selfh.st/)
 
-## Commands
+### TODOs
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Customizing the "front page" to display folder files
