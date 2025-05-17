@@ -26,7 +26,11 @@ So either use [Cloudflare Zero Trust](https://www.cloudflare.com/zero-trust/prod
 Since now is the learning phase, not connecting to the internet part just yet.
 Just needed the local domain or local DNS server.
 
-[Steps I took](./steps.md)
+## Navigations
+
+- [Steps I took](./steps.md)  
+- [Hardware](./hardware.md)  
+
 
 ## What is [selfhosting](https://www.reddit.com/r/selfhosted/)
 

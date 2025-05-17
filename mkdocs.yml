@@ -3,11 +3,11 @@ site_url: https://sitename.example.com
 
 theme:
   name: material
-  palette: 
-   # Palette toggle for light mode
+  palette:
+    # Palette toggle for light mode
     - scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
@@ -21,11 +21,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
-    
-
+    - navigation.path
+    - navigation.prune
 plugins:
   - tags
