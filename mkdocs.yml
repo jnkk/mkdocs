@@ -25,3 +25,4 @@ theme:
     - navigation.prune
 plugins:
   - tags
+  # - mermaid2

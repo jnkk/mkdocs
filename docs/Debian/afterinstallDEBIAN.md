@@ -1,6 +1,6 @@
 ---
 title: Steps after installing Debian 12
-tags: 
+tags:
   - index
 ---
 
@@ -25,7 +25,8 @@ deb-src http://deb.debian.org/debian bookworm-updates main non-free-firmware con
 ## post debian 12 install to download
 
 ```bash
-sudo apt install curl wget git micro btop build-essential cmake gcc make clang pandoc zlib1g-dev libffi-dev libffi8 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5 autoconf automake libncurses5-dev libssl-dev libwxgtk3.2-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop default-jdk inotify-tools libyaml-dev rlwrap ripgrep papirus-icon-theme numix-icon-theme tango-icon-theme numix-icon-theme-circle arc-theme libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core fonts-unfonts-extra bison flex fonts-tlwg-garuda
+sudo apt install curl wget git micro btop build-essential cmake gcc make clang pandoc zlib1g-dev libffi-dev libffi8 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5 autoconf automake libncurses5-dev libssl-dev libwxgtk3.2-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop default-jdk inotify-tools libyaml-dev rlwrap ripgrep papirus-icon-theme numix-icon-theme tango-icon-theme numix-icon-theme-circle arc-theme libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core fonts-unfonts-extra bison flex fonts-tlwg-garuda m4 libwxgtk-webview3.2-dev libxml2-utils openjdk-17-jdk
+
 ```
 
 > current setup is using a dell laptop that has a old nvidia
@@ -71,6 +72,7 @@ Need to change this to [nix-home-manager]
 ```bash
 git config --global user.name "<yourusername>"
 git config --global user.email "<youruseremail>"
+git config --global init.defaultBranch main
 ```
 
 > [!IMPORTANT]
