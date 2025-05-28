@@ -14,7 +14,7 @@ tags:
 
 ## [Docker](./Docker/Docker.md)
 
-##
+## [Local VPS](./Notes/VPS/localvps.md)
 
 ### TODOs
 Customizing the "front page" to display folder files
