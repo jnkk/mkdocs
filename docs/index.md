@@ -8,6 +8,8 @@ tags:
 
 ## [After install](./Debian/afterinstallDEBIAN.md)
 
+## [Hardware](./Selfhost/hardware.md)
+
 ## [Selfhost](Selfhost/Selfhost.md) [Link](https://selfh.st/)
 
 ## [Debian Server](./Debian/server.md)

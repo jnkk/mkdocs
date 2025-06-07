@@ -12,7 +12,31 @@ For [MiniPCs](./minipc.md)
 ## Needs
 
 A PC, Server/NAS, network and a 2K monitor, preferably under 30mil.
-Mainly a "server" since it can do so much, and minipcs are relatively affordable. Not worth it to buy a gaming PC.
+~~Mainly a "server" since it can do so much, and minipcs are relatively affordable. Not worth it to buy a gaming PC.~~
+After considering, it is better to have a PC and a cheapish minipc using the Intel N150.
+
+### PC
+
+**Date: 07-June-2025**
+
+#### [ViraIndo](https://viraindo.com/)
+
+| Component | Name | ViraIndo |
+| --- | --- | --- |
+| Processor | AMD 9700X | **5.500.000** |
+| CPU Cooler | FSP MP7 Black Dual Tower CPU Cooler | **600.000** |
+| Motherboard | ASRock B850 Steel Legend | **3.780.000** |
+| RAM | Kingston Fury Beast DDR5 5200MHz 64GB (2x32GB) | **2.600.000** |
+| PSU | Seasonic Focus Gold GX-850 - 850W Full Modular | **2.100.000** |
+| Storage | Crucial P3 SSD 1TB M.2 2280 PCIe Gen 3 x4 - CT1000P3SSD8 | **905.000** |
+| GPU | PowerColor Radeon RX 9060 XT 16 GB 128 Bit GDDR6 - Reaper | **6.500.000** |
+| Casing | --- | **1.000.000** |
+| Monitor | MSI MAG275QF 27" Rapid IPS 1440p QHD 2K 180Hz | **2.850.000** |
+| Monitor | ViewSonic 27" VA2708-2K-MHD QHD SuperClear IPS 100Hz | **2.230.000** |
+| Monitor | DIGITAL ALLIANCE LED MONITOR IPS PANEL 27 INCH 2K 180HZ | **2.150.000** |
+| --- | --- | --- |
+| **Price** | Without Monitor | **23.000.000** |
+
 
 ### Monitor
 [Xiaomi LED IPS A27Qi - 2K QHD](https://www.tokopedia.com/tokobaruofficial/monitor-xiaomi-led-ips-a27qi-2k-qhd-27-inch-garansi-resmi-3-tahun-1730909484614190427?extParam=ivf%3Dfalse%26keyword%3D2k+monitor+27+inch%26search_id%3D20250523172833FD2050BBFFF0ED154PON%26src%3Dsearch&t_id=1748021321878&t_st=1&t_pp=search_result&t_efo=search_pure_goods_card&t_ef=goods_search&t_sm=&t_spt=search_result)
@@ -65,7 +89,6 @@ Mainly a "server" since it can do so much, and minipcs are relatively affordable
 | NVME | Patriot P300 512gb | 550.000 |
 | --- | --- | --- |
 | **Price** | --- | **7.070.000** |
-
 
 
 ### Server
