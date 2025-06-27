@@ -6,7 +6,9 @@ tags:
 
 # Navigation
 
-## [After install](./Debian/afterinstallDEBIAN.md)
+## [Debian OS after install](./Debian/afterinstallDEBIAN.md)
+
+## [Proxmox after install](./Selfhost/proxmox.md)
 
 ## [Hardware](./Selfhost/hardware.md)
 
