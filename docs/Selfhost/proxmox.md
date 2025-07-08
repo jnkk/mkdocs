@@ -22,4 +22,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 After installing, make sure to go to `/etc/apt-cacher-ng` and "resave" the `acng.conf` file (open the file, save it. Then restart the apt-cacher-ng systemctl).
 
+Do not include the InReleases:
+```
+DontCacheResolved: .*InRelease
+```
 ## [Pihole](https://community-scripts.github.io/ProxmoxVE/scripts?id=pihole)
