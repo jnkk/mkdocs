@@ -73,6 +73,7 @@ Need to change this to [nix-home-manager]
 git config --global user.name "<yourusername>"
 git config --global user.email "<youruseremail>"
 git config --global init.defaultBranch main
+git branch -m main
 ```
 
 > [!IMPORTANT]
