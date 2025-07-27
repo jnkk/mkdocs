@@ -43,12 +43,3 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 ```
 
 > Source: [Github](https://github.com/DeterminateSystems/nix-installer)
-
-
-## Erlang deps for Phoenix Framework
-This is for Ubuntu. For others see source below.
-```bash
-sudo nala install build-essential autoconf m4 libwxgtk3.2-dev libwxgtk-webview3.2-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk inotify-tools
-```
-
-> Source [Github](https://github.com/asdf-vm/asdf-erlang)

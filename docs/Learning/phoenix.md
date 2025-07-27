@@ -2,7 +2,14 @@
 title: Phoenix Framework
 ---
 
-# Learning Elixir and Phoenix Framework
+# How to install
+
+Use `mise`.
+
+Further reading: [Source on Github](https://github.com/asdf-vm/asdf-erlang)
+
+
+## Learning Elixir and Phoenix Framework
 
 The best way to learn is by doing.
 Lets start the hard way. Web development.
@@ -22,7 +29,7 @@ graph TD
     root --> forum
     root --> blog
     root --> clth
-    forum --> category     
+    forum --> category
 
 ```
 

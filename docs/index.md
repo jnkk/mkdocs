@@ -6,7 +6,9 @@ tags:
 
 # Navigation
 
-## [Debian OS after install](./Debian/afterinstallDEBIAN.md)
+## **[Debian OS after install](./Debian/afterinstallDEBIAN.md)**
+
+## ***[Elixir](./Learning/phoenix.md)***
 
 ## [Proxmox after install](./Selfhost/proxmox.md)
 
