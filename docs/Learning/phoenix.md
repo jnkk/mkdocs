@@ -4,7 +4,7 @@ title: Phoenix Framework
 
 # How to install
 
-Use `mise`.
+Use [`mise`](https://mise.jdx.dev/)
 
 Further reading: [Source on Github](https://github.com/asdf-vm/asdf-erlang)
 
