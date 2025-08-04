@@ -25,7 +25,7 @@ theme:
     - navigation.prune
 plugins:
   - tags
-  # - mermaid2
+  - mermaid2
 
 markdown_extensions:
   - pymdownx.critic
