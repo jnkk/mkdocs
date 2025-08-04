@@ -5,8 +5,20 @@ title: Phoenix Framework
 # How to install
 
 Use [`mise`](https://mise.jdx.dev/)
-
 Further reading: [Source on Github](https://github.com/asdf-vm/asdf-erlang)
+
+## Install and post install mise
+
+`eval "$(mise activate bash)"` make sure to add this to `.bashrc` file.
+
+There are 5 packages to install to use elixir:
+```
+mise use -g erlang@latest
+mise use -g elixir@latest
+mise use -g rebar@latest
+mise use -g node@latest
+mise use -g elixir-ls@latest
+```
 
 
 ## Learning Elixir and Phoenix Framework
