@@ -17,6 +17,10 @@ After considering, it is better to have a PC and a cheapish minipc using the Int
 
 ### PC
 
+**Updated @ 13-08-2025**
+5060Ti 16Gb is out.
+Around 8mil and above.
+
 **Date: 07-June-2025**
 
 #### [ViraIndo](https://viraindo.com/)
@@ -30,12 +34,14 @@ After considering, it is better to have a PC and a cheapish minipc using the Int
 | PSU | Seasonic Focus Gold GX-850 - 850W Full Modular | **2.100.000** |
 | Storage | Crucial P3 SSD 1TB M.2 2280 PCIe Gen 3 x4 - CT1000P3SSD8 | **905.000** |
 | GPU | PowerColor Radeon RX 9060 XT 16 GB 128 Bit GDDR6 - Reaper | **6.500.000** |
+| GPU | ZOTAC GAMING GeForce RTX 5060 Ti 16GB Twin Edge | **7.900.000**
 | Casing | --- | **1.000.000** |
 | Monitor | MSI MAG275QF 27" Rapid IPS 1440p QHD 2K 180Hz | **2.850.000** |
 | Monitor | ViewSonic 27" VA2708-2K-MHD QHD SuperClear IPS 100Hz | **2.230.000** |
 | Monitor | DIGITAL ALLIANCE LED MONITOR IPS PANEL 27 INCH 2K 180HZ | **2.150.000** |
 | --- | --- | --- |
-| **Price** | Without Monitor | **23.000.000** |
+| **Price** | Without Monitor with 9060 XT 16Gb | **23.000.000** |
+| **Price** | Without Monitor with 5060ti 16Gb | **24.500.000** |
 
 
 ### Monitor
