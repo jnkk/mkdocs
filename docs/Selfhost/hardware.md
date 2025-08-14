@@ -12,14 +12,32 @@ For [MiniPCs](./minipc.md)
 ## Needs
 
 A PC, Server/NAS, network and a 2K monitor, preferably under 30mil.
-~~Mainly a "server" since it can do so much, and minipcs are relatively affordable. Not worth it to buy a gaming PC.~~
+~~Mainly a "server" since it can do so much, and minipcs are relatively affordable.~~
 After considering, it is better to have a PC and a cheapish minipc using the Intel N150.
 
 ### PC
 
 **Updated @ 13-08-2025**
-5060Ti 16Gb is out.
-Around 8mil and above.
+5060Ti 16Gb is out. Around 8mil and above.
+GPT-OSS is also out.
+
+
+**Updated @ 14-08-2025**
+
+| Component | Name | Details |
+| --- | --- | --- |
+| CPU | 9700X | 8 Core and 16 Threads |
+| Motherboard | --- | B850 chipset |
+| CPU Cooler | --- | Dual Tower (THERMALRIGHT Peerless Assassin 140) |
+| RAM | --- | At least 64Gb CL30 @ 6400Mhz |
+| Storage | --- | 1 TB NVME |
+| Power Supply | --- | Seasonic 650 Watt |
+| Case | --- | Cheap |
+| GPU | --- | 5060ti 16Gb |
+
+#### [Personal Wishlist Tokopedia](https://www.tokopedia.com/wishlist/collection/10054949)
+
+
 
 **Date: 07-June-2025**
 
