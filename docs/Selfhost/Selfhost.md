@@ -1,35 +1,36 @@
 ---
-title: Selfhost Index
+title: Selfhost Knowledge Base
 tags:
   - selfhost
   - homelab
   - proxmox
+  - knowledge-base
 ---
 
 # Stuff I learn after installing Proxmox
 
-Learning TODOS:  
-- LXC, or linux containers.  
-- Docker  
-- Networking, especially DNS and reverse proxy.  
+Learning TODOS:
+- LXC, or linux containers.
+- Docker
+- Networking, especially DNS and reverse proxy.
 
-It is not how the youtube tutorials made it look. It is hard.  
-From "getting a domain, and put it in Cloudflare" to how to set a reverse proxy while connecting to a local DNS, like pihole.  
+It is not how the youtube tutorials made it look. It is hard.
+From "getting a domain, and put it in Cloudflare" to how to set a reverse proxy while connecting to a local DNS, like pihole.
 
 Turns out many mistakes were made.
-From the Cloudflare settings, to the LXC network settings. There are many things going on.  
+From the Cloudflare settings, to the LXC network settings. There are many things going on.
 > Hint: Tunneling like Cloudflare Zero Trust, Tailscale or Netbird is the way moving forward. Since port forwarding is blocked by my ISP.
-Currently don't need to face the internet just yet.  
+Currently don't need to face the internet just yet.
 Just needed the domain name for localhost.
 
-So either use [Cloudflare Zero Trust](https://www.cloudflare.com/zero-trust/products/access/), [tailscale](https://tailscale.com/) or [netbird](https://netbird.io/). All are similiar for their use.  
+So either use [Cloudflare Zero Trust](https://www.cloudflare.com/zero-trust/products/access/), [tailscale](https://tailscale.com/) or [netbird](https://netbird.io/). All are similiar for their use.
 Since now is the learning phase, not connecting to the internet part just yet.
 Just needed the local domain or local DNS server.
 
 ## Navigations
 
-- [Steps I took](./steps.md)  
-- [Hardware](./hardware.md)  
+- [Steps I took](./steps.md)
+- [Hardware](./hardware.md)
 
 
 ## What is [selfhosting](https://www.reddit.com/r/selfhosted/)

@@ -2,6 +2,7 @@
 title: Proxmox After Install
 tags:
   - proxmox
+  - learning
 ---
 
 # Steps to take after installing Proxmox

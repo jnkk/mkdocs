@@ -7,7 +7,7 @@ tags:
 
 # Hardware
 
-For [MiniPCs](./minipc.md)
+For [MiniPCs](./Hardware/minipc.md)
 
 ## Needs
 

@@ -1,6 +1,6 @@
 ---
-title: Index for Homelab
-tags: 
+title: Index for Software
+tags:
   - homelab
   - linux
 ---
@@ -14,5 +14,3 @@ Proxmox VE [download page](https://www.proxmox.com/en/downloads)
 Go here for after install [helper scripts](https://helper-scripts.com/)
 
 ### Docker
-
-
