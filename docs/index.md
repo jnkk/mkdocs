@@ -8,7 +8,9 @@ tags:
 
 ## **[Debian OS after install](./Debian/afterinstallDEBIAN.md)**
 
-## ***[Elixir](./Learning/phoenix.md)***
+## **[Fedora](./LearningSoftware/fedora.md)**
+
+## **[Elixir](./LearningSoftware/phoenix.md)**
 
 ## [Proxmox after install](./Selfhost/proxmox.md)
 
