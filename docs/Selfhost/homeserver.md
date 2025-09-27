@@ -17,3 +17,4 @@ title: Home Compute Upgrade
 | 10g Network | Fast data transfer |
 | Mini-PCs | For TVs and IoT |
 | 3D Printer | For future IoT |
+| Smarthome | Smarthome |

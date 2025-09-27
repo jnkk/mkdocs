@@ -10,7 +10,7 @@ tags:
 
 ## **[Fedora](./LearningSoftware/fedora.md)**
 
-## **[Elixir](./LearningSoftware/phoenix.md)**
+## [Elixir](./LearningSoftware/phoenix.md)
 
 ## [Proxmox after install](./Selfhost/proxmox.md)
 

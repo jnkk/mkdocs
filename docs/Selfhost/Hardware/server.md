@@ -2,6 +2,8 @@
 title: Server hardware
 ---
 
+# Normal PC
+
 # Used Dell Poweredge(s)
 
 ## Links
