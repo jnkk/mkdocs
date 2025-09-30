@@ -7,7 +7,12 @@ tags:
 
 # Steps to take after installing Proxmox
 
-The [Proxmox Post Install Scripts](https://community-scripts.github.io/ProxmoxVE/) is the go too site.
+Setting up the server(s):
+- Apt-Cacher-NG
+- Pihole
+- Reverse Proxy
+- Homepage
+
 
 ## [Proxmox Post Install Script](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install)
 
@@ -28,3 +33,5 @@ Do not include the InReleases:
 DontCacheResolved: .*InRelease
 ```
 ## [Pihole](https://community-scripts.github.io/ProxmoxVE/scripts?id=pihole)
+
+## [Nginx Proxy Manager]
