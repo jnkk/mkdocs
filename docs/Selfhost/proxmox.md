@@ -34,4 +34,12 @@ DontCacheResolved: .*InRelease
 ```
 ## [Pihole](https://community-scripts.github.io/ProxmoxVE/scripts?id=pihole)
 
+Mainly for routing the ip addresses to the proxy manager. The proxy manager's job is to reroute the port(s).
+Based on the international standardization, it is better and wise to use `*.home.arpa` domain name.
+
+
 ## [Nginx Proxy Manager]
+
+Mainly for rerouting the ip to the ports. Each IP address can use multiple ports.
+
+## [HomePage]
