@@ -6,9 +6,9 @@ tags:
 
 # Navigation
 
-## **[Debian OS after install](./Debian/afterinstallDEBIAN.md)**
+## [Debian OS after install](./Debian/afterinstallDEBIAN.md)
 
-## **[Fedora](./LearningSoftware/fedora.md)**
+## [Fedora](./LearningSoftware/fedora.md)
 
 ## [Elixir](./LearningSoftware/phoenix.md)
 
@@ -18,7 +18,7 @@ tags:
 
 ## [Selfhost](Selfhost/Selfhost.md) [Link](https://selfh.st/)
 
-## [Debian Server](./Debian/server.md)
+## [Debian/Ubuntu Server](./Debian/ubuntuserver.md)
 
 ## [Docker](./Docker/Docker.md)
 

@@ -38,8 +38,33 @@ Mainly for routing the ip addresses to the proxy manager. The proxy manager's jo
 Based on the international standardization, it is better and wise to use `*.home.arpa` domain name.
 
 
-## [Nginx Proxy Manager]
+## [Nginx Proxy Manager] or [Caddy]
 
-Mainly for rerouting the ip to the ports. Each IP address can use multiple ports.
+Nginx Proxy Manager is for rerouting the ip to the ports with GUI, while caddy is just a config file.
+Each IP address can use multiple ports.
+
+### Caddy
+
+Using Proxmox Helper Scripts to install `caddy`.
+The settings are in `/etc/caddy/` the file in `Caddyfile`
+Caddy example:
+```
+git.home.arpa {
+        reverse_proxy 192.168.1.14:3000
+}
+```
+
+`git.home.arpa` is the address you put in your browser.
+`reverse_proxy <ip addr>:<port>` is the machine you want to connect.
+
+`caddy reload` is to reload caddy to set your config.
+`systemctl restart caddy`.
+
+Set up the domain name and registering it in Pihole's DNS.
 
 ## [HomePage]
+
+There are a lot of custom "homepage".
+
+List:
+- [Homarr](https://homarr.dev/)

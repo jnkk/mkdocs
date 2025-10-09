@@ -5,6 +5,7 @@ tags:
 ---
 
 # This is for Debian 12, if another reinstall is needed
+For [Debian13](./debian13.md)
 
 ## Change sources.list make a backup of the original file and copy and paste in /etc/apt
 
