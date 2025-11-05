@@ -10,7 +10,7 @@ tags:
 
 ## [Fedora](./LearningSoftware/fedora.md)
 
-## [Elixir](./LearningSoftware/phoenix.md)
+## [Elixir with Phoenix Framework](./LearningSoftware/phoenix.md)
 
 ## [Proxmox after install](./Selfhost/proxmox.md)
 
@@ -33,6 +33,6 @@ tags:
 - `senv` to activate your `uv venv`
 - `uv pip install -r requirements.txt`
 
-
 ### TODOs
+
 Customizing the "front page" to display folder files
