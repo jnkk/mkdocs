@@ -6,6 +6,7 @@ title: Home Network
 
 ```mermaid
 graph TD
+
   ISP-->ISPRouter
   ISPRouter-->WifiTop
   WifiTop-->Laptop
