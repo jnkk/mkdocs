@@ -6,6 +6,8 @@ tags:
 
 # Navigation
 
+## [Debian 13](./Debian/debian13.md)
+
 ## [Debian OS after install](./Debian/afterinstallDEBIAN.md)
 
 ## [Fedora](./LearningSoftware/fedora.md)

@@ -5,7 +5,7 @@ title: Koperasi
 # Koperasi
 
 > ![Notes]
-> Loosely based on -> [PDF](../apa_itu_koperasi.pdf) <- Ga bisa dilink, tapi (mudah2an) ada di folder. Or the [link](https://dinkopukm.slemankab.go.id/wp-content/uploads/2023/06/apa_itu_koperasi.pdf).  
+> Loosely based on -> PDF [link](https://dinkopukm.slemankab.go.id/wp-content/uploads/2023/06/apa_itu_koperasi.pdf).  
 > Kalau mau ngelink, harus lewat http atau ftp. Lengkapnya -> [UNC](https://en.wikipedia.org/wiki/Path_%28computing%29#Uniform_Naming_Convention)
 
 Bagaimana cara "mengartikan/merubah" koperasi menjadi bagian dari filosofi koperasi + open source = koperasi digital.
