@@ -9,7 +9,7 @@
 ## Spec-Kit For Phoenix Framework
 
 ```markdown
-/speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements. This is already inside an Ash Framework project. Make a beautiful, sleek personal store website that focuses on easy admin(me) and my customer's experience. Make sure to follow the rules inside AGENTS.md. Use Tidewave MCP for better debugging. 
+/speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements. This is already inside an Ash + Phoenix Framework project. Make a beautiful, sleek personal store website that focuses on easy admin(me) and my customer's experience. Make sure to follow the rules inside AGENTS.md. Use Tidewave MCP for better debugging. 
 ```
 
 ```markdown
