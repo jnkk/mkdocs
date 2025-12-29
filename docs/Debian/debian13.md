@@ -9,12 +9,13 @@ title: Debian 13
     Not smart enough to use it yet.
 
 ```bash
-sudo apt install curl git git-lfs inotify-tools btop micro make automake wx-common build-essential cmake gcc clang autoconf fonts-jetbrains-mono fonts-firacode golang 
+sudo apt install curl git git-lfs inotify-tools btop micro make automake wx-common build-essential cmake gcc clang autoconf fonts-jetbrains-mono fonts-firacode golang openjdk-21-jdk
 ```
 # For Fonts:
 ```bash
 apt search fonts-<font name>
 
+# Example:
 sudo apt install fonts-jetbrains-mono
 sudo apt install fonts-firacode
 ```
@@ -22,6 +23,12 @@ sudo apt install fonts-firacode
 ## Install [Rust](https://rust-lang.org/tools/install/)
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+### Cloudflare Speedtest
+
+```bash
+cargo install cfspeedtest
 ```
 
 ## Install [UV](https://docs.astral.sh/uv/getting-started/installation/) for Python
@@ -36,6 +43,7 @@ mise install erlang@latest
 mise install elixir@latest
 mise install zig@latest
 mise install just@latest
+mise install gradle@latest
 ```
 
 Use the `elixir@1.18.4` for specific version.   
@@ -59,5 +67,5 @@ newgrp docker
 docker run hello-world
 ```
 
-## [NodeJS](https://nodejs.org/en/download)
+### [NodeJS](https://nodejs.org/en/download)
 ### [Fast-CLI](https://github.com/sindresorhus/fast-cli)

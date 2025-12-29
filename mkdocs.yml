@@ -25,7 +25,9 @@ theme:
     - navigation.prune
 plugins:
   - tags
-  - mermaid2
+  - search
+  - mermaid2:
+      version: 10.0.2
 
 markdown_extensions:
   - pymdownx.critic
@@ -35,4 +37,9 @@ markdown_extensions:
   - pymdownx.tilde
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom

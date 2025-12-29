@@ -1,13 +1,28 @@
 # Prompt For [Spec Kit](https://github.com/github/spec-kit)
 
-After running `specify init --here`.
+After running `specify init --here`
 
-```markdown
-/speckit.constitution This is using the Ash Framework that uses the Elixir programming language. Elixir's power among many are its liveview, pubsub and genserver. Make sure to use those.
-The AGENTS.md file is source of truth for this project. If something cannot be "fixed", read the /deps/ folder to accurately fix the error(s).
+## Steps
+
+```
+/speckit.constitution <Command>
+/speckit.specify <Command>
+/speckit.clarify
+/speckit.plan <Command>
+/speckit.tasks
+/speckit.analyze
+/speckit.checklist
+/speckit.implement
 ```
 
+
 ## /speckit.constitution Example:
+
+```markdown
+/speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements. Include governance for how these principles should guide technical decisions and implementation choices. This is using the Ash and Phoenix Framework that uses the Elixir programming language. The AGENTS.md file is source of truth for this project. 
+```
+
+
 ```markdown
 /speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements. Include governance for how these principles should guide technical decisions and implementation choices.
 ```
@@ -34,8 +49,10 @@ delete any comments that you made, but you can't delete comments anybody else ma
 
 ### /speckit.specify
 ```markdown
-Develop [PROJECT NAME], a website for ecommerce that specialize for services rather than goods. It should allow users to create services, add team members, add reviews for customers, location for the closest for their customers, and later add their own goods shop.  
+Develop [PROJECT NAME], a website for ecommerce like website that specialize for services rather than goods. It should allow users to create services, add team members and roles, add reviews for customers, location for the closest for their customers and add their own goods shop. In this initial phase for this feature, lets call it "Supermall" (the domain name might be different). Use the Ash Admin (already installed) for administrative background tasks.  
 
+Develop Supermall, a custom computer webapp for local LLMs. It should allow users to create custom PC builds, allow the admin (me, the project owner. Use Ash Admin to help) page to add and remove computer components with ease, also allow the admin make a build and build templetes so other users can later buy (using affiliate links. Provide later in the project), allow users to comment on the builds that other users or the admin has built, allow users to orovide feedback and able to take surveys from the admin. Start with the basic landing page. 
+If something cannot be "fixed", read the /deps/ folder to accurately fix the error(s).
 ```
 
 ## /speckit.clarify Example:
@@ -52,6 +69,5 @@ one task in each stage of completion.
 
 ## /speckit.plan Example:
 ```markdown
-We are going to use this using Ash Framework, using Elixir programming language, using Postgres as the database. The frontend should use
-daisyui and tailwindcss with liveview, for real-time updates. 
+We are going to use this using Ash Framework, using Elixir programming language, using Postgres as the database. The frontend should use liveview with tailwindcss, use liveview for real-time updates. 
 ```
