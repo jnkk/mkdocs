@@ -68,7 +68,10 @@ last_updated: 2026-03-18
 
 ### Material Icons
 
-Find icons at: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+!!! tip "Icon Search"
+    **[Click here to browse all available icons](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)**
+
+    Use the search to find icons by keyword (e.g., "network", "security", "code")
 
 Common icons:
 - `material/brain` - AI/ML topics
