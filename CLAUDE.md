@@ -42,14 +42,18 @@ mkdocs gh-deploy --force
 ### Research Requirements
 
 When creating content in AI-Research:
-- **ALWAYS use Playwright MCP** (browser_navigate) to get latest docs
-- **NEVER rely solely on training data** - fetch current, accurate information
+- **ALWAYS use Google search first** via Playwright MCP - use "site:example.com <topic>" or "best <topic> setup 2025"
+- **NEVER rely on training data** - my knowledge cutoff means docs may be outdated
+- **Check multiple sources** - compare official docs vs community guides
 - **Always cite sources** - add "Researched via:" at the bottom of docs
 
 Example workflow:
-1. Use Playwright to navigate and get latest documentation
-2. Write content based on real, fetched data
-3. Add source attribution at end of file
+1. Search Google: "cloudflared tunnel setup 2025" or "openwrt vlan config guide"
+2. Use Playwright to visit official documentation and top guides
+3. Write content based on current, accurate information
+4. Add source attribution at end of file
+
+**Why Google first:** My training data has a cutoff date - things change! Google search finds the latest docs, tutorials, and best practices.
 
 ### Frontmatter Requirements
 
