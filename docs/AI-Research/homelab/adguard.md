@@ -15,22 +15,37 @@ Network-wide ad and tracker blocker. Blocks ads at the DNS level for all devices
 ### Quick Start (Docker)
 
 ```bash
-# Create config directory
-mkdir -p ~/docker/adguard/work ~/docker/adguard/conf
+# Run AdGuard Home (using named volumes)
+docker run --name adguardhome \
+    -v adguardhome_work:/opt/adguardhome/work \
+    -v adguardhome_conf:/opt/adguardhome/conf \
+    -p 53:53/tcp \
+    -p 53:53/udp \
+    -p 3000:3000/tcp \
+    -p 853:853/tcp \
+    -p 784:784/udp \
+    -p 8053:8053/tcp \
+    --restart unless-stopped \
+    adguard/adguardhome:latest
+```
 
-# Run AdGuard Home
-docker run -d \
-  --name adguard \
-  -v ~/docker/adguard/work:/opt/adguardhome/work \
-  -v ~/docker/adguard/conf:/opt/adguardhome/conf \
-  -p 53:53/tcp \
-  -p 53:53/udp \
-  -p 3000:3000/tcp \
-  -p 853:853/tcp \
-  -p 784:784/udp \
-  -p 8053:8053/tcp \
-  --restart unless-stopped \
-  adguard/adguardhome:latest
+**Or with Docker Compose:**
+
+```yaml
+services:
+  adguard:
+    image: adguard/adguardhome:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "3000:3000/tcp"
+      - "853:853/tcp"
+      - "784:784/udp"
+      - "8053:8053/tcp"
+    volumes:
+      - adguard_work:/opt/adguardhome/work
+      - adguard_conf:/opt/adguardhome/conf
+    restart: unless-stopped
 ```
 
 ### Access Web Interface
@@ -74,3 +89,7 @@ Secondary DNS: 1.1.1.1 (fallback)
 
 - [AdGuard Home GitHub](https://github.com/AdguardTeam/AdGuardHome)
 - [Filter Lists](https://adguardteam.github.io/AdGuardSDNSFilter/FiltersRegistry.html)
+
+---
+
+*Researched via: GitHub README (AdGuardTeam/AdGuardHome)*
