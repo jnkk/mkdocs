@@ -1,6 +1,6 @@
 ---
 title: Advanced Routing
-icon: material/route
+icon: material/map-marker-radius
 tags:
   - networking
   - routing
