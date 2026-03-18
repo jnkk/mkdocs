@@ -51,6 +51,31 @@ Example workflow:
 2. Write content based on real, fetched data
 3. Add source attribution at end of file
 
+### Frontmatter Requirements
+
+All new docs **MUST include frontmatter** at the top:
+
+```yaml
+---
+title: Page Title
+icon: material/icon-name
+tags:
+  - tag1
+  - tag2
+date_added: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+---
+```
+
+**Required fields:**
+- `title` - Page title (used in navigation)
+- `icon` - Material icon (e.g., `material/brain`, `material/lan`)
+- `tags` - List of tags for categorization
+- `date_added` - When the file was first created (YYYY-MM-DD)
+- `last_updated` - Last time the file was modified (YYYY-MM-DD)
+
+**Where to find icons:** https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+
 ## Documentation Topics
 
 The docs cover diverse topics organized in subdirectories:
