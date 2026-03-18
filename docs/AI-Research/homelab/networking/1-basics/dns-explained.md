@@ -1,3 +1,12 @@
+---
+title: DNS Explained
+icon: material/dns
+tags:
+  - networking
+  - dns
+  - basics
+---
+
 # DNS Explained
 
 DNS (Domain Name System) is like the phonebook of the internet. It translates human-readable domain names (like google.com) into IP addresses that computers use to identify each other.

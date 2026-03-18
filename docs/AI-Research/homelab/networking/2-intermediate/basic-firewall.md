@@ -1,3 +1,13 @@
+---
+title: Basic Firewall Concepts
+icon: material/fire
+tags:
+  - networking
+  - firewall
+  - security
+  - intermediate
+---
+
 # Basic Firewall Concepts
 
 A firewall monitors and controls incoming and outgoing network traffic based on predetermined security rules. It's your network's bouncer.

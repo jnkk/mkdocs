@@ -1,3 +1,12 @@
+---
+title: Networking for Homelab
+icon: material/lan
+tags:
+  - homelab
+  - networking
+  - guide
+---
+
 # Networking for Homelab
 
 A comprehensive guide to understanding home networking from basics to advanced topics. Designed for homelab enthusiasts of all levels.

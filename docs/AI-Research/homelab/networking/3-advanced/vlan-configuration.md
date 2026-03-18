@@ -1,3 +1,12 @@
+---
+title: VLAN Configuration
+icon: material/switch
+tags:
+  - networking
+  - vlan
+  - advanced
+---
+
 # VLAN Configuration
 
 A VLAN (Virtual Local Area Network) lets you logically segment a network without running separate physical cables. It's like having multiple virtual switches on one physical switch.

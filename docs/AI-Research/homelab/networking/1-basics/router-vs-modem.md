@@ -1,3 +1,12 @@
+---
+title: Router vs Modem
+icon: material/router-wireless
+tags:
+  - networking
+  - router
+  - basics
+---
+
 # Router vs Modem
 
 These two devices are often combined in modern home equipment, but they serve different purposes.

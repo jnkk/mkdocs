@@ -1,3 +1,12 @@
+---
+title: NAT Explained
+icon: material/swap-horizontal
+tags:
+  - networking
+  - nat
+  - intermediate
+---
+
 # NAT Explained
 
 NAT (Network Address Translation) is a technique that allows multiple devices to share a single public IP address. It's essential for home networks because IPv4 addresses are limited.

@@ -1,3 +1,12 @@
+---
+title: DHCP Explained
+icon: material/cog-sync
+tags:
+  - networking
+  - dhcp
+  - intermediate
+---
+
 # DHCP Explained
 
 DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses and other network settings to devices. It's what makes "plug and play" networking work.

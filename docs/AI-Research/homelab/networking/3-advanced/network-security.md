@@ -1,3 +1,12 @@
+---
+title: Network Security
+icon: material/shield-lock
+tags:
+  - networking
+  - security
+  - advanced
+---
+
 # Network Security
 
 Securing your home network protects your data, privacy, and devices from unauthorized access. Here's a comprehensive approach for homelab environments.

@@ -1,3 +1,13 @@
+---
+title: Subnets & CIDR
+icon: material/lan
+tags:
+  - networking
+  - subnet
+  - cidr
+  - intermediate
+---
+
 # Subnets & CIDR
 
 A subnet (subnetwork) is a logical subdivision of an IP network. CIDR (Classless Inter-Domain Routing) is the notation system used to define subnets.

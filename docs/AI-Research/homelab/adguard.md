@@ -1,3 +1,13 @@
+---
+title: AdGuard Home
+icon: material/shield-check
+tags:
+  - homelab
+  - networking
+  - dns
+  - adblock
+---
+
 # AdGuard Home
 
 Network-wide ad and tracker blocker. Blocks ads at the DNS level for all devices on your network.

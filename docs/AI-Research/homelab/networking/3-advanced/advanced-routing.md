@@ -1,3 +1,12 @@
+---
+title: Advanced Routing
+icon: material/route
+tags:
+  - networking
+  - routing
+  - advanced
+---
+
 # Advanced Routing
 
 Routing is how packets find their way between networks. While home routers handle this automatically, advanced configurations provide more control and capabilities.

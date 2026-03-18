@@ -1,3 +1,12 @@
+---
+title: IP Addresses
+icon: material/ip-network
+tags:
+  - networking
+  - ip
+  - basics
+---
+
 # IP Addresses
 
 An IP address (Internet Protocol address) is a unique identifier assigned to each device on a network. Think of it like a postal address for your computer - it tells other devices where to send data.

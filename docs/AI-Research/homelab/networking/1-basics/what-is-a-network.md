@@ -1,3 +1,11 @@
+---
+title: What is a Network?
+icon: material/hub
+tags:
+  - networking
+  - basics
+---
+
 # What is a Network?
 
 A computer network is a collection of devices (computers, servers, phones, tablets, IoT devices) that are connected together to share resources and communicate.
