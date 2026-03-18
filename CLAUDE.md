@@ -42,12 +42,12 @@ mkdocs gh-deploy --force
 ### Research Requirements
 
 When creating content in AI-Research:
-- **ALWAYS use Playwright MCP** (browser_navigate) or **WebFetch** to get latest docs
+- **ALWAYS use Playwright MCP** (browser_navigate) to get latest docs
 - **NEVER rely solely on training data** - fetch current, accurate information
 - **Always cite sources** - add "Researched via:" at the bottom of docs
 
 Example workflow:
-1. Use WebFetch or Playwright to get latest documentation
+1. Use Playwright to navigate and get latest documentation
 2. Write content based on real, fetched data
 3. Add source attribution at end of file
 
