@@ -9,3 +9,14 @@ Too many skills can hinder.
 - [Superpowers](https://github.com/obra/superpowers)
 - [Oh-My-Openagent](https://github.com/code-yeongyu/oh-my-openagent)
 - [Backlog.md](https://github.com/MrLesk/Backlog.md)
+
+## Swarm
+
+- *[Paperclip AI](https://github.com/paperclipai/paperclip)
+- [Context-mode](https://github.com/mksglu/context-mode)
+- 
+
+## Models
+
+- Qwen3.5 
+- Omnicoder
