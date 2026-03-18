@@ -32,6 +32,13 @@ mkdocs gh-deploy --force
 - `docs/` - Markdown content directory
 - `.github/workflows/ci.yml` - CI pipeline that deploys to GitHub Pages on push to main/master
 
+## AI Research Notes
+
+**ALL new content generated with AI assistance should go in `docs/AI-Research/`**
+- This folder is for topics researched with AI help
+- Categories: llms, audio, robotics, code, homelab, etc.
+- Create subfolders as needed
+
 ## Documentation Topics
 
 The docs cover diverse topics organized in subdirectories:
