@@ -2,7 +2,7 @@
 title: Home Compute Upgrade
 ---
 
-# [Hardware Note](./hardware.md)
+# [Hardware Note](./Hardware/hardware.md)
 
 # Hardware wishlist
 
@@ -10,7 +10,7 @@ title: Home Compute Upgrade
 | Name | Details |
 | --- | --- |
 | [PC](./Hardware/pc.md) | For dev |
-| [Proxmox](./proxmox.md) | For compute and softwares |
+| [Proxmox](./Servers/proxmox.md) | For compute and softwares |
 | AI | Local AI will be the future |
 | NAS | For data |
 | Drawing tablet | For drawing |

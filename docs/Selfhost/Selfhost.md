@@ -30,7 +30,7 @@ Just needed the local domain or local DNS server.
 ## Navigations
 
 - [Steps I took](./steps.md)
-- [Hardware](./hardware.md)
+- [Hardware](./Hardware/hardware.md)
 
 
 ## What is [selfhosting](https://www.reddit.com/r/selfhosted/)

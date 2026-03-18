@@ -10,7 +10,7 @@ Using portainer.
 
 ## TODOS: Trying to make a website using a server inside Virt Manager
 
-Goals is to make a [Server](homeserver.md)
+Goals is to make a [Server](../homeserver.md)
 So far installed docker.
 
 There's [FreeBSD Jails](https://www.freebsd.org/) which is "more stable" based by the people who are using it.
