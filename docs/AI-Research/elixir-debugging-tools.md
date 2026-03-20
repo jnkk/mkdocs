@@ -7,6 +7,9 @@ tags:
   - tooling
   - iex
   - observer
+  - ai
+  - tidewave
+  - mcp
 date_added: 2026-03-19
 last_updated: 2026-03-19
 ---
@@ -335,13 +338,16 @@ Elixir wrapper for Recon Trace — clean API for setting trace points:
 
 ```elixir
 # Add to mix.exs
-{:extrace, "~> 0.3"}
+{:extrace, "~> 0.6"}
 
 # Trace specific functions
 Extrace.calls([{Enum, :take_random, fn _ -> :return end}], 100)
 ```
 
-Active project — last push Feb 2025, v0.3.0.
+- **Source**: [hex.pm/packages/extrace](https://hex.pm/packages/extrace)
+- **Version**: 0.6.0 (Sep 16, 2024)
+- **Downloads**: 981K all time
+- Active project.
 
 **3. X-Trace** (GitHub: feng19/x_trace)
 Web UI for recon_trace — visual interface for tracing without CLI:
@@ -362,17 +368,21 @@ Already covered above — use the GUI for tracing without code changes.
 
 ### Logging Libraries
 
-**Og** — Tiny logging wrapper that mimics `IO.inspect` style:
+For structured logging, use Elixir's built-in `Logger`:
 
 ```elixir
-# Log with source location automatically
-(1..10) |> Enum.map(&(&1 * &1)) |> Og.log_return()
-
-# Explicit environment logging
-result |> Og.log_return(__ENV__, :info)
+# Built-in Logger - always current
+Logger.info("Processing request", %{request_id: id, user: user})
+Logger.warning("Rate limit approaching", %{current: count, limit: 100})
+Logger.error("Database connection failed", %{error: reason})
 ```
 
-From the community: *"I end up using `__ENV__` a lot"* for tracking where logs come from.
+Or use metadata for context:
+
+```elixir
+Logger.info("Request completed", %{duration: ms})
+|> Logger.add_metadata(request_id: id)
+```
 
 ### LiveBook Debugging
 
@@ -419,6 +429,180 @@ iex> :observer.start(:"myapp@host.docker.internal")
 
 See: [ElixirForum: Remote debugging on Docker](https://elixirforum.com/t/remote-debugging-elixir-on-docker-container/39382)
 
+## AI Debugging Assistants
+
+> AI-powered tools that enhance debugging with natural language understanding, code analysis, and integrated development workflows. Researched via Playwright MCP.
+
+### Tidewave (Recommended) — Built by José Valim & Dashbit
+
+**The premier AI coding assistant for Elixir/Phoenix** — connects AI to your running application.
+
+- **Website**: [tidewave.ai](https://tidewave.ai)
+- **GitHub**: [tidewave-ai/tidewave_phoenix](https://github.com/tidewave-ai/tidewave_phoenix)
+- **Stars**: 790 | **Hex downloads**: 952K all time
+- **Last updated**: Mar 13, 2026 (very active)
+
+**What it does:**
+- Connects Claude Code, Codex, Copilot, or OpenCode to your running app
+- Query database directly through your app's connection
+- Read logs with automatic stacktrace correlation
+- Execute code in your running app (like a REPL for agents)
+- Access documentation for exact library versions
+- Point-and-click prompting — click UI elements to reference them
+
+**Key features for debugging:**
+| Feature | How it helps |
+|---------|-------------|
+| Database access | Query data without leaving the app context |
+| Log reading | Sees the same stacktrace you do |
+| Code execution | Test functions in running app |
+| Runtime introspection | Understand process state |
+
+**Installation (Phoenix projects):**
+```elixir
+# mix.exs
+def deps do
+  [
+    {:tidewave, "~> 0.5"}
+  ]
+end
+```
+
+Then configure MCP to connect your AI assistant.
+
+**Pricing:**
+- **Free**: Tidewave MCP (OSS) — database access, logs, code execution
+- **$10/mo**: Pro — in-browser agents, point-and-click prompting
+- **$12/user/mo**: Teams — org-wide settings, billing
+
+---
+
+### ElixirScope — AI Execution Cinema Debugger
+
+**Revolutionary AST-based debugging with AI guidance** — time-travel debugging for Elixir.
+
+- **GitHub**: [nshkrdotcom/ElixirScope](https://github.com/nshkrdotcom/ElixirScope)
+- **Stars**: 5 | **License**: MIT
+- **Last updated**: May 2025 (v0.0.1)
+
+**What it does:**
+- AST-based instrumentation at compile time
+- Runtime event correlation
+- Time-travel debugging — reconstruct state at any point
+- AI-powered analysis of concurrent systems
+- Code Property Graph (CPG) construction
+
+**Key features:**
+- Event capture with minimal overhead
+- State reconstruction at any execution point
+- GenServer state lifecycle analysis
+- Performance monitoring and bottleneck identification
+
+**Installation:**
+```elixir
+def deps do
+  [
+    {:elixir_scope, "~> 0.0.1"}
+  ]
+end
+```
+
+---
+
+### Codicil — Semantic Code Search for AI
+
+**MCP server for semantic understanding of Elixir codebases.**
+
+- **GitHub**: [E-xyza/codicil](https://github.com/E-xyza/codicil)
+- **Stars**: 44 | **License**: MIT
+- **Last updated**: Nov 2025 (v0.7.1)
+
+**What it does:**
+- Semantic function search — find code by describing what it does
+- Dependency analysis — function call graphs and module relationships
+- Automatic indexing during compilation
+- Multi-LLM support (Claude, OpenAI, Gemini, Cohere)
+
+**Example queries:**
+- "Find functions that validate user input"
+- "Show me what calls this function"
+- "What dependencies does this module have?"
+
+**Installation:**
+```elixir
+def deps do
+  [
+    {:codicil, "~> 0.7"}
+  ]
+end
+```
+
+---
+
+### Claude Agent SDK for Elixir
+
+**Build AI coding agents in Elixir** — use Claude Code as a backend.
+
+- **GitHub**: [guess/claude_code](https://github.com/guess/claude_code)
+- **Stars**: 72
+
+**What it does:**
+- Streaming responses
+- Phoenix/LiveView integration
+- Build custom debugging workflows
+- Session management
+
+---
+
+### Claude Code Elixir Plugin
+
+**Comprehensive Claude Code plugin for Elixir/Phoenix/LiveView development.**
+
+- **Source**: [github.com/oliver-kriska/claude-elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix)
+- **Stars**: 73 | **Last commit**: Mar 19, 2026 ✓ (TODAY!)
+- **Version**: v2.3.0
+
+**What it does:**
+- 20 specialist agents for different domains
+- 22 "Iron Laws" — rules that catch common bugs
+- `/phx:investigate` — structured bug investigation
+- `/phx:trace` — debugging with tracing
+
+**Iron Law examples:**
+- `assign_new` silently skips on reconnect
+- `:float` will corrupt money fields
+- Oban job idempotency checks
+
+---
+
+### Assay — Dialyzer + AI Integration
+
+**Elixir wrapper around Incremental Dialyzer with LLM-focused features.**
+
+- **Source**: [hex.pm/packages/assay](https://hex.pm/packages/assay) | [GitHub](https://github.com/Ch4s3/assay)
+- **Version**: 0.5.2 (Feb 27, 2026) ✓
+- **Downloads**: 1.1K all time
+
+**What it does:**
+- Reads Dialyzer settings from mix.exs
+- Runs incremental analysis
+- Outputs for humans, CI, editors, and LLMs
+- `mix assay` with watch mode
+
+---
+
+## AI Debugging Quick Reference
+
+| Tool | Best For | Pricing | Last Updated |
+|------|----------|---------|--------------|
+| **Tidewave** | Full-stack debugging, runtime access | Free OSS / $10 Pro | Mar 2026 ✓ |
+| **ElixirScope** | Time-travel debugging, AST analysis | OSS | May 2025 |
+| **Codicil** | Semantic code search for AI | OSS | Nov 2025 |
+| **Claude Plugin** | Elixir/Phoenix workflows | OSS | Mar 2026 ✓ |
+| **Assay** | Static analysis + AI | OSS | Mar 2026 ✓ |
+
+---
+
 ## Debugging Anti-Patterns
 
 | Anti-Pattern | Better Approach |
@@ -431,4 +615,20 @@ See: [ElixirForum: Remote debugging on Docker](https://elixirforum.com/t/remote-
 
 ---
 
-*Researched via: Google search, hexdocs.pm official documentation, AppSignal blog, ElixirForum community*
+*Researched via: hexdocs.pm official documentation, Hex.pm, GitHub, ElixirForum community, Playwright MCP web searches*
+
+*All tools verified ≤ 3 years old. Sources revalidated: 2026-03-19.*
+
+## Sources
+
+| Tool | Source URL | Verified Version | Verified Date |
+|------|-----------|-----------------|--------------|
+| recon | [hex.pm/packages/recon](https://hex.pm/packages/recon) | 2.5.6 | Aug 31, 2024 |
+| Extrace | [hex.pm/packages/extrace](https://hex.pm/packages/extrace) | 0.6.0 | Sep 16, 2024 |
+| X-Trace | [github.com/feng19/x_trace](https://github.com/feng19/x_trace) | 0.2.3 | Nov 13, 2025 |
+| Tidewave | [hex.pm/packages/tidewave](https://hex.pm/packages/tidewave) | 0.5.6 | Mar 13, 2026 |
+| Codicil | [hex.pm/packages/codicil](https://hex.pm/packages/codicil) | 0.7.1 | Dec 3, 2025 |
+| Assay | [hex.pm/packages/assay](https://hex.pm/packages/assay) | 0.5.2 | Feb 27, 2026 |
+| Elixir Claude Plugin | [github.com/oliver-kriska/claude-elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix) | v2.3.0 | Mar 19, 2026 ✓ |
+| Elixir Debugging Guide | [hexdocs.pm/elixir/debugging.html](https://hexdocs.pm/elixir/debugging.html) | — | Official docs |
+| Erlang in Anger | [erlang-in-anger.com](https://www.erlang-in-anger.com/) | — | Free ebook |
