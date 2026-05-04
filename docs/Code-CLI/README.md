@@ -4,6 +4,14 @@ Too many skills can hinder.
 - Claude Code
 - Opencode
 
+Some actual working Skills that are working
+- [elixir-architect](https://github.com/maxim-ist/elixir-architect)
+- [elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix)
+- [claude-code-elixir](https://github.com/georgeguimaraes/claude-code-elixir)
+- [ex_unit_json](https://github.com/ZenHive/ex_unit_json)
+
+Those combined with [Serena](https://github.com/oraios/serena)
+
 ## Useful Plugins/Toolings:
 
 - [Superpowers](https://github.com/obra/superpowers)
