@@ -14,9 +14,9 @@ tags:
 
 ## [Elixir with Phoenix Framework](./LearningSoftware/phoenix.md)
 
-## [Proxmox after install](./Selfhost/proxmox.md)
+## [Proxmox after install](./Selfhost/)
 
-## [Hardware](./Selfhost/hardware.md)
+## [Hardware](./Selfhost/Hardware/hardware.md)
 
 ## [Selfhost](Selfhost/Selfhost.md) [Link](https://selfh.st/)
 
