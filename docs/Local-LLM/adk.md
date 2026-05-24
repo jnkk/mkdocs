@@ -23,7 +23,7 @@
 /speckit.specify Develop an Agent Dev Kit. A tool for building AI agents using local LLM. By leveraging Ollama for local LLMs and `ollama_chat` in `google-adk` python library. Using `gemma3:270m`, for chat and orchestration and `functiongemma`, for function calling capabilities.
 
 
-Develop Garis Miring, website for helping humans in the world of AI. Users can post their services (example cleaning, repairs), make an admin page to add, remove or update existing services. Make a category for availabe services, for home, apartements or offices. This is dual language website for now, Indonesian as the default and has an English site. The code implementation is in English
+Develop Garis Miring, website for helping humans in the world of AI. Users can post their services (example cleaning, repairs), make an admin page to add, remove or update existing services. Make a category for available services, for home, apartements or offices. This is dual language website for now, Indonesian as the default and has an English site. The code implementation is in English
 ```
 
 ## Plan
