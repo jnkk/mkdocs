@@ -25,11 +25,11 @@ find module/function definitions.
 
 ## /speckit.specify Example:
 ```markdown
-/speckit.specify Develop Garis Miring, website for helping humans in the world of AI. Users can post their services (example cleaning, repairs), make an admin page to add, remove or update existing services. Make a category for availabe services, for home, apartements or offices. This is dual language website for now, Indonesian as the default and has an English site. The code implementation is in English.  
+/speckit.specify Develop Garis Miring, website for helping humans in the world of AI. Users can post their services (example cleaning, repairs), make an admin page to add, remove or update existing services. Make a category for available services, for home, apartements or offices. This is dual language website for now, Indonesian as the default and has an English site. The code implementation is in English.
 
 We are developing an AI agent tool using the Google-ADK. We are able to create tools for an AI Agents to help make using AI easier and simpler by using tools. If the tools are not created, we are to create it. And make sure agents are able to talk to each other agents, to help and for better debugging. 
 
-We are developing an AI Agents. The AI Agents are able to create tools for the AI Agents to help make using AI easier and simpler by using tools. If there are tools that are not availabe, we are able to create it. Make sure that the agents are able to communicate with each other.
+We are developing an AI Agents. The AI Agents are able to create tools for the AI Agents to help make using AI easier and simpler by using tools. If there are tools that are not available, we are able to create it. Make sure that the agents are able to communicate with each other.
 
 It should allow users to create custom PC builds, allow the admin (me, the project owner. Use the `usage rules` for further information) page (it does not have to be in the `/admin` route. It can be in `/web_admin`) to add and remove computer components and their compatibilities with ease with a yaml file (like a seed.ex), also allow the admin make a build and build templetes so other users can later buy (using affiliate links. Provide later in the project), allow users to comment on the builds that other users or the admin has built, allow users to orovide feedback and able to take surveys from the admin. 
 ```

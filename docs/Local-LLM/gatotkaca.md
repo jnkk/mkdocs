@@ -23,7 +23,7 @@
 
 ## /speckit.specify Example:
 ```markdown
-/speckit.specify Develop Garis Miring, website for helping humans in the world of AI. Users can post their services (example cleaning, repairs), make an admin page to add, remove or update existing services. Make a category for availabe services, for home, apartements or offices. This is dual language website for now, Indonesian as the default and has an English site. The code implementation is in English.
+/speckit.specify Develop Garis Miring, website for helping humans in the world of AI. Users can post their services (example cleaning, repairs), make an admin page to add, remove or update existing services. Make a category for available services, for home, apartements or offices. This is dual language website for now, Indonesian as the default and has an English site. The code implementation is in English.
 
 
 /speckit.specify Develop Garis Miring, forum website for Indonesians. The website is mainly using Indonesian language, the code implementation is in English. Similar to Reddit. It is called subthreads, not subreddit. Users are able to create subthreads. Users are able to comment on those subthreads and have a conversation within that subthread. Users are able to like comments and subthread. 
