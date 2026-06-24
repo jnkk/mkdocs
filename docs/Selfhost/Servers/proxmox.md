@@ -1,6 +1,7 @@
 ---
 title: Proxmox After Install
 tags:
+  - software
   - proxmox
   - learning
 ---
