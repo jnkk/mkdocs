@@ -27,7 +27,7 @@ Keyboard | --- | --- |
 Component | Item | Price |
 --- | --- | --- |
 CPU | 5700X | 2.650.000 |
-MOBO | --- | 2.000.000 |
+MOBO | ASRock X570 Phantom Gaming 4 | 2.000.000 |
 CPU Cooler | FSP MP7 Black | 600.000 |
 RAM | 32GB | 4.100.000 |
 Storage | NVME 1TB | 3.000.000 |

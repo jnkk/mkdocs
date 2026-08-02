@@ -1,5 +1,7 @@
 ---
 title: Debian 13
+tags:
+  - index
 ---
 
 # Debian 13 After Install
@@ -28,7 +30,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ### Cloudflare Speedtest
 
 ```bash
-cargo install cfspeedtest
+cargo install cloudflare-speed-cli
 ```
 
 ## Install [UV](https://docs.astral.sh/uv/getting-started/installation/) for Python
@@ -39,8 +41,12 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ## Install [Mise](https://mise.jdx.dev/)
 
 ```bash
+mise install node@latest # See latest node LTS version from website 
 mise install erlang@latest
 mise install elixir@latest
+mise install rebar@latest
+mise install elixir-ls@latest
+mise install golang@latest
 mise install zig@latest
 mise install just@latest
 mise install gradle@latest
