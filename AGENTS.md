@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides project-wide guidance to AI coding agents (opencode) when working with code in this repository.
 
 ## Project Overview
 
@@ -25,6 +25,12 @@ mkdocs build
 # Deploy to GitHub Pages
 mkdocs gh-deploy --force
 ```
+
+## Environment / Tooling (REQUIRED)
+
+- **Always use `uv` for Python tooling** — venv creation, dependency install, and any package management.
+- **NEVER use plain `pip`, `pip3`, `python -m pip`, or system Python** for installs. CI uses `pip install -r requirements.txt` internally (that's fine — it's the deploy pipeline), but all local work must go through `uv`.
+- Convention: `uv run <cmd>` instead of activating the venv manually, e.g. `uv run mkdocs build`. Use `uv add` / `uv pip install` for new deps (prefer `uv add` so `uv.lock` stays in sync).
 
 ## Structure
 
