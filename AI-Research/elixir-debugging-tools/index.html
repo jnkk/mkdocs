@@ -1,0 +1,3349 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AI-Research/elixir-debugging-tools/">
+      
+      
+        <link rel="prev" href="../elixir-ai-dev-tools/">
+      
+      
+        <link rel="next" href="../elixir-vs-javascript-ecosystem-analysis/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Elixir Internal Debugging Tools - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elixir-internal-debugging-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Elixir Internal Debugging Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-prompting-ux-design-pipelines/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ash-phoenix-deployment-with-safe-env-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-business-automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3v18h6v-3.5h2V21h6V3zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm8 0h2v2h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Business Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-elixir/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8 5H9v2c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v2h2v2H9c-1.1 0-2-.9-2-2v-1c0-1.1-.9-2-2-2v-2c1.1 0 2-.9 2-2V8c0-1.1.9-2 2-2h2zm8 5c-1.1 0-2 .9-2 2v1c0 1.1-.9 2-2 2h-2v-2h2v-2c0-1.1.9-2 2-2-1.1 0-2-.9-2-2V8h-2V6h2c1.1 0 2 .9 2 2v1c0 1.1.9 2 2 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Elixir Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-ai-dev-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbg2-elixir-v114" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbg/2 (Elixir v1.14+)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioinspect-with-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      IO.inspect with binding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pry-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pry Debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breakpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakpoints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observer-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer (GUI)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observer (GUI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer Tabs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-debugging-with-observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Debugging with Observer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing-in-observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracing in Observer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mix-profilecprof-function-call-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      mix profile.cprof — Function Call Counting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mix-profilefprof-time-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      mix profile.fprof — Time Profiling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-erlang-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Erlang Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Erlang Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-observer-etop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal Observer (etop)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace-tool-builder-ttb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trace Tool Builder (ttb)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crashdump_viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      crashdump_viewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-level-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      OS-Level Tracing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microstate-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microstate Accounting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phoenix-livedashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveDashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iex-runtime-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEx Runtime Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-commands-cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Commands Cheatsheet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Insights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Community Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugging-concurrent-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Concurrent Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-experienced-devs-prefer-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Experienced Devs Prefer Tracing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erlang-debugger-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erlang Debugger (:debugger)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modern-tracing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Tracing Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#livebook-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiveBook Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockercontainer-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker/Container Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker/Container Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-to-host-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container to Host Debugging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-debugging-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Debugging Assistants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Debugging Assistants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tidewave-recommended-built-by-jose-valim-dashbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tidewave (Recommended) — Built by José Valim &amp; Dashbit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixirscope-ai-execution-cinema-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElixirScope — AI Execution Cinema Debugger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codicil-semantic-code-search-for-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codicil — Semantic Code Search for AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-agent-sdk-for-elixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Agent SDK for Elixir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code-elixir-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Code Elixir Plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assay-dialyzer-ai-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assay — Dialyzer + AI Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-debugging-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Debugging Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Anti-Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-vs-javascript-ecosystem-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Why Elixir is Shadowed by JavaScript/TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jido-jido_ai-phoenix-ash-claude-installation-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Installing Jido/Jido_AI into Ash/Phoenix with Claude Code Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-symphony-ai-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    OpenAI Symphony - AI Agent Orchestration for Phoenix Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclaw-project-manager-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Using OpenClaw as Project Manager for Website Companies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serena-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Serena - AI Coding Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code-cli/Phoenix-deployment-guide-2026/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../elixir/phoenix-ecosystem-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Elixir
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../homelab/adguard/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Homelab
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llms/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbg2-elixir-v114" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbg/2 (Elixir v1.14+)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioinspect-with-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      IO.inspect with binding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pry-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pry Debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breakpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakpoints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observer-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer (GUI)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observer (GUI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer Tabs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-debugging-with-observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Debugging with Observer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing-in-observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tracing in Observer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mix-profilecprof-function-call-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      mix profile.cprof — Function Call Counting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mix-profilefprof-time-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      mix profile.fprof — Time Profiling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-erlang-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Erlang Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Erlang Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-observer-etop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal Observer (etop)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace-tool-builder-ttb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trace Tool Builder (ttb)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crashdump_viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      crashdump_viewer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-level-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      OS-Level Tracing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microstate-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microstate Accounting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phoenix-livedashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveDashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iex-runtime-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEx Runtime Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-commands-cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Commands Cheatsheet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Insights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Community Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debugging-concurrent-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Concurrent Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-experienced-devs-prefer-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Experienced Devs Prefer Tracing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erlang-debugger-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erlang Debugger (:debugger)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modern-tracing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Tracing Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#livebook-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiveBook Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockercontainer-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker/Container Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker/Container Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-to-host-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container to Host Debugging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-debugging-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Debugging Assistants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Debugging Assistants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tidewave-recommended-built-by-jose-valim-dashbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tidewave (Recommended) — Built by José Valim &amp; Dashbit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixirscope-ai-execution-cinema-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElixirScope — AI Execution Cinema Debugger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codicil-semantic-code-search-for-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codicil — Semantic Code Search for AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-agent-sdk-for-elixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Agent SDK for Elixir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code-elixir-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Code Elixir Plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assay-dialyzer-ai-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assay — Dialyzer + AI Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-debugging-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Debugging Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-anti-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Anti-Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">debugging</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">elixir</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">iex</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">mcp</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">observer</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">tidewave</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">tooling</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="elixir-internal-debugging-tools">Elixir Internal Debugging Tools</h1>
+<p>Elixir ships with comprehensive debugging and introspection tooling built into the BEAM VM. No external AI needed — the platform itself provides everything for observing, profiling, and debugging running systems.</p>
+<h2 id="quick-reference">Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dbg/2</code></td>
+<td>Quick inline debugging</td>
+<td>Fast value inspection during development</td>
+</tr>
+<tr>
+<td><code>IO.inspect/2</code></td>
+<td>Pipeline debugging</td>
+<td>See values at any point in a chain</td>
+</tr>
+<tr>
+<td><code>IEx.pry</code></td>
+<td>Interactive debugging</td>
+<td>Need to inspect variables mid-execution</td>
+</tr>
+<tr>
+<td><code>IEx.break!/2</code></td>
+<td>Line breakpoints</td>
+<td>Step through code without modifying it</td>
+</tr>
+<tr>
+<td><code>:observer</code></td>
+<td>System-wide GUI</td>
+<td>Understand VM state, processes, memory</td>
+</tr>
+<tr>
+<td><code>mix profile.*</code></td>
+<td>Performance profiling</td>
+<td>Find bottlenecks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="basic-debugging">Basic Debugging</h2>
+<h3 id="dbg2-elixir-v114">dbg/2 (Elixir v1.14+)</h3>
+<p>Modern replacement for <code>IO.inspect</code> with context:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic usage</span>
+<span class="n">dbg</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span>
+
+<span class="c1"># In pipelines - shows EVERY step</span>
+<span class="bp">__ENV__</span><span class="o">.</span><span class="n">file</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">trim</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">)</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">List</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">File</span><span class="o">.</span><span class="n">exists?</span><span class="p">()</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="n">dbg</span><span class="p">()</span>
+<span class="c1"># Prints:</span>
+<span class="c1"># [file.exs:5: (file)]</span>
+<span class="c1"># __ENV__.file #=&gt; &quot;/path/file.exs&quot;</span>
+<span class="c1"># |&gt; String.split(&quot;/&quot;, trim: true) #=&gt; [&quot;path&quot;, &quot;file.exs&quot;]</span>
+<span class="c1"># |&gt; List.last() #=&gt; &quot;file.exs&quot;</span>
+<span class="c1"># |&gt; File.exists?() #=&gt; true</span>
+</code></pre></div>
+<h3 id="ioinspect-with-binding">IO.inspect with binding</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">my_function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nc">IO</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">binding</span><span class="p">(),</span><span class="w"> </span><span class="ss">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;variables&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="c1"># ...</span>
+<span class="k">end</span>
+<span class="c1"># Prints: variables: [a: 1, b: 2, c: 3]</span>
+</code></pre></div>
+<h2 id="pry-debugging">Pry Debugging</h2>
+<p>Interactive REPL inside running code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start IEx with pry debugger</span>
+iex<span class="w"> </span>--dbg<span class="w"> </span>pry<span class="w"> </span>-S<span class="w"> </span>mix
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">process_data</span><span class="p">()</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">validate</span><span class="p">()</span>
+<span class="w">  </span><span class="n">dbg</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w">  </span><span class="c1"># Opens pry session here</span>
+<span class="w">  </span><span class="n">result</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><strong>Pry commands:</strong>
+- <code>continue</code> or <code>c</code> — Resume execution
+- <code>next</code> or <code>n</code> — Step to next line
+- <code>restart</code> — Restart the current function</p>
+<h2 id="breakpoints">Breakpoints</h2>
+<p>Set breakpoints without modifying code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set breakpoint on a function</span>
+<span class="nc">IEx</span><span class="o">.</span><span class="n">break!</span><span class="p">(</span><span class="nc">MyModule</span><span class="p">,</span><span class="w"> </span><span class="ss">:my_function</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># List all breakpoints</span>
+<span class="nc">IEx</span><span class="o">.</span><span class="n">breaks</span><span class="p">()</span>
+
+<span class="c1"># Remove breakpoint</span>
+<span class="nc">IEx</span><span class="o">.</span><span class="n">remove_break!</span><span class="p">(</span><span class="nc">MyModule</span><span class="p">,</span><span class="w"> </span><span class="ss">:my_function</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Debug tests with breakpoints:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Break at start of every failed test</span>
+mix<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--breakpoints<span class="w"> </span>--failed
+
+<span class="c1"># Break at specific line</span>
+mix<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-b<span class="w"> </span>test/my_module_test.exs:42
+</code></pre></div></p>
+<h2 id="observer-gui">Observer (GUI)</h2>
+<p>The GUI tool for understanding the entire VM:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic start</span>
+<span class="n">iex</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">:observer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># For mix projects (requires runtime_tools)</span>
+<span class="n">iex</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Mix</span><span class="o">.</span><span class="n">ensure_application!</span><span class="p">(</span><span class="ss">:wx</span><span class="p">)</span><span class="w">           </span><span class="c1"># Not needed on OTP 27+</span>
+<span class="n">iex</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Mix</span><span class="o">.</span><span class="n">ensure_application!</span><span class="p">(</span><span class="ss">:runtime_tools</span><span class="p">)</span><span class="w"> </span><span class="c1"># Not needed on OTP 27+</span>
+<span class="n">iex</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Mix</span><span class="o">.</span><span class="n">ensure_application!</span><span class="p">(</span><span class="ss">:observer</span><span class="p">)</span>
+<span class="n">iex</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">:observer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="observer-tabs">Observer Tabs</h3>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>System</strong></td>
+<td>CPU, memory, runtime statistics</td>
+</tr>
+<tr>
+<td><strong>Load Charts</strong></td>
+<td>Live memory, scheduler utilization, I/O</td>
+</tr>
+<tr>
+<td><strong>Memory Allocators</strong></td>
+<td>VM memory carriers</td>
+</tr>
+<tr>
+<td><strong>Applications</strong></td>
+<td>Supervision trees, app hierarchies</td>
+</tr>
+<tr>
+<td><strong>Processes</strong></td>
+<td>All processes, reductions, mailbox sizes</td>
+</tr>
+<tr>
+<td><strong>Ports</strong></td>
+<td>Open file descriptors</td>
+</tr>
+<tr>
+<td><strong>Sockets</strong></td>
+<td>Network connections</td>
+</tr>
+<tr>
+<td><strong>Table Viewer</strong></td>
+<td>ETS tables contents</td>
+</tr>
+<tr>
+<td><strong>Trace Overview</strong></td>
+<td>Function call tracing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="remote-debugging-with-observer">Remote Debugging with Observer</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Terminal 1: Start app with named node</span>
+iex<span class="w"> </span>--name<span class="w"> </span>myapp@127.0.0.1<span class="w"> </span>--cookie<span class="w"> </span>secret<span class="w"> </span>-S<span class="w"> </span>mix
+
+<span class="c1"># Terminal 2: Start hidden observer node</span>
+iex<span class="w"> </span>--hidden<span class="w"> </span>--name<span class="w"> </span>observer@127.0.0.1<span class="w"> </span>--cookie<span class="w"> </span>secret
+
+<span class="c1"># In observer node:</span>
+iex&gt;<span class="w"> </span>Node.connect<span class="o">(</span>:<span class="s2">&quot;myapp@127.0.0.1&quot;</span><span class="o">)</span>
+iex&gt;<span class="w"> </span>:observer.start<span class="o">(</span>:<span class="s2">&quot;myapp@127.0.0.1&quot;</span><span class="o">)</span>
+</code></pre></div>
+<p>This isolates Observer from the target application — it won't affect measurements.</p>
+<h3 id="tracing-in-observer">Tracing in Observer</h3>
+<ol>
+<li>Go to <strong>Processes</strong> tab → right-click process → "Trace selected processes"</li>
+<li>Select options:</li>
+<li>Trace function calls</li>
+<li>Trace arity instead of arguments</li>
+<li>Trace garbage collections</li>
+<li>Go to <strong>Trace Overview</strong> → click process → "Add Trace Pattern"</li>
+<li>Select module and function to trace</li>
+<li>Click <strong>Start Trace</strong></li>
+</ol>
+<p><strong>Garbage collection info available:</strong>
+- <code>bin_vheap_size</code> — Binary memory in process
+- <code>heap_size</code> — Process heap usage
+- <code>recent_size</code> — Memory after last GC
+- <code>mbuf_size</code> — Message buffer size</p>
+<h2 id="profiling">Profiling</h2>
+<h3 id="mix-profilecprof-function-call-counting">mix profile.cprof — Function Call Counting</h3>
+<div class="highlight"><pre><span></span><code>mix<span class="w"> </span>profile.cprof<span class="w"> </span>-n<span class="w"> </span>MyModule.my_function<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p>Counts how many times each function is called.</p>
+<h3 id="mix-profilefprof-time-profiling">mix profile.fprof — Time Profiling</h3>
+<div class="highlight"><pre><span></span><code>mix<span class="w"> </span>profile.fprof<span class="w"> </span>-n<span class="w"> </span>MyModule.my_function<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p>Detailed call graph with time spent in each function.</p>
+<h2 id="advanced-erlang-tools">Advanced Erlang Tools</h2>
+<h3 id="terminal-observer-etop">Terminal Observer (etop)</h3>
+<div class="highlight"><pre><span></span><code>erl<span class="w"> </span>-name<span class="w"> </span>etop<span class="w"> </span>-hidden<span class="w"> </span>-s<span class="w"> </span>etop<span class="w"> </span>-s<span class="w"> </span>erlang<span class="w"> </span>halt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-output<span class="w"> </span>text<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-node<span class="w"> </span>myapp@127.0.0.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-setcookie<span class="w"> </span>secret
+</code></pre></div>
+<p>Text-based process monitoring without GUI.</p>
+<h3 id="trace-tool-builder-ttb">Trace Tool Builder (ttb)</h3>
+<p>Comprehensive tracing with file output for later analysis.</p>
+<h3 id="crashdump_viewer">crashdump_viewer</h3>
+<p>View crash dumps:
+<div class="highlight"><pre><span></span><code>crashdump_viewer<span class="w"> </span>my_crash.dump
+</code></pre></div></p>
+<h3 id="os-level-tracing">OS-Level Tracing</h3>
+<ul>
+<li><strong>Linux Trace Toolkit (LTTng)</strong></li>
+<li><strong>DTRACE</strong> (macOS/Solaris)</li>
+<li><strong>SystemTap</strong> (Linux)</li>
+</ul>
+<h3 id="microstate-accounting">Microstate Accounting</h3>
+<div class="highlight"><pre><span></span><code><span class="ss">:erlang</span><span class="o">.</span><span class="n">statistics</span><span class="p">(</span><span class="ss">:microstate_accounting</span><span class="p">)</span>
+</code></pre></div>
+<p>Low-overhead metrics on VM time distribution.</p>
+<h2 id="phoenix-livedashboard">Phoenix LiveDashboard</h2>
+<p>For web applications, provides Observer-like features in the browser:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In mix.exs</span>
+<span class="kd">def</span><span class="w"> </span><span class="n">deps</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:phoenix_live_dashboard</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 0.8&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Features:
+- Request metrics
+- ETS tables viewer
+- Processes viewer
+- Custom metrics</p>
+<h2 id="iex-runtime-info">IEx Runtime Info</h2>
+<p>Quick system overview without GUI:</p>
+<div class="highlight"><pre><span></span><code><span class="n">runtime_info</span><span class="p">()</span><span class="w">  </span><span class="c1"># Mini Observer overview</span>
+</code></pre></div>
+<h2 id="key-commands-cheatsheet">Key Commands Cheatsheet</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start with debugging</span>
+iex<span class="w"> </span>--dbg<span class="w"> </span>pry<span class="w"> </span>-S<span class="w"> </span>mix
+
+<span class="c1"># Debug failed tests</span>
+mix<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--breakpoints<span class="w"> </span>--failed
+
+<span class="c1"># Profile functions</span>
+mix<span class="w"> </span>profile.fprof<span class="w"> </span>-n<span class="w"> </span>Module.function<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># Remote Observer</span>
+iex<span class="w"> </span>--name<span class="w"> </span>app@host<span class="w"> </span>--cookie<span class="w"> </span>x<span class="w"> </span>-S<span class="w"> </span>mix
+iex<span class="w"> </span>--hidden<span class="w"> </span>--name<span class="w"> </span>obs@host<span class="w"> </span>--cookie<span class="w"> </span>x
+Node.connect<span class="o">(</span>:<span class="s2">&quot;app@host&quot;</span><span class="o">)</span>
+:observer.start<span class="o">(</span>:<span class="s2">&quot;app@host&quot;</span><span class="o">)</span>
+</code></pre></div>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://hexdocs.pm/elixir/debugging.html">Elixir Debugging Guide</a> — Official docs</li>
+<li><a href="https://www.erlang-in-anger.com/">Erlang in Anger</a> — Free ebook on VM debugging</li>
+<li><a href="https://blog.appsignal.com/2025/11/04/debugging-in-elixir-with-observer.html">AppSignal: Debugging with Observer</a> — Practical examples</li>
+<li><a href="https://elixirforum.com/t/what-are-your-debugging-techniques/693">ElixirForum: What are your debugging techniques?</a> — Community discussion</li>
+<li><a href="https://elixirforum.com/t/remote-debugging-elixir-on-docker-container/39382">ElixirForum: Remote debugging on Docker</a> — Container debugging</li>
+</ul>
+<h2 id="community-insights">Community Insights</h2>
+<p>Wisdom from experienced Elixir/Erlang developers on the <a href="https://elixirforum.com">Elixir Forum</a>:</p>
+<h3 id="debugging-concurrent-systems">Debugging Concurrent Systems</h3>
+<blockquote>
+<p><em>"You have to be very careful when debugging things in a concurrent environment... Anything that is waiting for the debugged process will hang and in many cases may time out and crash."</em> — Robert Virding (Creator of Erlang)</p>
+</blockquote>
+<p><strong>Key takeaways:</strong>
+- Stopping processes with breakpoints can cause cascading timeouts
+- <code>IEx.pry</code> in functions called by many processes creates multiple sessions
+- Sometimes <code>IO.inspect</code> is all that's reasonable
+- Use tracing instead of traditional debugging for concurrent systems</p>
+<h3 id="why-experienced-devs-prefer-tracing">Why Experienced Devs Prefer Tracing</h3>
+<p>From experienced Erlang developers in the community:</p>
+<ol>
+<li><strong>Hot code reloading</strong> makes print debugging trivial — changes don't require restarts</li>
+<li><strong>Tracing</strong> lets you observe without disrupting the system</li>
+<li><strong>The BEAM is different</strong> — introducing breakpoints changes program behavior</li>
+</ol>
+<h3 id="erlang-debugger-debugger">Erlang Debugger (:debugger)</h3>
+<p>For traditional step-through debugging:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start the GUI debugger</span>
+<span class="ss">:debugger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># Interpret a module for debugging</span>
+<span class="ss">:debugger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="ss">:int</span><span class="o">.</span><span class="n">ni</span><span class="p">(</span><span class="nc">MyModule</span><span class="p">)</span>
+</code></pre></div>
+<p>Note: Requires setup to find Elixir source files. See <a href="http://blog.plataformatec.com.br/2016/04/debugging-techniques-in-elixir-lang/">Plataformatec's debugging guide</a>.</p>
+<h3 id="modern-tracing-tools">Modern Tracing Tools</h3>
+<p>The BEAM provides several tracing options. Here are the current tools:</p>
+<p><strong>1. Recon_TRACE (built-in)</strong>
+The most practical option — part of the <code>recon</code> library:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add to mix.exs</span>
+<span class="p">{</span><span class="ss">:recon</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 2.5&quot;</span><span class="p">}</span>
+
+<span class="c1"># Usage</span>
+<span class="ss">:recon_trace</span><span class="o">.</span><span class="n">calls</span><span class="p">({</span><span class="nc">Module</span><span class="p">,</span><span class="w"> </span><span class="ss">:function</span><span class="p">,</span><span class="w"> </span><span class="ss">:_</span><span class="p">},</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>2. Extrace</strong> (Hex)
+Elixir wrapper for Recon Trace — clean API for setting trace points:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add to mix.exs</span>
+<span class="p">{</span><span class="ss">:extrace</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 0.6&quot;</span><span class="p">}</span>
+
+<span class="c1"># Trace specific functions</span>
+<span class="nc">Extrace</span><span class="o">.</span><span class="n">calls</span><span class="p">([{</span><span class="nc">Enum</span><span class="p">,</span><span class="w"> </span><span class="ss">:take_random</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="bp">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="ss">:return</span><span class="w"> </span><span class="k">end</span><span class="p">}],</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><strong>Source</strong>: <a href="https://hex.pm/packages/extrace">hex.pm/packages/extrace</a></li>
+<li><strong>Version</strong>: 0.6.0 (Sep 16, 2024)</li>
+<li><strong>Downloads</strong>: 981K all time</li>
+<li>Active project.</li>
+</ul>
+<p><strong>3. X-Trace</strong> (GitHub: feng19/x_trace)
+Web UI for recon_trace — visual interface for tracing without CLI:
+- Latest release v0.2.3 (Nov 2025)
+- Download desktop app or run as web server
+- Visit localhost:4000 for the GUI</p>
+<p><strong>4. OpenTelemetry / Telemetry</strong>
+Standardized observability:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Telemetry is built into Elixir</span>
+<span class="ss">:telemetry</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="ss">:my_app</span><span class="p">,</span><span class="w"> </span><span class="ss">:request</span><span class="p">],</span><span class="w"> </span><span class="p">%{</span><span class="ss">duration</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">},</span><span class="w"> </span><span class="p">%{</span><span class="ss">path</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api&quot;</span><span class="p">})</span>
+</code></pre></div>
+<p><strong>5. Observer Trace Overview</strong>
+Already covered above — use the GUI for tracing without code changes.</p>
+<h3 id="logging-libraries">Logging Libraries</h3>
+<p>For structured logging, use Elixir's built-in <code>Logger</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Built-in Logger - always current</span>
+<span class="nc">Logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Processing request&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">%{</span><span class="ss">request_id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">user</span><span class="p">:</span><span class="w"> </span><span class="n">user</span><span class="p">})</span>
+<span class="nc">Logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Rate limit approaching&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">%{</span><span class="ss">current</span><span class="p">:</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="ss">limit</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">})</span>
+<span class="nc">Logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Database connection failed&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">%{</span><span class="ss">error</span><span class="p">:</span><span class="w"> </span><span class="n">reason</span><span class="p">})</span>
+</code></pre></div>
+<p>Or use metadata for context:</p>
+<div class="highlight"><pre><span></span><code><span class="nc">Logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Request completed&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">%{</span><span class="ss">duration</span><span class="p">:</span><span class="w"> </span><span class="n">ms</span><span class="p">})</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">Logger</span><span class="o">.</span><span class="n">add_metadata</span><span class="p">(</span><span class="ss">request_id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="livebook-debugging">LiveBook Debugging</h3>
+<p>For processes running in LiveBook:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start Observer to see LiveBook processes</span>
+<span class="ss">:observer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<p>LiveBook runs code in named processes — you can connect Observer to inspect them.</p>
+<h2 id="dockercontainer-debugging">Docker/Container Debugging</h2>
+<p>Remote debugging Elixir in Docker containers:</p>
+<h3 id="setup-requirements">Setup Requirements</h3>
+<div class="highlight"><pre><span></span><code><span class="c"># Expose EPMD port (4369) and a range for distributed nodes</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">4369 4369..4370</span>
+</code></pre></div>
+<h3 id="container-to-host-debugging">Container to Host Debugging</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Container: Start your app with a named node</span>
+iex<span class="w"> </span>--name<span class="w"> </span>myapp@host.docker.internal<span class="w"> </span>--cookie<span class="w"> </span>mycookie<span class="w"> </span>-S<span class="w"> </span>mix
+
+<span class="c1"># Host: Start hidden observer node</span>
+iex<span class="w"> </span>--hidden<span class="w"> </span>--name<span class="w"> </span>observer@host.docker.internal<span class="w"> </span>--cookie<span class="w"> </span>mycookie
+
+<span class="c1"># Connect</span>
+iex&gt;<span class="w"> </span>Node.connect<span class="o">(</span>:<span class="s2">&quot;myapp@host.docker.internal&quot;</span><span class="o">)</span>
+iex&gt;<span class="w"> </span>:observer.start<span class="o">(</span>:<span class="s2">&quot;myapp@host.docker.internal&quot;</span><span class="o">)</span>
+</code></pre></div>
+<h3 id="common-issues">Common Issues</h3>
+<ol>
+<li><strong>EPMD port mapping</strong> — Ensure port 4369 is properly exposed/mapped</li>
+<li><strong>Hostname resolution</strong> — Use <code>--name host.docker.internal</code> to reach host</li>
+<li><strong>Cookie mismatch</strong> — Both nodes must use the same cookie</li>
+<li><strong>epmd conflicts</strong> — Kill local epmd if running: <code>epmd -kill</code></li>
+</ol>
+<p>See: <a href="https://elixirforum.com/t/remote-debugging-elixir-on-docker-container/39382">ElixirForum: Remote debugging on Docker</a></p>
+<h2 id="ai-debugging-assistants">AI Debugging Assistants</h2>
+<blockquote>
+<p>AI-powered tools that enhance debugging with natural language understanding, code analysis, and integrated development workflows. Researched via Playwright MCP.</p>
+</blockquote>
+<h3 id="tidewave-recommended-built-by-jose-valim-dashbit">Tidewave (Recommended) — Built by José Valim &amp; Dashbit</h3>
+<p><strong>The premier AI coding assistant for Elixir/Phoenix</strong> — connects AI to your running application.</p>
+<ul>
+<li><strong>Website</strong>: <a href="https://tidewave.ai">tidewave.ai</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/tidewave-ai/tidewave_phoenix">tidewave-ai/tidewave_phoenix</a></li>
+<li><strong>Stars</strong>: 790 | <strong>Hex downloads</strong>: 952K all time</li>
+<li><strong>Last updated</strong>: Mar 13, 2026 (very active)</li>
+</ul>
+<p><strong>What it does:</strong>
+- Connects Claude Code, Codex, Copilot, or OpenCode to your running app
+- Query database directly through your app's connection
+- Read logs with automatic stacktrace correlation
+- Execute code in your running app (like a REPL for agents)
+- Access documentation for exact library versions
+- Point-and-click prompting — click UI elements to reference them</p>
+<p><strong>Key features for debugging:</strong>
+| Feature | How it helps |
+|---------|-------------|
+| Database access | Query data without leaving the app context |
+| Log reading | Sees the same stacktrace you do |
+| Code execution | Test functions in running app |
+| Runtime introspection | Understand process state |</p>
+<p><strong>Installation (Phoenix projects):</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># mix.exs</span>
+<span class="kd">def</span><span class="w"> </span><span class="n">deps</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:tidewave</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 0.5&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></p>
+<p>Then configure MCP to connect your AI assistant.</p>
+<p><strong>Pricing:</strong>
+- <strong>Free</strong>: Tidewave MCP (OSS) — database access, logs, code execution
+- <strong>$10/mo</strong>: Pro — in-browser agents, point-and-click prompting
+- <strong>$12/user/mo</strong>: Teams — org-wide settings, billing</p>
+<hr />
+<h3 id="elixirscope-ai-execution-cinema-debugger">ElixirScope — AI Execution Cinema Debugger</h3>
+<p><strong>Revolutionary AST-based debugging with AI guidance</strong> — time-travel debugging for Elixir.</p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/nshkrdotcom/ElixirScope">nshkrdotcom/ElixirScope</a></li>
+<li><strong>Stars</strong>: 5 | <strong>License</strong>: MIT</li>
+<li><strong>Last updated</strong>: May 2025 (v0.0.1)</li>
+</ul>
+<p><strong>What it does:</strong>
+- AST-based instrumentation at compile time
+- Runtime event correlation
+- Time-travel debugging — reconstruct state at any point
+- AI-powered analysis of concurrent systems
+- Code Property Graph (CPG) construction</p>
+<p><strong>Key features:</strong>
+- Event capture with minimal overhead
+- State reconstruction at any execution point
+- GenServer state lifecycle analysis
+- Performance monitoring and bottleneck identification</p>
+<p><strong>Installation:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">deps</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:elixir_scope</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 0.0.1&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></p>
+<hr />
+<h3 id="codicil-semantic-code-search-for-ai">Codicil — Semantic Code Search for AI</h3>
+<p><strong>MCP server for semantic understanding of Elixir codebases.</strong></p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/E-xyza/codicil">E-xyza/codicil</a></li>
+<li><strong>Stars</strong>: 44 | <strong>License</strong>: MIT</li>
+<li><strong>Last updated</strong>: Nov 2025 (v0.7.1)</li>
+</ul>
+<p><strong>What it does:</strong>
+- Semantic function search — find code by describing what it does
+- Dependency analysis — function call graphs and module relationships
+- Automatic indexing during compilation
+- Multi-LLM support (Claude, OpenAI, Gemini, Cohere)</p>
+<p><strong>Example queries:</strong>
+- "Find functions that validate user input"
+- "Show me what calls this function"
+- "What dependencies does this module have?"</p>
+<p><strong>Installation:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">deps</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:codicil</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 0.7&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></p>
+<hr />
+<h3 id="claude-agent-sdk-for-elixir">Claude Agent SDK for Elixir</h3>
+<p><strong>Build AI coding agents in Elixir</strong> — use Claude Code as a backend.</p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/guess/claude_code">guess/claude_code</a></li>
+<li><strong>Stars</strong>: 72</li>
+</ul>
+<p><strong>What it does:</strong>
+- Streaming responses
+- Phoenix/LiveView integration
+- Build custom debugging workflows
+- Session management</p>
+<hr />
+<h3 id="claude-code-elixir-plugin">Claude Code Elixir Plugin</h3>
+<p><strong>Comprehensive Claude Code plugin for Elixir/Phoenix/LiveView development.</strong></p>
+<ul>
+<li><strong>Source</strong>: <a href="https://github.com/oliver-kriska/claude-elixir-phoenix">github.com/oliver-kriska/claude-elixir-phoenix</a></li>
+<li><strong>Stars</strong>: 73 | <strong>Last commit</strong>: Mar 19, 2026 ✓ (TODAY!)</li>
+<li><strong>Version</strong>: v2.3.0</li>
+</ul>
+<p><strong>What it does:</strong>
+- 20 specialist agents for different domains
+- 22 "Iron Laws" — rules that catch common bugs
+- <code>/phx:investigate</code> — structured bug investigation
+- <code>/phx:trace</code> — debugging with tracing</p>
+<p><strong>Iron Law examples:</strong>
+- <code>assign_new</code> silently skips on reconnect
+- <code>:float</code> will corrupt money fields
+- Oban job idempotency checks</p>
+<hr />
+<h3 id="assay-dialyzer-ai-integration">Assay — Dialyzer + AI Integration</h3>
+<p><strong>Elixir wrapper around Incremental Dialyzer with LLM-focused features.</strong></p>
+<ul>
+<li><strong>Source</strong>: <a href="https://hex.pm/packages/assay">hex.pm/packages/assay</a> | <a href="https://github.com/Ch4s3/assay">GitHub</a></li>
+<li><strong>Version</strong>: 0.5.2 (Feb 27, 2026) ✓</li>
+<li><strong>Downloads</strong>: 1.1K all time</li>
+</ul>
+<p><strong>What it does:</strong>
+- Reads Dialyzer settings from mix.exs
+- Runs incremental analysis
+- Outputs for humans, CI, editors, and LLMs
+- <code>mix assay</code> with watch mode</p>
+<hr />
+<h2 id="ai-debugging-quick-reference">AI Debugging Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Best For</th>
+<th>Pricing</th>
+<th>Last Updated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tidewave</strong></td>
+<td>Full-stack debugging, runtime access</td>
+<td>Free OSS / $10 Pro</td>
+<td>Mar 2026 ✓</td>
+</tr>
+<tr>
+<td><strong>ElixirScope</strong></td>
+<td>Time-travel debugging, AST analysis</td>
+<td>OSS</td>
+<td>May 2025</td>
+</tr>
+<tr>
+<td><strong>Codicil</strong></td>
+<td>Semantic code search for AI</td>
+<td>OSS</td>
+<td>Nov 2025</td>
+</tr>
+<tr>
+<td><strong>Claude Plugin</strong></td>
+<td>Elixir/Phoenix workflows</td>
+<td>OSS</td>
+<td>Mar 2026 ✓</td>
+</tr>
+<tr>
+<td><strong>Assay</strong></td>
+<td>Static analysis + AI</td>
+<td>OSS</td>
+<td>Mar 2026 ✓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="debugging-anti-patterns">Debugging Anti-Patterns</h2>
+<table>
+<thead>
+<tr>
+<th>Anti-Pattern</th>
+<th>Better Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Using breakpoints in GenServers</td>
+<td>Use <code>dbg/2</code> or add temporary logging</td>
+</tr>
+<tr>
+<td>Stopping many processes at once</td>
+<td>Trace one process, understand, repeat</td>
+</tr>
+<tr>
+<td>Debugging production directly</td>
+<td>Use LiveDashboard or remote Observer</td>
+</tr>
+<tr>
+<td>Modifying code to add debug prints</td>
+<td>Use <code>dbg/2</code> or Observer tracing</td>
+</tr>
+<tr>
+<td>Fighting the BEAM concurrency model</td>
+<td>Work with processes, not against them</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Researched via: hexdocs.pm official documentation, Hex.pm, GitHub, ElixirForum community, Playwright MCP web searches</em></p>
+<p><em>All tools verified ≤ 3 years old. Sources revalidated: 2026-03-19.</em></p>
+<h2 id="sources">Sources</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Source URL</th>
+<th>Verified Version</th>
+<th>Verified Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recon</td>
+<td><a href="https://hex.pm/packages/recon">hex.pm/packages/recon</a></td>
+<td>2.5.6</td>
+<td>Aug 31, 2024</td>
+</tr>
+<tr>
+<td>Extrace</td>
+<td><a href="https://hex.pm/packages/extrace">hex.pm/packages/extrace</a></td>
+<td>0.6.0</td>
+<td>Sep 16, 2024</td>
+</tr>
+<tr>
+<td>X-Trace</td>
+<td><a href="https://github.com/feng19/x_trace">github.com/feng19/x_trace</a></td>
+<td>0.2.3</td>
+<td>Nov 13, 2025</td>
+</tr>
+<tr>
+<td>Tidewave</td>
+<td><a href="https://hex.pm/packages/tidewave">hex.pm/packages/tidewave</a></td>
+<td>0.5.6</td>
+<td>Mar 13, 2026</td>
+</tr>
+<tr>
+<td>Codicil</td>
+<td><a href="https://hex.pm/packages/codicil">hex.pm/packages/codicil</a></td>
+<td>0.7.1</td>
+<td>Dec 3, 2025</td>
+</tr>
+<tr>
+<td>Assay</td>
+<td><a href="https://hex.pm/packages/assay">hex.pm/packages/assay</a></td>
+<td>0.5.2</td>
+<td>Feb 27, 2026</td>
+</tr>
+<tr>
+<td>Elixir Claude Plugin</td>
+<td><a href="https://github.com/oliver-kriska/claude-elixir-phoenix">github.com/oliver-kriska/claude-elixir-phoenix</a></td>
+<td>v2.3.0</td>
+<td>Mar 19, 2026 ✓</td>
+</tr>
+<tr>
+<td>Elixir Debugging Guide</td>
+<td><a href="https://hexdocs.pm/elixir/debugging.html">hexdocs.pm/elixir/debugging.html</a></td>
+<td>—</td>
+<td>Official docs</td>
+</tr>
+<tr>
+<td>Erlang in Anger</td>
+<td><a href="https://www.erlang-in-anger.com/">erlang-in-anger.com</a></td>
+<td>—</td>
+<td>Free ebook</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

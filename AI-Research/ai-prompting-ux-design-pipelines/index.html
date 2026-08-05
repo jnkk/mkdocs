@@ -1,0 +1,3228 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AI-Research/ai-prompting-ux-design-pipelines/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../ash-phoenix-deployment-with-safe-env-management/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>AI Prompting for UX Design Pipelines - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-prompting-for-ux-design-pipelines-a-b-c-causal-chain" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI Prompting for UX Design Pipelines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-understanding-the-ux-design-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Understanding the UX Design Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Understanding the UX Design Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-traditional-ux-pipeline-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Traditional UX Pipeline Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-where-ai-fits-into-each-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Where AI Fits Into Each Stage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-the-a-b-c-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: The A → B → C Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: The A → B → C Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-accurate-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      A = Accurate Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-better-design-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      B = Better Design Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-clearer-user-experiences" class="md-nav__link">
+    <span class="md-ellipsis">
+      C = Clearer User Experiences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-wireframe-prompt-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: WIRE+FRAME Prompt Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: WIRE+FRAME Prompt Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wire-core-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      WIRE (Core Elements)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-enhancement-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      FRAME (Enhancement Elements)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-full-wireframe-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Full WIRE+FRAME Prompt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-stage-by-stage-prompting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Stage-by-Stage Prompting Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Stage-by-Stage Prompting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-discovery-research-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Discovery &amp; Research Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-definition-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Definition Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-ideation-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Ideation Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-wireframing-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Wireframing Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-prototyping-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Prototyping Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-visual-design-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Visual Design Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-testing-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7 Testing Stage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-role-based-prompt-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 5: Role-Based Prompt Templates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Role-Based Prompt Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ux-researcher-persona" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 UX Researcher Persona
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ui-designer-persona" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 UI Designer Persona
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-content-strategist-persona" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Content Strategist Persona
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-ab-testing-prompts-for-ux-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 6: A/B Testing Prompts for UX Validation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: A/B Testing Prompts for UX Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-test-planning-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Test Planning Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-test-analysis-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Test Analysis Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ai-powered-predictive-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 AI-Powered Predictive Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-7-common-pitfalls-and-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 7: Common Pitfalls and Mitigations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 7: Common Pitfalls and Mitigations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-over-reliance-on-generic-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Over-Reliance on Generic Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-inherent-ai-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Inherent AI Bias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-prompt-quality-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Prompt Quality Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-8-implementation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 8: Implementation Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 8: Implementation Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-prompt-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Prompt Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Execution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ash-phoenix-deployment-with-safe-env-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-business-automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3v18h6v-3.5h2V21h6V3zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm8 0h2v2h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Business Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-elixir/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8 5H9v2c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v2h2v2H9c-1.1 0-2-.9-2-2v-1c0-1.1-.9-2-2-2v-2c1.1 0 2-.9 2-2V8c0-1.1.9-2 2-2h2zm8 5c-1.1 0-2 .9-2 2v1c0 1.1-.9 2-2 2h-2v-2h2v-2c0-1.1.9-2 2-2-1.1 0-2-.9-2-2V8h-2V6h2c1.1 0 2 .9 2 2v1c0 1.1.9 2 2 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Elixir Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-ai-dev-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-debugging-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-vs-javascript-ecosystem-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Why Elixir is Shadowed by JavaScript/TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jido-jido_ai-phoenix-ash-claude-installation-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Installing Jido/Jido_AI into Ash/Phoenix with Claude Code Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-symphony-ai-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    OpenAI Symphony - AI Agent Orchestration for Phoenix Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclaw-project-manager-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Using OpenClaw as Project Manager for Website Companies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serena-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Serena - AI Coding Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code-cli/Phoenix-deployment-guide-2026/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../elixir/phoenix-ecosystem-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Elixir
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../homelab/adguard/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Homelab
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llms/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-understanding-the-ux-design-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Understanding the UX Design Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Understanding the UX Design Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-traditional-ux-pipeline-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Traditional UX Pipeline Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-where-ai-fits-into-each-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Where AI Fits Into Each Stage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-the-a-b-c-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: The A → B → C Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: The A → B → C Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-accurate-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      A = Accurate Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-better-design-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      B = Better Design Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-clearer-user-experiences" class="md-nav__link">
+    <span class="md-ellipsis">
+      C = Clearer User Experiences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-wireframe-prompt-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: WIRE+FRAME Prompt Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: WIRE+FRAME Prompt Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wire-core-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      WIRE (Core Elements)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-enhancement-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      FRAME (Enhancement Elements)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-full-wireframe-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Full WIRE+FRAME Prompt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-stage-by-stage-prompting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Stage-by-Stage Prompting Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Stage-by-Stage Prompting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-discovery-research-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Discovery &amp; Research Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-definition-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Definition Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-ideation-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Ideation Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-wireframing-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Wireframing Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-prototyping-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Prototyping Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-visual-design-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Visual Design Stage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-testing-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7 Testing Stage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-role-based-prompt-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 5: Role-Based Prompt Templates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Role-Based Prompt Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ux-researcher-persona" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 UX Researcher Persona
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ui-designer-persona" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 UI Designer Persona
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-content-strategist-persona" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Content Strategist Persona
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-ab-testing-prompts-for-ux-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 6: A/B Testing Prompts for UX Validation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: A/B Testing Prompts for UX Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-test-planning-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Test Planning Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-test-analysis-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Test Analysis Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-ai-powered-predictive-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 AI-Powered Predictive Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-7-common-pitfalls-and-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 7: Common Pitfalls and Mitigations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 7: Common Pitfalls and Mitigations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-over-reliance-on-generic-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Over-Reliance on Generic Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-inherent-ai-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Inherent AI Bias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-prompt-quality-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Prompt Quality Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-8-implementation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 8: Implementation Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 8: Implementation Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-prompt-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Prompt Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Execution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">pipelines</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">prompting</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">ux-design</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="ai-prompting-for-ux-design-pipelines-a-b-c-causal-chain">AI Prompting for UX Design Pipelines: A → B → C Causal Chain</h1>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This research report explores how AI prompting techniques can be systematically applied throughout the UX design pipeline for website design. The A → B → C framework establishes a clear causal relationship: <strong>Accurate Prompts</strong> (A) lead to <strong>Better Design Outputs</strong> (B), which ultimately result in <strong>Clearer User Experiences</strong> (C). This document synthesizes current best practices from industry experts, UX practitioners, and AI researchers to provide actionable guidance for integrating AI into the design workflow.</p>
+<hr />
+<h2 id="part-1-understanding-the-ux-design-pipeline">Part 1: Understanding the UX Design Pipeline</h2>
+<h3 id="11-traditional-ux-pipeline-structure">1.1 Traditional UX Pipeline Structure</h3>
+<p>A well-defined UX pipeline follows a sequential progression:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Activities</th>
+<th>Key Outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discovery</strong></td>
+<td>User research, interviews, surveys, competitive analysis</td>
+<td>User insights, behavioral patterns, market data</td>
+</tr>
+<tr>
+<td><strong>Definition</strong></td>
+<td>Persona creation, journey mapping, problem framing</td>
+<td>User personas, problem statements, UX strategy</td>
+</tr>
+<tr>
+<td><strong>Ideation</strong></td>
+<td>Brainstorming, concept development, sketching</td>
+<td>Design concepts, feature ideas, wireframe sketches</td>
+</tr>
+<tr>
+<td><strong>Wireframing</strong></td>
+<td>Layout planning, component mapping, information architecture</td>
+<td>Low-fidelity wireframes, site maps, user flows</td>
+</tr>
+<tr>
+<td><strong>Prototyping</strong></td>
+<td>Interactive mockups, micro-interactions, animation</td>
+<td>Clickable prototypes, testable designs</td>
+</tr>
+<tr>
+<td><strong>Visual Design</strong></td>
+<td>Color systems, typography, imagery, brand elements</td>
+<td>High-fidelity mockups, design specifications</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Usability testing, A/B testing, feedback collection</td>
+<td>Performance metrics, user feedback, iteration plans</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>A/B testing, analytics review, stakeholder approval</td>
+<td>Optimized designs, launch-ready products</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-where-ai-fits-into-each-stage">1.2 Where AI Fits Into Each Stage</h3>
+<p>Modern AI tools can augment nearly every stage of the UX pipeline:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>AI Tool Examples</th>
+<th>AI Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discovery</strong></td>
+<td>Notion AI, ChatGPT, Hotjar AI</td>
+<td>Insight synthesis, pattern detection, analytics</td>
+</tr>
+<tr>
+<td><strong>Definition</strong></td>
+<td>Figma AI, Notion AI, Jasper AI</td>
+<td>Visual mapping, report generation, problem framing</td>
+</tr>
+<tr>
+<td><strong>Ideation</strong></td>
+<td>Figma AI, Miro AI, RunwayML</td>
+<td>Concept generation, layout ideas, visual exploration</td>
+</tr>
+<tr>
+<td><strong>Wireframing</strong></td>
+<td>Uizard, Galileo, Whimsical</td>
+<td>Text-to-wireframe conversion, auto-layout</td>
+</tr>
+<tr>
+<td><strong>Prototyping</strong></td>
+<td>Framer AI, Figma AI, Adobe Firefly</td>
+<td>Auto-generated interactions, copy, animations</td>
+</tr>
+<tr>
+<td><strong>Visual Design</strong></td>
+<td>Midjourney, DALL-E, Adobe Firefly</td>
+<td>Image generation, style exploration</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Attention Insight, Maze, Lookback</td>
+<td>Predictive heatmaps, simulated user scenarios</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Google Analytics AI, Optimizely</td>
+<td>Conversion prediction, behavioral analysis</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-2-the-a-b-c-framework">Part 2: The A → B → C Framework</h2>
+<h3 id="a-accurate-prompts">A = Accurate Prompts</h3>
+<p>The foundation of successful AI-assisted UX design lies in crafting precise, well-structured prompts that:</p>
+<ol>
+<li><strong>Define Clear Roles</strong>: Tell the AI who it should act as</li>
+<li><strong>Provide Sufficient Context</strong>: Include user personas, business goals, constraints</li>
+<li><strong>Specify Output Format</strong>: Define exactly what structure and format you need</li>
+<li><strong>Set Constraints</strong>: Establish boundaries, brand guidelines, technical limitations</li>
+</ol>
+<h3 id="b-better-design-outputs">B = Better Design Outputs</h3>
+<p>Accurate prompts lead to:</p>
+<ul>
+<li><strong>Higher fidelity wireframes</strong> with realistic content</li>
+<li><strong>Diverse ideation options</strong> for rapid iteration</li>
+<li><strong>Consistent brand voice</strong> across all design artifacts</li>
+<li><strong>Actionable insights</strong> from research synthesis</li>
+<li><strong>Testable prototypes</strong> with meaningful content</li>
+</ul>
+<h3 id="c-clearer-user-experiences">C = Clearer User Experiences</h3>
+<p>Better design outputs ultimately result in:</p>
+<ul>
+<li><strong>Reduced usability issues</strong> identified earlier in the process</li>
+<li><strong>More aligned stakeholder feedback</strong> due to higher-fidelity prototypes</li>
+<li><strong>Faster iteration cycles</strong> enabled by AI acceleration</li>
+<li><strong>User-centered solutions</strong> grounded in AI-assisted research synthesis</li>
+<li><strong>Optimized conversion paths</strong> validated through predictive testing</li>
+</ul>
+<hr />
+<h2 id="part-3-wireframe-prompt-framework">Part 3: WIRE+FRAME Prompt Framework</h2>
+<p>The <strong>WIRE+FRAME</strong> framework, developed by UX practitioners at Smashing Magazine, provides a systematic approach to AI prompting for UX design:</p>
+<h3 id="wire-core-elements">WIRE (Core Elements)</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>W - Who &amp; What</strong></td>
+<td>Define AI persona and deliverable</td>
+<td>"You are a senior UX researcher specializing in synthesizing qualitative data"</td>
+</tr>
+<tr>
+<td><strong>I - Input Context</strong></td>
+<td>Provide background and scope</td>
+<td>"You are analyzing customer feedback for a fintech app targeting Gen Z users"</td>
+</tr>
+<tr>
+<td><strong>R - Rules &amp; Constraints</strong></td>
+<td>Set boundaries and exclusions</td>
+<td>"Only analyze uploaded feedback data. Do not fabricate pain points or quotes"</td>
+</tr>
+<tr>
+<td><strong>E - Expected Output</strong></td>
+<td>Define deliverable format</td>
+<td>"Return a structured list with Theme Title, Summary, Problem Statement, Representative Quotes"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frame-enhancement-elements">FRAME (Enhancement Elements)</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F - Flow of Tasks</strong></td>
+<td>Break into ordered steps</td>
+<td>"Step 1: Parse data... Step 2: Group by themes... Step 3: Score by frequency"</td>
+</tr>
+<tr>
+<td><strong>R - Reference Voice/Style</strong></td>
+<td>Name desired tone</td>
+<td>"Use the tone of a UX insights deck—concise, pattern-driven, objective"</td>
+</tr>
+<tr>
+<td><strong>A - Ask for Clarification</strong></td>
+<td>Invite AI questions</td>
+<td>"Ask for clarification if data is missing or format is unclear"</td>
+</tr>
+<tr>
+<td><strong>M - Memory</strong></td>
+<td>Leverage conversation context</td>
+<td>"Keep using this process unless I say otherwise"</td>
+</tr>
+<tr>
+<td><strong>E - Evaluate &amp; Iterate</strong></td>
+<td>Request self-critique</td>
+<td>"Identify the highest-priority theme and critically evaluate its framing"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-full-wireframe-prompt">Example: Full WIRE+FRAME Prompt</h3>
+<div class="highlight"><pre><span></span><code>[ROLE]
+You are a senior UX researcher specializing in synthesizing qualitative data from 
+diverse sources to identify patterns, surface user pain points, and map them 
+across customer journey stages.
+
+[INPUT CONTEXT]
+You are analyzing customer feedback for Fintech Brand&#39;s app targeting Gen Z users. 
+Feedback comes from app store reviews, survey responses, and usability test 
+transcripts.
+
+[RULES]
+- Only analyze uploaded feedback data
+- Do not fabricate pain points, quotes, or patterns
+- Use neutral, stakeholder-facing language
+
+[EXPECTED OUTPUT]
+Return a structured list of themes with:
+- Theme Title
+- Summary of Issue
+- Problem Statement
+- Opportunity
+- Representative Quotes (from data only)
+- Journey Stage(s)
+- Frequency (count from data)
+- Severity Score (1-5)
+- Estimated Effort (Low/Medium/High)
+
+[TASK FLOW]
+1. Parse uploaded data and extract discrete pain points
+2. Group into themes based on pattern similarity
+3. Score by frequency, severity, and effort
+4. Map to customer journey stages
+5. Write problem statements based on data only
+
+[REFERENCE STYLE]
+Use the tone of a UX insights deck—concise, pattern-driven, objective.
+
+[CLARIFICATION]
+Ask for clarification if data is missing or format is unclear.
+
+[EVALUATE]
+After listing all themes, identify the highest-priority theme and:
+- Critically evaluate its framing
+- Suggest one improvement
+- Rewrite with improvement applied
+- Explain why the revision is stronger
+</code></pre></div>
+<hr />
+<h2 id="part-4-stage-by-stage-prompting-guide">Part 4: Stage-by-Stage Prompting Guide</h2>
+<h3 id="41-discovery-research-stage">4.1 Discovery &amp; Research Stage</h3>
+<p><strong>Objective</strong>: Gather and synthesize user insights</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: Senior UX researcher
+Task: Generate interview questions for [specific user segment]
+Context: [Product description, research goals]
+Format: Structured script with warm-up, deep-dive, and wrap-up sections
+
+Role: Market research analyst
+Task: Perform competitive analysis of [competitors]
+Context: Focus on [specific UX aspects—onboarding, navigation, etc.]
+Format: Markdown table with strengths, weaknesses, opportunities
+</code></pre></div>
+<p><strong>Recommended Tools</strong>: Notion AI, ChatGPT, Airtable AI, Hotjar, FullStory</p>
+<h3 id="42-definition-stage">4.2 Definition Stage</h3>
+<p><strong>Objective</strong>: Create actionable problem statements and personas</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: UX strategist
+Task: Synthesize research notes into user personas
+Context: [Personality traits, goals, frustrations from data]
+Format: Persona document with bio, goals, frustrations, quote
+
+Role: Design thinking facilitator
+Task: Generate &quot;How Might We&quot; statements from user problem
+Context: [Core user problem description]
+Format: 5 unique HMW statements categorized by opportunity type
+</code></pre></div>
+<p><strong>Recommended Tools</strong>: Figma AI, Notion AI, Miro AI, Jasper AI</p>
+<h3 id="43-ideation-stage">4.3 Ideation Stage</h3>
+<p><strong>Objective</strong>: Generate diverse solution concepts rapidly</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: Innovation consultant
+Task: Generate feature ideas based on HMW statement
+Context: HMW: &quot;[specific statement]&quot;
+Format: 15 ideas categorized as Conventional, Gamification, Forward-Thinking
+
+Role: Information architect
+Task: Create logical sitemap structure
+Context: [App/website description, user needs]
+Format: Nested bulleted list showing hierarchy
+</code></pre></div>
+<p><strong>Recommended Tools</strong>: Figma AI, Miro AI, RunwayML, ChatGPT</p>
+<h3 id="44-wireframing-stage">4.4 Wireframing Stage</h3>
+<p><strong>Objective</strong>: Translate concepts into structural layouts</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: Senior UX/UI designer
+Task: Create wireframe for [specific screen/page]
+Context: 
+- Target audience: [description]
+- Primary goal: [conversion/action goal]
+- Key components: [must-have elements]
+- Style: [aesthetic adjectives]
+Format: List describing each section and its elements
+
+Role: UI designer
+Task: Describe layout for [component] to junior designer
+Context: [Detailed functional requirements]
+Format: Descriptive paragraph with header, content areas, interactions
+</code></pre></div>
+<p><strong>Promptframe Method</strong> (from Nielsen Norman Group):</p>
+<p>A <strong>promptframe</strong> is a design deliverable that documents content goals and requirements for AI prompts based on a wireframe's layout. Key elements:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Objectives</strong></td>
+<td>Why is this content present? Benefits for business and users</td>
+</tr>
+<tr>
+<td><strong>Desired Outcomes</strong></td>
+<td>What should users do or think after seeing this?</td>
+</tr>
+<tr>
+<td><strong>Examples</strong></td>
+<td>Reference content that could inspire generation</td>
+</tr>
+<tr>
+<td><strong>Constraints</strong></td>
+<td>Word count limits, format requirements</td>
+</tr>
+<tr>
+<td><strong>Variations</strong></td>
+<td>Number of divergent outputs (typically 3-5)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-prototyping-stage">4.5 Prototyping Stage</h3>
+<p><strong>Objective</strong>: Create interactive, testable mockups</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: UX designer
+Task: Write microcopy for [UI component]
+Context:
+- Goal: [user action]
+- Tone: [adjective descriptors]
+- Audience: [target user description]
+Format: 3 variations with different approaches
+
+Role: Usability testing moderator
+Task: Write complete usability test script
+Context: [What is being tested, test objectives]
+Format: Welcome, Pre-test questions, User tasks, Post-test debrief
+</code></pre></div>
+<p><strong>Recommended Tools</strong>: Framer AI Builder, Figma AI, Adobe Firefly, Maze</p>
+<h3 id="46-visual-design-stage">4.6 Visual Design Stage</h3>
+<p><strong>Objective</strong>: Define brand-consistent visual language</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: Graphic designer
+Task: Generate detailed image description for [use case]
+Context:
+- Subject: [what should be depicted]
+- Mood: [emotional qualities]
+- Style: [artistic direction]
+- Composition: [visual hierarchy]
+- Avoid: [negative constraints]
+Format: Detailed textual description for image generation
+
+Role: Brand designer
+Task: Suggest color palette variations
+Context: 
+- Brand personality: [adjectives]
+- Use case: [where palette will be applied]
+- Accessibility: [contrast requirements]
+Format: 3 palette options with hex codes and use cases
+</code></pre></div>
+<p><strong>Recommended Tools</strong>: Midjourney, DALL-E 3, Adobe Firefly, Coolors</p>
+<h3 id="47-testing-stage">4.7 Testing Stage</h3>
+<p><strong>Objective</strong>: Validate designs with real users and predict performance</p>
+<p><strong>Key Prompt Patterns</strong>:</p>
+<div class="highlight"><pre><span></span><code>Role: Qualitative data analyst
+Task: Analyze user feedback and identify key themes
+Context: [Anonymized user quotes and notes]
+Format: Top 3 usability issues + Top 2 highlights with direct quotes
+
+Role: Data-informed product designer
+Task: Formulate hypotheses from post-launch analytics
+Context: [Analytics showing [specific metric drop-off]]
+Format: 2 hypotheses + specific A/B test for each
+</code></pre></div>
+<p><strong>Recommended Tools</strong>: Attention Insight, Maze, Lookback.io, Hotjar</p>
+<hr />
+<h2 id="part-5-role-based-prompt-templates">Part 5: Role-Based Prompt Templates</h2>
+<h3 id="51-ux-researcher-persona">5.1 UX Researcher Persona</h3>
+<div class="highlight"><pre><span></span><code>You are an expert UX researcher with 10+ years of experience in [industry]. 
+You specialize in:
+
+- Synthesizing qualitative data from interviews, surveys, and usability tests
+- Identifying patterns and themes in user behavior
+- Creating actionable insights that inform product decisions
+- Mapping user pain points across customer journey stages
+
+Your outputs are:
+- Evidence-based (always cite data sources)
+- Structured for stakeholder readability
+- Prioritized by frequency and severity
+- Actionable with clear next steps
+
+Constraints:
+- Never fabricate data or quotes
+- Always distinguish between observation and interpretation
+- Consider accessibility and inclusivity implications
+</code></pre></div>
+<h3 id="52-ui-designer-persona">5.2 UI Designer Persona</h3>
+<div class="highlight"><pre><span></span><code>You are a senior UI designer with expertise in [design systems/industry]. 
+You specialize in:
+
+- Creating clean, accessible interface layouts
+- Applying consistent visual hierarchy and spacing
+- Designing for responsiveness across devices
+- Balancing aesthetics with usability
+
+Your outputs are:
+- Pixel-aware (consider density and resolution)
+- Accessibility-first (WCAG compliant)
+- System-compatible (work with existing design tokens)
+- Developer-ready (clear specifications)
+
+Constraints:
+- Never propose designs that conflict with brand guidelines
+- Always consider dark mode and high contrast needs
+- Prefer proven interaction patterns over novelty
+</code></pre></div>
+<h3 id="53-content-strategist-persona">5.3 Content Strategist Persona</h3>
+<div class="highlight"><pre><span></span><code>You are a content strategist with expertise in [B2B/SaaS/e-commerce/etc.]. 
+You specialize in:
+
+- Writing clear, scannable UX microcopy
+- Maintaining consistent brand voice across touchpoints
+- Creating conversion-optimized CTAs and headlines
+- Writing error messages that guide users to recovery
+
+Your outputs are:
+- Concise (prefer active voice, short sentences)
+- Purposeful (every word earns its place)
+- Empathetic (acknowledge user frustration, offer solutions)
+- Localized-ready (avoid idioms and culture-specific references)
+
+Constraints:
+- Never use jargon without definition
+- Always provide graceful error recovery paths
+- Consider tone variations for different contexts (error vs. success)
+</code></pre></div>
+<hr />
+<h2 id="part-6-ab-testing-prompts-for-ux-validation">Part 6: A/B Testing Prompts for UX Validation</h2>
+<h3 id="61-test-planning-prompts">6.1 Test Planning Prompts</h3>
+<div class="highlight"><pre><span></span><code>Role: UX testing strategist
+Task: Design A/B test for [design element]
+Context:
+- Current design: [description]
+- Hypothesized improvement: [description]
+- Primary metric: [what to measure]
+- Sample size consideration: [traffic level]
+Format: Test hypothesis, variant descriptions, success criteria
+</code></pre></div>
+<h3 id="62-test-analysis-prompts">6.2 Test Analysis Prompts</h3>
+<div class="highlight"><pre><span></span><code>Role: Analytics specialist
+Task: Analyze A/B test results
+Context: [Raw test data with control/variant performance]
+Format: Winner recommendation, confidence level, statistical significance
+</code></pre></div>
+<h3 id="63-ai-powered-predictive-testing">6.3 AI-Powered Predictive Testing</h3>
+<p>Tools like <strong>Attention Insight</strong> can now predict user attention patterns before live testing:</p>
+<ul>
+<li>Generate gaze heatmaps from design images</li>
+<li>Compare design variants without live user testing</li>
+<li>Identify potential friction points early in the design phase</li>
+<li>Iterate rapidly based on predicted performance</li>
+</ul>
+<hr />
+<h2 id="part-7-common-pitfalls-and-mitigations">Part 7: Common Pitfalls and Mitigations</h2>
+<h3 id="71-over-reliance-on-generic-outputs">7.1 Over-Reliance on Generic Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Pitfall</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI generates bland, templated designs</td>
+<td>Treat AI as brainstorming partner; inject brand personality</td>
+</tr>
+<tr>
+<td>All outputs look the same</td>
+<td>Vary prompt structure and constraints</td>
+</tr>
+<tr>
+<td>Missing unique brand identity</td>
+<td>Always include brand guidelines in context</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-inherent-ai-bias">7.2 Inherent AI Bias</h3>
+<table>
+<thead>
+<tr>
+<th>Pitfall</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gender/racial bias in generated images</td>
+<td>Review all outputs for representation</td>
+</tr>
+<tr>
+<td>Cultural assumptions in copy</td>
+<td>Test with diverse user segments</td>
+</tr>
+<tr>
+<td>Accessibility oversights</td>
+<td>Run WCAG audits on all AI-generated designs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-prompt-quality-issues">7.3 Prompt Quality Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Pitfall</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vague instructions</td>
+<td>Be specific about format, tone, constraints</td>
+</tr>
+<tr>
+<td>Missing context</td>
+<td>Always include user/persona information</td>
+</tr>
+<tr>
+<td>No feedback loop</td>
+<td>Review outputs and refine prompts iteratively</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-8-implementation-checklist">Part 8: Implementation Checklist</h2>
+<h3 id="pre-prompt-setup">Pre-Prompt Setup</h3>
+<ul>
+<li>[ ] Define the AI persona you need (researcher, designer, strategist)</li>
+<li>[ ] Gather relevant context (user data, brand guidelines, constraints)</li>
+<li>[ ] Identify output format requirements (deliverable type, structure)</li>
+<li>[ ] Prepare examples or references for style guidance</li>
+</ul>
+<h3 id="prompt-execution">Prompt Execution</h3>
+<ul>
+<li>[ ] Start with WIRE core elements (Who, Input, Rules, Expected Output)</li>
+<li>[ ] Add FRAME elements as needed (Flow, Reference, Ask, Memory, Evaluate)</li>
+<li>[ ] Run initial prompt and review output</li>
+<li>[ ] Iterate based on quality assessment</li>
+</ul>
+<h3 id="output-validation">Output Validation</h3>
+<ul>
+<li>[ ] Verify all claims against source data</li>
+<li>[ ] Check for brand voice consistency</li>
+<li>[ ] Run accessibility audit on visual outputs</li>
+<li>[ ] Test with real users when possible</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>[ ] Save successful prompts for reuse</li>
+<li>[ ] Document variations that worked for different contexts</li>
+<li>[ ] Create team prompt library for consistency</li>
+</ul>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ol>
+<li>
+<p><strong>Accurate prompts (A) are non-negotiable</strong>: The quality of AI outputs directly correlates with prompt precision. Invest time in prompt engineering.</p>
+</li>
+<li>
+<p><strong>The WIRE+FRAME framework provides structure</strong>: This systematic approach ensures prompts include all necessary elements for quality output.</p>
+</li>
+<li>
+<p><strong>AI augments, not replaces, human judgment</strong>: Always validate AI outputs against real user needs and business goals.</p>
+</li>
+<li>
+<p><strong>Iteration is built into the process</strong>: AI enables rapid iteration—use it to test multiple concepts before committing to one direction.</p>
+</li>
+<li>
+<p><strong>Context is king</strong>: Generic prompts produce generic results. Always include relevant user data, brand guidelines, and constraints.</p>
+</li>
+<li>
+<p><strong>Measurement closes the loop</strong>: Use A/B testing and analytics to validate which AI-assisted designs actually perform better.</p>
+</li>
+</ol>
+<hr />
+<h2 id="research-sources">Research Sources</h2>
+<ul>
+<li>Smashing Magazine: "Prompting Is A Design Act: How To Brief, Guide And Iterate With AI" (August 2025)</li>
+<li>Nielsen Norman Group: "Promptframes: Evolving the Wireframe for the Age of AI" (May 2024)</li>
+<li>UXmatters: "How to Build an Effective UX Pipeline from User Research to Usability Testing" (June 2024)</li>
+<li>AIUXUI.design: "How AI is Transforming UX Design: A Complete 2025 Workflow Guide" (June 2025)</li>
+<li>Miro: "4-Part UX Design Prompts for Every Design Stage" (August 2025)</li>
+<li>Metanow: "Designing Websites with Intelligent Automation in 2025" (October 2025)</li>
+<li>ResearchGate: "Artificial Intelligence (AI) for User Experience (UX) Design: A Systematic Literature Review" (2025)</li>
+</ul>
+<hr />
+<p><em>Researched via: Google search, live web browsing with Playwright MCP</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3064 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AI-Research/ash-phoenix-deployment-with-safe-env-management/">
+      
+      
+        <link rel="prev" href="../ai-prompting-ux-design-pipelines/">
+      
+      
+        <link rel="next" href="../claude-code-business-automation/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Ash/Phoenix Deployment Guide with Safe .env Management - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ashphoenix-deployment-guide-with-safe-env-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ash/Phoenix Deployment Guide with Safe .env Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-prompting-ux-design-pipelines/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-deployment-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Deployment Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Comparison
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyio-vs-render-vs-docker-vs-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fly.io vs Render vs Docker vs VPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables &amp; Secrets Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables &amp; Secrets Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-golden-rule-2025-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Golden Rule (2025 Standard)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Matters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-alternatives-to-env-for-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secure Alternatives to .env for Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-env-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended .env File Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-specific-deployment-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform-Specific Deployment Guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform-Specific Deployment Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyio-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fly.io Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Render Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-release-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build &amp; Release Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build &amp; Release Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clustering Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erlang-vm-clustering-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erlang VM Clustering Basics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-analysis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Analysis Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-2025-env-security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 2025 .env Security Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-for-env-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for .env Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-deployment-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Deployment Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Deployment Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development (Docker Compose)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-flyio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production (Fly.io)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-business-automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3v18h6v-3.5h2V21h6V3zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm8 0h2v2h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Business Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-elixir/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8 5H9v2c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v2h2v2H9c-1.1 0-2-.9-2-2v-1c0-1.1-.9-2-2-2v-2c1.1 0 2-.9 2-2V8c0-1.1.9-2 2-2h2zm8 5c-1.1 0-2 .9-2 2v1c0 1.1-.9 2-2 2h-2v-2h2v-2c0-1.1.9-2 2-2-1.1 0-2-.9-2-2V8h-2V6h2c1.1 0 2 .9 2 2v1c0 1.1.9 2 2 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Elixir Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-ai-dev-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-debugging-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-vs-javascript-ecosystem-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Why Elixir is Shadowed by JavaScript/TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jido-jido_ai-phoenix-ash-claude-installation-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Installing Jido/Jido_AI into Ash/Phoenix with Claude Code Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-symphony-ai-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    OpenAI Symphony - AI Agent Orchestration for Phoenix Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclaw-project-manager-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Using OpenClaw as Project Manager for Website Companies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serena-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Serena - AI Coding Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code-cli/Phoenix-deployment-guide-2026/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../elixir/phoenix-ecosystem-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Elixir
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../homelab/adguard/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Homelab
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llms/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-deployment-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Deployment Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Comparison
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyio-vs-render-vs-docker-vs-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fly.io vs Render vs Docker vs VPS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables &amp; Secrets Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables &amp; Secrets Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-golden-rule-2025-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Golden Rule (2025 Standard)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Matters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-alternatives-to-env-for-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secure Alternatives to .env for Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-env-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended .env File Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-specific-deployment-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform-Specific Deployment Guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform-Specific Deployment Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyio-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fly.io Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Render Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-release-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build &amp; Release Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build &amp; Release Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clustering Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erlang-vm-clustering-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erlang VM Clustering Basics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-analysis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Analysis Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-2025-env-security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 2025 .env Security Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-for-env-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for .env Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-deployment-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Deployment Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Deployment Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development (Docker Compose)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-flyio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production (Fly.io)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">ash</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">deployment</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">elixir</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">phoenix</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">security</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="ashphoenix-deployment-guide-with-safe-env-management">Ash/Phoenix Deployment Guide with Safe .env Management</h1>
+<blockquote>
+<p>Comprehensive deployment strategies for Ash Framework + Phoenix applications with production-grade secrets management. Researched via Playwright MCP and official documentation.</p>
+</blockquote>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#quick-deployment-overview">Quick Deployment Overview</a></li>
+<li><a href="#platform-comparison">Platform Comparison</a></li>
+<li><a href="#environment-variables--secrets-management">Environment Variables &amp; Secrets Management</a></li>
+<li><a href="#platform-specific-deployment-guides">Platform-Specific Deployment Guides</a></li>
+<li><a href="#flyio-deployment">Fly.io Deployment</a></li>
+<li><a href="#render-deployment">Render Deployment</a></li>
+<li><a href="#docker-deployment">Docker Deployment</a></li>
+<li><a href="#database-setup">Database Setup</a></li>
+<li><a href="#build--release-configuration">Build &amp; Release Configuration</a></li>
+<li><a href="#clustering-configuration">Clustering Configuration</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#security-best-practices">Security Best Practices</a></li>
+<li><a href="#example-deployment-workflow">Example Deployment Workflow</a></li>
+</ol>
+<hr />
+<h2 id="quick-deployment-overview">Quick Deployment Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Best For</th>
+<th>When to Use</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fly.io</strong></td>
+<td>Elixir/Phoenix apps with clustering needs</td>
+<td>Real-time apps, built-in Postgres, Erlang clustering, edge deployment, hot code upgrades</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Render</strong></td>
+<td>Teams needing simple PaaS experience</td>
+<td>Heroku-like simplicity, good free tier, GitHub integration, managed Postgres</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Docker</strong></td>
+<td>Self-hosted or custom infrastructure</td>
+<td>Full control, Docker Compose for local dev, Kubernetes for scaling, custom runtime secrets</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>VPS</strong></td>
+<td>Total control, cheapest for small apps</td>
+<td>Manual infrastructure management, requires DevOps skills</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommendation for 2025:</strong>
+- <strong>Fly.io</strong> - Recommended for Elixir/Phoenix due to Erlang clustering support, built-in Postgres, and low-latency edge deployment
+- <strong>Render</strong> - Alternative for teams preferring Heroku-like experience and GitHub-native workflows</p>
+<hr />
+<h2 id="platform-comparison">Platform Comparison</h2>
+<h3 id="flyio-vs-render-vs-docker-vs-vps">Fly.io vs Render vs Docker vs VPS</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Fly.io</th>
+<th>Render</th>
+<th>Docker (Self-managed)</th>
+<th>VPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ease of Use</strong></td>
+<td>Simple CLI (<code>fly launch</code>)</td>
+<td>Dashboard + CLI</td>
+<td>Requires Dockerfile knowledge</td>
+<td>Full manual control</td>
+</tr>
+<tr>
+<td><strong>Setup Time</strong></td>
+<td>5-10 minutes</td>
+<td>10-30 minutes</td>
+<td>2-4 hours</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>Built-in Postgres (one command)</td>
+<td>Managed Postgres (dashboard)</td>
+<td>Manual setup</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Secrets Management</strong></td>
+<td><code>fly secrets set</code> (encrypted vault)</td>
+<td>Dashboard env vars / Secret Files</td>
+<td>Docker secrets (external tool)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clustering</strong></td>
+<td>Native Erlang clustering support</td>
+<td>Not available</td>
+<td>Requires orchestration (K8s, Docker Swarm)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Horizontal/vertical scaling, global regions</td>
+<td>Horizontal scaling, auto-scaling</td>
+<td>Vertical scaling</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Free tier available, pay for usage</td>
+<td>Free tier for hobby, paid plans start at $7/mo</td>
+<td>VPS pricing varies</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Hot Upgrades</strong></td>
+<td>Yes (Erlang releases without downtime)</td>
+<td>No</td>
+<td>Requires restart/redeploy</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GitHub Integration</strong></td>
+<td>Native GitHub Actions deploy</td>
+<td>Native GitHub Actions</td>
+<td>Manual git push</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SSL/TLS</strong></td>
+<td>Automatic, custom domains</td>
+<td>Automatic, Let's Encrypt or Cloudflare</td>
+<td>Manual setup</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>Built-in metrics and logs</td>
+<td>Built-in metrics and logs</td>
+<td>Requires external tools (Datadog, etc.)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Developer Experience</strong></td>
+<td>Good for Elixir/Phoenix devs</td>
+<td>Good for general web devs</td>
+<td>Requires DevOps knowledge</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="environment-variables-secrets-management">Environment Variables &amp; Secrets Management</h2>
+<h3 id="the-golden-rule-2025-standard">The Golden Rule (2025 Standard)</h3>
+<p><strong>NEVER commit <code>.env</code> files to Git or include them in your repository.</strong></p>
+<p>This is the single most important security rule for 2025. Once an <code>.env</code> file is pushed to a public repository (or any accessible location), those secrets are <strong>compromised</strong> and must be rotated immediately.</p>
+<h3 id="why-this-matters">Why This Matters</h3>
+<ul>
+<li><code>.env</code> files are plain text files</li>
+<li>Git tracks all file contents in version history</li>
+<li>Anyone with repository access can view secrets</li>
+<li>Even private repos with multiple collaborators are at risk</li>
+<li>GitHub scanning tools like <code>gitrob</code> can find leaked secrets</li>
+</ul>
+<h3 id="secure-alternatives-to-env-for-deployment">Secure Alternatives to <code>.env</code> for Deployment</h3>
+<p>| Approach | How It Works | Security | Pros | Cons |
+|----------|--------------|----------|-------|
+| <strong>Platform Secrets</strong> | Built-in secret management (Fly.io, Render) | Encrypted vault storage | Platform lock-in | Platform-specific |
+| <strong>Local .env</strong> | Use only for local development | No secrets in Git | Simple development workflow |
+| <strong>Secret Files (Render)</strong> | Upload sensitive files via dashboard | Encrypted at rest | Perfect for service accounts | Limited to files |
+| <strong>Docker Secrets</strong> | Docker secrets (K8s, Swarm) | In-memory filesystem | Container isolation | Requires Docker Compose |
+| <strong>CI/CD Variables</strong> | Set in GitHub Actions / GitLab CI | Secure pipeline access | Not in code | GitOps overhead |
+| <strong>Encrypted .env.example</strong> | Commit template, not secrets | Safe documentation | Manual setup | Requires environment switching |</p>
+<h3 id="recommended-env-file-structure">Recommended .env File Structure</h3>
+<div class="highlight"><pre><span></span><code># Development environment variables (DO NOT COMMIT)
+DATABASE_URL=postgres://localhost:5432/mydb_dev
+SECRET_KEY_BASE=dev_secret_for_local_testing
+
+# Production environment variables (USE PLATFORM SECRETS)
+# DATABASE_URL and SECRET_KEY_BASE will be set via Fly.io or Render
+</code></pre></div>
+<hr />
+<h2 id="platform-specific-deployment-guides">Platform-Specific Deployment Guides</h2>
+<h3 id="flyio-deployment">Fly.io Deployment</h3>
+<p><strong>Official Documentation:</strong>
+- Phoenix deployment guide: https://hexdocs.pm/phoenix/fly.html
+- Fly.io Elixir getting started: https://fly.io/docs/elixir/getting-started/</p>
+<p><strong>Setup Commands:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Fly CLI</span>
+curl<span class="w"> </span>-L<span class="w"> </span>https://fly.io/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+
+<span class="c1"># Sign up/login</span>
+fly<span class="w"> </span>auth<span class="w"> </span>signup
+<span class="c1"># OR</span>
+fly<span class="w"> </span>auth<span class="w"> </span>login
+
+<span class="c1"># Deploy app (creates fly.toml automatically)</span>
+<span class="nb">cd</span><span class="w"> </span>/path/to/your/phoenix/app
+fly<span class="w"> </span>launch
+
+<span class="c1"># Generate secret key (Phoenix)</span>
+mix<span class="w"> </span>phx.gen.secret
+<span class="c1"># Output: Use in config/runtime.exs</span>
+
+<span class="c1"># Set secrets</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgres://your-db-url
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">SECRET_KEY_BASE</span><span class="o">=</span><span class="k">$(</span>mix<span class="w"> </span>phx.gen.secret<span class="k">)</span>
+
+<span class="c1"># Deploy changes</span>
+fly<span class="w"> </span>deploy
+
+<span class="c1"># Scale (optional)</span>
+fly<span class="w"> </span>scale<span class="w"> </span>count<span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># Check status</span>
+fly<span class="w"> </span>status
+fly<span class="w"> </span>logs
+</code></pre></div>
+<p><strong>Configuration Files:</strong></p>
+<p><code>fly.toml</code> (auto-generated by <code>fly launch</code>):
+<div class="highlight"><pre><span></span><code><span class="k">[build]</span>
+<span class="w">  </span><span class="k">[build]</span>
+<span class="w">    </span><span class="k">[target]</span>
+<span class="w">      </span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mix release&quot;</span>
+<span class="w">    </span><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">MIX_ENV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prod&quot;</span><span class="err">,</span>
+<span class="w">      </span><span class="n">PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8080&quot;</span>
+<span class="w">    </span><span class="err">}</span>
+<span class="w">  </span><span class="k">[http_service]</span>
+<span class="w">    </span><span class="k">[http_service]</span>
+<span class="w">      </span><span class="k">[internal_port]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">      </span><span class="n">force_https</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div></p>
+<p><strong>Clustering Configuration (Elixir/Phoenix apps):</strong></p>
+<p>Add to <code>rel/env.ssh.eex</code>:
+<div class="highlight"><pre><span></span><code><span class="n">export</span><span class="w"> </span><span class="nc">ERL_AFLAGS</span><span class="o">=</span><span class="s2">&quot;-proto_dist inet6_tcp&quot;</span>
+<span class="n">export</span><span class="w"> </span><span class="nc">RELEASE_DISTRIBUTION</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
+<span class="n">export</span><span class="w"> </span><span class="nc">RELEASE_NODE</span><span class="o">=</span><span class="s2">&quot;${FLY_APP_NAME}-${FLY_IMAGE_REF</span><span class="err">##</span><span class="s2">*-}@${FLY_PRIVATE_IP}&quot;</span>
+<span class="n">export</span><span class="w"> </span><span class="nc">ECTO_IPV6</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
+<span class="n">export</span><span class="w"> </span><span class="nc">DNS_CLUSTER_QUERY</span><span class="o">=</span><span class="s2">&quot;${FLY_APP_NAME}.internal&quot;</span>
+</code></pre></div></p>
+<p><strong>Secrets Best Practices:</strong></p>
+<ol>
+<li>
+<p><strong>Never use <code>fly secrets set</code> with hardcoded values:</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># WRONG - value visible in shell history, processes, or logs</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgres://user:password@host/db
+
+<span class="c1"># CORRECT - use environment variables or base64</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://prod-db-host:5432/mydb?user<span class="o">=</span>prod_user<span class="p">&amp;</span><span class="nv">password</span><span class="o">=</span><span class="si">${</span><span class="nv">DB_PASSWORD</span><span class="si">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Stage secrets during deployment:</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Set secrets without deploying (immediate availability)</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">SECRET_KEY</span><span class="o">=</span>my_prod_secret<span class="w"> </span>--stage
+
+<span class="c1"># Deploy (secrets become active)</span>
+fly<span class="w"> </span>deploy
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Use secret files only for file mounts:</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># For private keys, certificates, etc.</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">PRIVATE_KEY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>~/.ssh/id_rsa<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
+
+<span class="c1"># In fly.toml:</span>
+<span class="o">[[</span>files<span class="o">]]</span>
+<span class="w">  </span><span class="nv">guest_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/app/.ssh/id_rsa&quot;</span>
+<span class="w">  </span><span class="nv">secret_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PRIVATE_KEY&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Audit secrets regularly:</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># List all secrets to verify what exists</span>
+fly<span class="w"> </span>secrets<span class="w"> </span>list
+
+<span class="c1"># Remove old secrets</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">unset</span><span class="w"> </span>OLD_SECRET_KEY
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="render-deployment">Render Deployment</h3>
+<p><strong>Official Documentation:</strong>
+- Phoenix deployment guide: https://render.com/docs/deploy-phoenix/</p>
+<p><strong>Setup Commands:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect GitHub repository to Render</span>
+<span class="c1"># Via Render Dashboard: &quot;New +&quot; → &quot;Web Service&quot; → &quot;Create Web Service&quot;</span>
+<span class="c1"># Via CLI: Install render CLI</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://render.com/install/render.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+
+<span class="c1"># Add environment variables (Dashboard)</span>
+<span class="c1"># Set these in &quot;Environment&quot; tab:</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod
+<span class="nv">PORT</span><span class="o">=</span><span class="m">4000</span>
+<span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://your-db-host:5432/mydb_prod
+<span class="nv">SECRET_KEY_BASE</span><span class="o">=</span>your_secret_key_here
+
+<span class="c1"># OR set via build script</span>
+<span class="c1"># Update build.sh to:</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export MIX_ENV=prod&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export PORT=4000&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export DATABASE_URL=</span><span class="nv">$RENDER_DATABASE_URL</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p><strong>Secret Files Feature:</strong></p>
+<p>For files like <code>service-account.json</code>, <code>google-credentials.json</code>:</p>
+<ol>
+<li>Click "Secret Files" in "Environment" tab</li>
+<li>Click "Upload Secret File"</li>
+<li>Upload file (e.g., <code>service-account.json</code>)</li>
+<li>File is encrypted at rest, available as environment variable <code>SERVICE_ACCOUNT_JSON</code></li>
+<li>Add to <code>.gitignore</code> (so it's not committed)</li>
+</ol>
+<p><strong>Configuration:</strong></p>
+<p><code>render.yaml</code> (optional):
+<div class="highlight"><pre><span></span><code><span class="c1"># For Docker-based deployments</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-ash-phoenix-app</span>
+<span class="w">    </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">    </span><span class="nt">buildCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mix release</span>
+<span class="w">    </span><span class="nt">startCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_build/prod/rel/my_ash_phoenix_app/bin/server</span>
+<span class="w">    </span><span class="nt">envVars</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">MIX_ENV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span>
+<span class="w">      </span><span class="nt">PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4000</span>
+<span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">fromDatabase</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">          </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres.internal</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
+<span class="w">          </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${RENDER_PG_USER}</span>
+<span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${RENDER_PG_PASSWORD}</span>
+</code></pre></div></p>
+<p><strong>Best Practices for Render:</strong></p>
+<ol>
+<li><strong>Use Dashboard for secrets:</strong> Avoid CLI secrets in shell history</li>
+<li><strong>Separate config from secrets:</strong> Don't use <code>render.yaml</code> for secrets (use Secret Files instead)</li>
+<li><strong>Use GitHub Actions for config:</strong> Commit <code>.env.example</code> template, read secrets from Actions</li>
+<li><strong>Rotate secrets regularly:</strong> If credentials leaked, rotate them immediately in Dashboard</li>
+</ol>
+<hr />
+<h3 id="docker-deployment">Docker Deployment</h3>
+<p><strong>Docker Compose for Development:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example_password</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MIX_ENV=dev</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATABASE_URL=postgresql://db:5432/mydb_dev</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET_KEY_BASE=dev_secret_for_local_testing</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+</code></pre></div>
+<p><strong>Production Docker Deployment:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">elixir:1.14</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Copy only compiled assets (no source)</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>_build/prod/rel/rel/my_ash_phoenix_app/lib<span class="w"> </span>/app<span class="w"> </span>--chown<span class="o">=</span>elixir:root:root:root:root
+
+<span class="c"># Set environment at build time (NOT at runtime)</span>
+<span class="k">ARG</span><span class="w"> </span>DATABASE_URL
+<span class="k">ARG</span><span class="w"> </span>SECRET_KEY_BASE
+
+<span class="c"># Use mix release to compile and build in optimized mode</span>
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>release
+<span class="k">RUN</span><span class="w"> </span><span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>deps.get<span class="w"> </span>--only<span class="w"> </span>prod
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>assets.deploy
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>release
+
+<span class="c"># Set user (non-root for production security)</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">nobody</span>
+
+<span class="c"># Health check</span>
+<span class="k">HEALTHCHECK</span><span class="w"> </span>--interval<span class="o">=</span>5s<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w"> </span>--start-period<span class="o">=</span>10s<span class="w"> </span>--retries<span class="o">=</span><span class="m">3</span><span class="w"> </span>CMD<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>http://localhost:<span class="si">${</span><span class="nv">PORT</span><span class="k">:-</span><span class="nv">8080</span><span class="si">}</span>/health<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+
+<span class="c"># Use environment substitution at runtime</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mix&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;release&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p><strong>Secrets in Production Docker:</strong></p>
+<p><strong>Option 1: Build-time environment variables (recommended)</strong>
+<div class="highlight"><pre><span></span><code><span class="k">ARG</span><span class="w"> </span>DATABASE_URL
+<span class="k">ARG</span><span class="w"> </span>SECRET_KEY_BASE
+
+<span class="c"># Inject at build time (encrypted)</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">DATABASE_URL</span><span class="si">}</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">SECRET_KEY_BASE</span><span class="o">=</span><span class="si">${</span><span class="nv">SECRET_KEY_BASE</span><span class="si">}</span>
+</code></pre></div></p>
+<p><strong>Option 2: Runtime secrets via Docker Compose</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">secrets</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">production_db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres://prod-db:5432/mydb</span>
+<span class="w">      </span><span class="nt">SECRET_KEY_BASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_SECRET_KEY}</span>
+<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./db-secret.env</span><span class="w">  </span><span class="c1"># Create a file for Docker Compose to read</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./db-secret.env</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">DATABASE_URL</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">from: file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./db-secret.env</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">SECRET_KEY_BASE</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">from: file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./db-secret.env</span>
+</code></pre></div></p>
+<p><strong>Docker Secrets (for self-hosted):</strong></p>
+<p>For Kubernetes or Docker Swarm, use:
+<div class="highlight"><pre><span></span><code><span class="c1"># Create Kubernetes secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>phoenix-secrets<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span>password<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span>user<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span>database-url<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span>secret-key
+
+<span class="c1"># Mount as file in pod</span>
+<span class="c1"># In deployment.yaml:</span>
+envFrom:
+<span class="w">  </span>-<span class="w"> </span>secretRef:
+<span class="w">      </span>name:<span class="w"> </span>phoenix-secrets
+<span class="w">      </span>secretName:<span class="w"> </span>database-url
+</code></pre></div></p>
+<hr />
+<h2 id="build-release-configuration">Build &amp; Release Configuration</h2>
+<h3 id="phoenix-configuration">Phoenix Configuration</h3>
+<p><code>config/prod.exs</code>:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nc">Config</span>
+
+<span class="c1"># Runtime configuration</span>
+<span class="n">config</span><span class="w"> </span><span class="ss">:my_ash_phoenix_app</span><span class="p">,</span><span class="w"> </span><span class="nc">MyAshPhoenixAppWeb.Endpoint</span><span class="p">,</span>
+<span class="w">  </span><span class="c1"># Ensure proper secret loading</span>
+<span class="w">  </span><span class="ss">runtime</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:system</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LIBRARY:system, LIBRARY:stdlib&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:system</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LIBRARY:logger, level: :info}</span>
+<span class="s2">  ]</span>
+
+<span class="err">#</span><span class="s2"> Use Phoenix config helper for secrets</span>
+<span class="s2">config :my_ash_phoenix_app, MyAshPhoenixApp.Repo,</span>
+<span class="s2">  secret_key_base: System.get_env(&quot;</span><span class="nc">SECRET_KEY_BASE</span><span class="s2">&quot;),</span>
+<span class="s2">  secret_key: System.get_env(&quot;</span><span class="nc">SECRET_KEY</span><span class="s2">&quot;),</span>
+<span class="s2">  database_url: System.get_env(&quot;</span><span class="nc">DATABASE_URL</span><span class="s2">&quot;)</span>
+</code></pre></div></p>
+<p><code>mix.exs</code> (add these):
+<div class="highlight"><pre><span></span><code><span class="kd">defp</span><span class="w"> </span><span class="n">deps</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:phoenix</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 1.7.0 or ~&gt; 1.7.0&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:jason</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 2.0&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:phoenix_live_view</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 1.0.0 or ~&gt; 1.0.0&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></p>
+<hr />
+<h2 id="clustering-configuration">Clustering Configuration</h2>
+<h3 id="erlang-vm-clustering-basics">Erlang VM Clustering Basics</h3>
+<p><strong>Purpose:</strong> Enable multiple Elixir/Phoenix instances to communicate and share state.</p>
+<p><strong>When Needed:</strong>
+- Phoenix LiveView with pub/sub
+- Distributed processing with Oban workers
+- Real-time features across regions</p>
+<p><strong>Configuration Variables:</strong>
+- <code>RELEASE_DISTRIBUTION="name"</code> - Use Erlang named distribution
+- <code>RELEASE_NODE="name@ip"</code> - Unique node name with IP
+- <code>ERL_AFLAGS="-proto_dist inet6_tcp"</code> - IPv6 for Erlang distribution
+- <code>ECTO_IPV6="true"</code> - Ecto IPv6 connections
+- <code>DNS_CLUSTER_QUERY="app_name.internal"</code> - DNS-based node discovery</p>
+<p><strong>For Fly.io Multi-Region:</strong></p>
+<p>Add to <code>fly.toml</code>:
+<div class="highlight"><pre><span></span><code><span class="k">[build]</span>
+<span class="w">  </span><span class="k">[build]</span>
+<span class="w">    </span><span class="k">[env]</span>
+<span class="w">      </span><span class="n">PHX_MAX_PORTS</span><span class="o">=</span><span class="mi">16108</span>
+<span class="w">      </span><span class="n">RELEASE_DISTRIBUTION</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
+<span class="w">      </span><span class="n">ERL_AFLAGS</span><span class="o">=</span><span class="s2">&quot;-proto_dist inet6_tcp&quot;</span>
+</code></pre></div></p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Symptoms</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>App crashes on deploy</strong></td>
+<td>Missing DATABASE_URL</td>
+<td>Add <code>fly secrets set DATABASE_URL</code></td>
+</tr>
+<tr>
+<td><strong>Cannot connect to database</strong></td>
+<td>IPv6 issue</td>
+<td>Set <code>ECTO_IPV6="true"</code> in config</td>
+</tr>
+<tr>
+<td><strong>Clustering not working</strong></td>
+<td>Nodes not finding each other</td>
+<td>Verify <code>DNS_CLUSTER_QUERY</code> and network policies</td>
+</tr>
+<tr>
+<td><strong>Hot upgrade failed</strong></td>
+<td>Erlang release error</td>
+<td>Use <code>fly deploy</code> instead of manual restart</td>
+</tr>
+</tbody>
+</table>
+<h3 id="log-analysis-commands">Log Analysis Commands</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fly.io - View last 100 log lines</span>
+fly<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span>
+
+<span class="c1"># Render - Download logs</span>
+render<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">200</span>
+
+<span class="c1"># Check Fly.io status</span>
+fly<span class="w"> </span>status
+
+<span class="c1"># Connect to remote node (Fly.io)</span>
+fly<span class="w"> </span>ssh<span class="w"> </span>console
+iex<span class="o">(</span>my_app@fly_ip<span class="o">)</span>&gt;<span class="w"> </span>Node.list
+</code></pre></div>
+<hr />
+<h2 id="security-best-practices">Security Best Practices</h2>
+<h3 id="the-2025-env-security-checklist">The 2025 .env Security Checklist</h3>
+<ul>
+<li>[ ] <strong>Add <code>.env</code> to <code>.gitignore</code> immediately</strong></li>
+<li>[ ] <strong>Never commit secrets</strong> - No exceptions, no "just this once"</li>
+<li>[ ] <strong>Use <code>.env.example</code> for templates</strong> - Document required variables with placeholders</li>
+<li>[ ] <strong>Use platform secrets</strong> - Fly.io secrets, Render env vars, Docker secrets</li>
+<li>[ ] <strong>Rotate secrets regularly</strong> - Every 90 days for critical secrets</li>
+<li>[ ] <strong>Audit access</strong> - Remove unnecessary deploy access when project is complete</li>
+<li>[ ] <strong>Use least privilege</strong> - Give deploy tools minimum required permissions</li>
+<li>[ ] <strong>Encrypt sensitive data</strong> - Use encryption for secrets at rest or in files</li>
+<li>[ ] <strong>Separate environments</strong> - Different secrets for dev, staging, prod</li>
+<li>[ ] <strong>Avoid secret leakage in logs</strong> - Ensure no <code>IO.inspect(secrets)</code> in production code</li>
+<li>[ ] <strong>Monitor for leaks</strong> - Use GitHub Advanced Security or commercial tools</li>
+<li>[ ] <strong>Document secret management</strong> - Keep deployment guide updated with current practices</li>
+</ul>
+<h3 id="tools-for-env-security">Tools for .env Security</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check for leaked secrets (GitHub)</span>
+git-secrets-scan<span class="w"> </span>--repo<span class="w"> </span>./<span class="w"> </span>--baseline<span class="w"> </span>HEAD
+
+<span class="c1"># Check git history for potential secrets</span>
+git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--full-history<span class="w"> </span>--oneline<span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;*secret*&quot;</span>
+
+<span class="c1"># Verify .gitignore includes .env patterns</span>
+git<span class="w"> </span>check-ignore<span class="w"> </span>.env
+git<span class="w"> </span>status
+
+<span class="c1"># Pre-commit hook (prevent accidental commits)</span>
+<span class="c1">#!/bin/bash</span>
+<span class="k">if</span><span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>--name-only<span class="w"> </span>--diff-filter<span class="o">=</span>A/M<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;^+.env</span>$<span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-vq<span class="w"> </span><span class="s2">&quot;^-M&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;WARNING: Attempting to commit .env file&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+</code></pre></div>
+<hr />
+<h2 id="example-deployment-workflow">Example Deployment Workflow</h2>
+<h3 id="development-docker-compose">Development (Docker Compose)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Start services with environment variables</span>
+docker-compose<span class="w"> </span>--env-file<span class="w"> </span>.env.dev<span class="w"> </span>up
+
+<span class="c1"># 2. Make migrations</span>
+docker-compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>web<span class="w"> </span>mix<span class="w"> </span>ecto.migrate
+
+<span class="c1"># 3. Test app</span>
+curl<span class="w"> </span>http://localhost:4000/posts
+</code></pre></div>
+<h3 id="production-flyio">Production (Fly.io)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Install Fly CLI and login</span>
+curl<span class="w"> </span>-L<span class="w"> </span>https://fly.io/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+fly<span class="w"> </span>auth<span class="w"> </span>login
+
+<span class="c1"># 2. Create Phoenix release</span>
+<span class="nb">cd</span><span class="w"> </span>/path/to/my_ash_phoenix_app
+mix<span class="w"> </span>phx.gen.release
+
+<span class="c1"># 3. Set production secrets</span>
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://prod-db.fly.dev:5432/mydb
+fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">SECRET_KEY_BASE</span><span class="o">=</span><span class="k">$(</span>mix<span class="w"> </span>phx.gen.secret<span class="k">)</span>
+
+<span class="c1"># 4. Deploy</span>
+fly<span class="w"> </span>deploy
+
+<span class="c1"># 5. Verify deployment</span>
+fly<span class="w"> </span>status
+fly<span class="w"> </span>logs
+</code></pre></div>
+<hr />
+<h2 id="resources">Resources</h2>
+<h3 id="official-documentation">Official Documentation</h3>
+<ul>
+<li>Phoenix deployment guide: https://hexdocs.pm/phoenix/fly.html</li>
+<li>Ash getting started guide: https://hexdocs.pm/ash_phoenix/1.2.17/getting-started-with-ash-and-phoenix.html</li>
+<li>Ash documentation: https://hexdocs.pm/ash</li>
+<li>Fly.io secrets docs: https://fly.io/docs/apps/secrets/</li>
+<li>Render deployment docs: https://render.com/docs/deploy-phoenix/</li>
+<li>Render Secret Files: https://render.com/docs/docker-secrets/</li>
+</ul>
+<h3 id="community-resources">Community Resources</h3>
+<ul>
+<li>Ash Framework: https://ash-hq.org</li>
+<li>AshPhoenix helper library: https://hexdocs.pm/ash_phoenix/1.2.17</li>
+<li>Elixir deployment guides: https://elixirforum.com</li>
+<li>Phoenix deployment community: https://phoenixframework.org/docs/deployments</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-03-20
+<strong>Verified:</strong> All tools and documentation verified for current compatibility
+<strong>Researched via:</strong> Google search via Playwright MCP, official documentation sites</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

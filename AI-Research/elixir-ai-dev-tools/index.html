@@ -1,0 +1,3250 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AI-Research/elixir-ai-dev-tools/">
+      
+      
+        <link rel="prev" href="../claude-code-elixir/">
+      
+      
+        <link rel="next" href="../elixir-debugging-tools/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Elixir AI Tools for Development - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elixir-ai-tools-for-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Elixir AI Tools for Development
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-prompting-ux-design-pipelines/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ash-phoenix-deployment-with-safe-env-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-business-automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3v18h6v-3.5h2V21h6V3zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm8 0h2v2h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Business Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-elixir/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8 5H9v2c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v2h2v2H9c-1.1 0-2-.9-2-2v-1c0-1.1-.9-2-2-2v-2c1.1 0 2-.9 2-2V8c0-1.1.9-2 2-2h2zm8 5c-1.1 0-2 .9-2 2v1c0 1.1-.9 2-2 2h-2v-2h2v-2c0-1.1.9-2 2-2-1.1 0-2-.9-2-2V8h-2V6h2c1.1 0 2 .9 2 2v1c0 1.1.9 2 2 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Elixir Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-coding-agents-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Coding Agents &amp; Assistants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Coding Agents &amp; Assistants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sagents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alloy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alloy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shifts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shifts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excode-elixir-coding-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExCode (elixir-coding-agent)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubber-duck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rubber Duck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alexclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlexClaw
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      NexAgent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-intent-driven-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Intent Driven Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoforge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autoforge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixirclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElixirClaw
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jidocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      JidoCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-session-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Session Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-debugging-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Debugging Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Debugging Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elixirscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElixirScope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sagents-live-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sagents Live Debugger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacktracegpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      StacktraceGpt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exunit-json-ai-friendly-test-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExUnit JSON (AI-friendly test output)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ksomnia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ksomnia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-code-analysis-static-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Code Analysis &amp; Static Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Code Analysis &amp; Static Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codicil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codicil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fnord" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fnord
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicada-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cicada MCP Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-sdks-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI SDKs &amp; Infrastructure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI SDKs &amp; Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-agent-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Agent SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amp-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amp SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altar-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altar AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-sdk-ex" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI SDK Ex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-client-protocol-acp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Client Protocol (ACP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-cli-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemini CLI SDK
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-agent-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Agent Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Agent Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sagents-sage-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sagents (Sage Agents)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alloy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alloy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jido" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jido
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-model-context-protocol-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCP (Model Context Protocol) Servers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP (Model Context Protocol) Servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tidewave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tidewave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codicil_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codicil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-session-manager_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Session Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-friendly-testing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI-Friendly Testing Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI-Friendly Testing Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exunit-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExUnit JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hammox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hammox
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awesome-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Awesome Lists
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Awesome Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awesome-ml-genai-in-elixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Awesome ML &amp; GenAI in Elixir
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-developers-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Developers &amp; Organizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-insights-from-elixirforum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Insights from ElixirForum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-links-all-3-years-old" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Links (All ≤ 3 Years Old)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-debugging-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elixir-vs-javascript-ecosystem-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Why Elixir is Shadowed by JavaScript/TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jido-jido_ai-phoenix-ash-claude-installation-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Installing Jido/Jido_AI into Ash/Phoenix with Claude Code Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-symphony-ai-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    OpenAI Symphony - AI Agent Orchestration for Phoenix Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openclaw-project-manager-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Using OpenClaw as Project Manager for Website Companies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serena-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Serena - AI Coding Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../code-cli/Phoenix-deployment-guide-2026/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../elixir/phoenix-ecosystem-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Elixir
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../homelab/adguard/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Homelab
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llms/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-coding-agents-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Coding Agents &amp; Assistants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Coding Agents &amp; Assistants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sagents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sagents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alloy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alloy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shifts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shifts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excode-elixir-coding-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExCode (elixir-coding-agent)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rubber-duck" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rubber Duck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alexclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      AlexClaw
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      NexAgent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-intent-driven-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Intent Driven Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoforge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autoforge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixirclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElixirClaw
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jidocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      JidoCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-session-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Session Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-debugging-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Debugging Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Debugging Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elixirscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElixirScope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sagents-live-debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sagents Live Debugger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacktracegpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      StacktraceGpt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exunit-json-ai-friendly-test-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExUnit JSON (AI-friendly test output)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ksomnia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ksomnia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-code-analysis-static-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Code Analysis &amp; Static Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Code Analysis &amp; Static Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codicil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codicil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fnord" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fnord
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicada-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cicada MCP Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-sdks-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI SDKs &amp; Infrastructure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI SDKs &amp; Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-agent-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Agent SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amp-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amp SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altar-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altar AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-sdk-ex" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI SDK Ex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-client-protocol-acp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Client Protocol (ACP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-cli-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemini CLI SDK
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-agent-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Agent Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Agent Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sagents-sage-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sagents (Sage Agents)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alloy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alloy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jido" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jido
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-model-context-protocol-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCP (Model Context Protocol) Servers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP (Model Context Protocol) Servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tidewave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tidewave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codicil_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codicil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-session-manager_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Session Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-friendly-testing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI-Friendly Testing Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI-Friendly Testing Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exunit-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExUnit JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hammox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hammox
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awesome-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Awesome Lists
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Awesome Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awesome-ml-genai-in-elixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Awesome ML &amp; GenAI in Elixir
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-developers-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Developers &amp; Organizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-insights-from-elixirforum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Insights from ElixirForum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-links-all-3-years-old" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Links (All ≤ 3 Years Old)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">agents</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">ai</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">debugging</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">development-tools</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">elixir</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="elixir-ai-tools-for-development">Elixir AI Tools for Development</h1>
+<blockquote>
+<p>Researched via Playwright MCP web searches. Last updated: 2026-03-19
+<strong>Note</strong>: Only tools with recent activity (≤ 3 years old) are included.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>The Elixir ecosystem has a growing set of AI-powered tools for development assistance, debugging, code analysis, and agent orchestration. This document catalogs current, maintained tools.</p>
+<h2 id="categories">Categories</h2>
+<ol>
+<li><a href="#ai-coding-agents--assistants">AI Coding Agents &amp; Assistants</a></li>
+<li><a href="#ai-debugging-tools">AI Debugging Tools</a></li>
+<li><a href="#ai-code-analysis--static-analysis">AI Code Analysis &amp; Static Analysis</a></li>
+<li><a href="#ai-sdks--infrastructure">AI SDKs &amp; Infrastructure</a></li>
+<li><a href="#ai-agent-frameworks">AI Agent Frameworks</a></li>
+<li><a href="#mcp-model-context-protocol-servers">MCP (Model Context Protocol) Servers</a></li>
+<li><a href="#ai-friendly-testing-tools">AI-Friendly Testing Tools</a></li>
+</ol>
+<hr />
+<h2 id="ai-coding-agents-assistants">AI Coding Agents &amp; Assistants</h2>
+<h3 id="sagents">Sagents</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/sagents-ai/sagents">sagents-ai/sagents</a></li>
+<li><strong>Stars</strong>: 167 | <strong>Forks</strong>: 16</li>
+<li><strong>Description</strong>: Build interactive AI agents in Elixir with OTP supervision, middleware composition, human-in-the-loop approvals, sub-agent delegation, and real-time Phoenix LiveView integration. Built on LangChain.</li>
+<li><strong>Status</strong>: Active - v0.3.1 (Mar 2026)</li>
+</ul>
+<h3 id="alloy">Alloy</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/alloy-ex/alloy">alloy-ex/alloy</a></li>
+<li><strong>Stars</strong>: 41 | <strong>Forks</strong>: 2</li>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/alloy">hex.pm/alloy</a></li>
+<li><strong>Description</strong>: Model-agnostic agent harness for Elixir. Minimal, OTP-native agent loop. Completion-tool-call loop and nothing else.</li>
+<li><strong>Status</strong>: Active - v0.7.4 (Mar 2026)</li>
+</ul>
+<h3 id="shifts">Shifts</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/lebrunel/shifts">aaronrussell/shifts</a></li>
+<li><strong>Stars</strong>: 37</li>
+<li><strong>Description</strong>: Elixir framework for composing autonomous AI agent workflows using LLM backends.</li>
+<li><strong>Status</strong>: Last push Jun 2024</li>
+</ul>
+<h3 id="hive">Hive</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/chrisgreg/hive">chrisgreg/hive</a></li>
+<li><strong>Stars</strong>: 8</li>
+<li><strong>Description</strong>: Composable agent framework for Elixir: Build autonomous, schema-validated processing pipelines with retry mechanisms and LLM routing.</li>
+<li><strong>Status</strong>: Active - last push Jul 2025</li>
+</ul>
+<h3 id="excode-elixir-coding-agent">ExCode (elixir-coding-agent)</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/biraj21/ex-coding-agent">biraj21/ex-coding-agent</a></li>
+<li><strong>Stars</strong>: 5</li>
+<li><strong>Description</strong>: A coding agent REPL that connects to OpenAI-compatible APIs. Reads files, edits code, runs commands.</li>
+<li><strong>Status</strong>: Very new - created Mar 2026</li>
+</ul>
+<h3 id="rubber-duck">Rubber Duck</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/pcharbon70/rubber_duck">pcharbon70/rubber_duck</a></li>
+<li><strong>Stars</strong>: 4</li>
+<li><strong>Description</strong>: A concurrent, fault-tolerant and pluggable AI coding assistant in Elixir.</li>
+<li><strong>Status</strong>: Active - Aug 2025</li>
+</ul>
+<h3 id="alexclaw">AlexClaw</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/thatsme/AlexClaw">thatsme/AlexClaw</a></li>
+<li><strong>Stars</strong>: 22 | <strong>Forks</strong>: 1</li>
+<li><strong>Description</strong>: BEAM-native personal AI agent built on Elixir/OTP. Monitors RSS feeds, web sources, GitHub repos, APIs.</li>
+<li><strong>Status</strong>: Very active - v0.2.2 (Mar 2026), pushed today</li>
+</ul>
+<h3 id="nexagent">NexAgent</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/gofenix/nex-agent">gofenix/nex-agent</a></li>
+<li><strong>Description</strong>: Self-evolving AI agent system built on Elixir/OTP. Aimed at long-running, real-world use cases with persistent sessions and memory.</li>
+<li><strong>Status</strong>: Active - discussed on ElixirForum Mar 2026</li>
+</ul>
+<h3 id="ai-intent-driven-development">AI Intent Driven Development</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/Exadra37/ai-intent-driven-development">Exadra37/ai-intent-driven-development</a></li>
+<li><strong>Stars</strong>: 29</li>
+<li><strong>Description</strong>: AI Intent Driven Development (IDD) guidelines and instructions for AI Coding Agents, AI Coding Assistants, and LLMs.</li>
+<li><strong>Status</strong>: Active - Jan 2026</li>
+</ul>
+<h3 id="autoforge">Autoforge</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/iotrak/autoforge">iotrak/autoforge</a></li>
+<li><strong>Description</strong>: AI coding assistant for Ash/Phoenix/Elixir.</li>
+<li><strong>Status</strong>: Active - Mar 2026</li>
+</ul>
+<h3 id="elixirclaw">ElixirClaw</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/developerfred/ElixirClaw">developerfred/ElixirClaw</a></li>
+<li><strong>Stars</strong>: 11</li>
+<li><strong>Description</strong>: High-performance OpenClaw Node implemented in pure Elixir. Connect device to OpenClaw Gateway, expose AI capabilities.</li>
+<li><strong>Status</strong>: Active - Feb 2026</li>
+</ul>
+<h3 id="jidocode">JidoCode</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/agentjido/jido_code">agentjido/jido_code</a></li>
+<li><strong>Stars</strong>: 7</li>
+<li><strong>Description</strong>: Elixir/Phoenix + LiveView application exploring a practical "AI coding orchestrator" built on the Jido agent runtime.</li>
+<li><strong>Status</strong>: Active - v0.2.2 (Mar 2026)</li>
+</ul>
+<h3 id="agent-session-manager">Agent Session Manager</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/agent_session_manager">hex.pm/packages/agent_session_manager</a></li>
+<li><strong>Downloads</strong>: 72K all time, 17K last 30 days</li>
+<li><strong>Description</strong>: Comprehensive Elixir library for managing AI agent sessions, state persistence, conversation context, and multi-agent orchestration workflows.</li>
+<li><strong>Status</strong>: Very active - v0.8.0 (Feb 2026), 12 versions released</li>
+</ul>
+<hr />
+<h2 id="ai-debugging-tools">AI Debugging Tools</h2>
+<h3 id="elixirscope">ElixirScope</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/nshkrdotcom/ElixirScope">nshkrdotcom/ElixirScope</a></li>
+<li><strong>Stars</strong>: 5</li>
+<li><strong>Description</strong>: AI-Powered Execution Cinema Debugger for Elixir/BEAM.</li>
+<li><strong>Status</strong>: Active - May 2025</li>
+</ul>
+<h3 id="sagents-live-debugger">Sagents Live Debugger</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/sagents-ai/sagents_live_debugger">sagents-ai/sagents_live_debugger</a></li>
+<li><strong>Stars</strong>: 18</li>
+<li><strong>Description</strong>: A Phoenix LiveView dashboard for debugging and monitoring Sagents agents in real-time.</li>
+<li><strong>Status</strong>: Very active - updated Mar 2026 (5 days ago)</li>
+</ul>
+<h3 id="stacktracegpt">StacktraceGpt</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/stacktrace_gpt">hex.pm/packages/stacktrace_gpt</a></li>
+<li><strong>Downloads</strong>: 766 all time</li>
+<li><strong>Description</strong>: Helps analyze Elixir/Phoenix stacktraces with help of ChatGPT.</li>
+<li><strong>Status</strong>: Stale - last updated Nov 2023</li>
+</ul>
+<h3 id="exunit-json-ai-friendly-test-output">ExUnit JSON (AI-friendly test output)</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/ex_unit_json">hex.pm/packages/ex_unit_json</a></li>
+<li><strong>Description</strong>: AI-friendly JSON test output for ExUnit. Structured output for AI editors like Claude Code, Cursor.</li>
+<li><strong>Features</strong>: Deterministic test ordering, coverage gating, AI-optimized defaults</li>
+</ul>
+<h3 id="ksomnia">Ksomnia</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/ksomnia/ksomnia">ksomnia/ksomnia</a></li>
+<li><strong>Stars</strong>: 2</li>
+<li><strong>Description</strong>: Bug catching web application with LLM integration for intelligent fix suggestions and troubleshooting advice.</li>
+<li><strong>Status</strong>: Stale - last push Aug 2023</li>
+</ul>
+<hr />
+<h2 id="ai-code-analysis-static-analysis">AI Code Analysis &amp; Static Analysis</h2>
+<h3 id="assay">Assay</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/Ch4s3/assay">Ch4s3/assay</a></li>
+<li><strong>Stars</strong>: 5</li>
+<li><strong>Description</strong>: Elixir wrapper around Incremental Dialyzer with LLM-focused features. Reads Dialyzer settings from mix.exs, runs incremental engine, emits output for humans, CI, editors, and LLM-driven tools.</li>
+<li><strong>Features</strong>: <code>mix assay</code>, watch mode, multiple output formats</li>
+<li><strong>Status</strong>: Active - v0.3.0 (Jan 2026), pushed Mar 2026</li>
+</ul>
+<h3 id="codicil">Codicil</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/E-xyza/codicil">E-xyza/codicil</a></li>
+<li><strong>Stars</strong>: 44 | <strong>Forks</strong>: 4</li>
+<li><strong>Description</strong>: Advanced LLM MCP addon for Elixir. Semantic code search and analysis for Elixir projects via MCP (Model Context Protocol).</li>
+<li><strong>Status</strong>: Active - last push Nov 2025</li>
+</ul>
+<h3 id="fnord">Fnord</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/fnord">hex.pm/packages/fnord</a></li>
+<li><strong>Downloads</strong>: 5.4K all time</li>
+<li><strong>Description</strong>: AI code archaeology - helps understand legacy code.</li>
+</ul>
+<h3 id="cicada-mcp-server">Cicada MCP Server</h3>
+<ul>
+<li><strong>Website</strong>: <a href="https://antigravity.codes/mcp/cicada">antigravity.codes/mcp/cicada</a></li>
+<li><strong>Description</strong>: AST-powered code intelligence server for Elixir. 9 tools including function search, call site tracking, PR attribution, git history, semantic search. Reduces AI query tokens by 82%.</li>
+</ul>
+<hr />
+<h2 id="ai-sdks-infrastructure">AI SDKs &amp; Infrastructure</h2>
+<h3 id="claude-agent-sdk">Claude Agent SDK</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/claude_agent_sdk">hex.pm/packages/claude_agent_sdk</a></li>
+<li><strong>Downloads</strong>: 3.3K all time, 317 last 7 days</li>
+<li><strong>Description</strong>: Elixir SDK for Claude Code - Build AI-powered CLI tools with Claude.</li>
+<li><strong>Status</strong>: Very active - v0.16.0 (Mar 2026), 37 versions released</li>
+</ul>
+<h3 id="amp-sdk">Amp SDK</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/amp_sdk">hex.pm/packages/amp_sdk</a></li>
+<li><strong>Downloads</strong>: 24K all time</li>
+<li><strong>Description</strong>: Elixir SDK for the Amp CLI - programmatic access to Amp's AI coding agent.</li>
+<li><strong>Status</strong>: Active - v0.4.0</li>
+</ul>
+<h3 id="altar">Altar</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/altar">hex.pm/packages/altar</a></li>
+<li><strong>Downloads</strong>: 62K all time</li>
+<li><strong>Description</strong>: Robust, type-safe foundation for building AI agent tools in Elixir with clean contract for tool definitions.</li>
+<li><strong>Status</strong>: Active - v0.2.0</li>
+</ul>
+<h3 id="altar-ai">Altar AI</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/altar_ai">hex.pm/packages/altar_ai</a></li>
+<li><strong>Description</strong>: Protocol-based AI adapter foundation. Provides unified abstractions for gemini_ex, claude_agent_sdk, codex_sdk with automatic fallback.</li>
+<li><strong>Status</strong>: Active - v0.1.0</li>
+</ul>
+<h3 id="ai-sdk-ex">AI SDK Ex</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/ai_sdk_ex">hex.pm/packages/ai_sdk_ex</a></li>
+<li><strong>Downloads</strong>: 24K all time</li>
+<li><strong>Description</strong>: Minimal Elixir AI SDK scaffolding for streaming text with tool calls.</li>
+</ul>
+<h3 id="agent-client-protocol-acp">Agent Client Protocol (ACP)</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/agent_client_protocol">hex.pm/packages/agent_client_protocol</a></li>
+<li><strong>Description</strong>: Elixir implementation of Agent Client Protocol for communication between code editors and AI coding agents.</li>
+<li><strong>Status</strong>: v0.1.0</li>
+</ul>
+<h3 id="gemini-cli-sdk">Gemini CLI SDK</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/nshkrdotcom/gemini_cli_sdk">nshkrdotcom/gemini_cli_sdk</a></li>
+<li><strong>Description</strong>: Elixir SDK for Gemini CLI - streaming, structured output, session management, OTP supervision tree integration.</li>
+<li><strong>Status</strong>: Active - created Feb 2026</li>
+</ul>
+<hr />
+<h2 id="ai-agent-frameworks">AI Agent Frameworks</h2>
+<h3 id="sagents-sage-agents">Sagents (Sage Agents)</h3>
+<ul>
+<li><strong>Description</strong>: Combining wisdom of a Sage with LLM-based agents. OTP supervision, middleware, human-in-the-loop, sub-agent delegation, LiveView integration.</li>
+<li><strong>Built on</strong>: LangChain</li>
+</ul>
+<h3 id="alloy_1">Alloy</h3>
+<ul>
+<li><strong>Description</strong>: Minimal OTP-native agent loop. Completion-tool-call loop. Swap providers with one line. Run agents as supervised GenServers.</li>
+<li><strong>Philosophy</strong>: No opinions on sessions, persistence, memory, scheduling, UI.</li>
+</ul>
+<h3 id="jido">Jido</h3>
+<ul>
+<li><strong>Description</strong>: Agent runtime with Sprites sandboxes for isolated execution.</li>
+</ul>
+<hr />
+<h2 id="mcp-model-context-protocol-servers">MCP (Model Context Protocol) Servers</h2>
+<h3 id="tidewave">Tidewave</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/tidewave">hex.pm/packages/tidewave</a></li>
+<li><strong>Description</strong>: Speeds up development with AI assistant that understands your web application. Current release connects editor's assistant to your Elixir project via MCP.</li>
+<li><strong>Features</strong>: Ecto tools, Phoenix tools, logs, git, source code analysis</li>
+</ul>
+<h3 id="codicil_1">Codicil</h3>
+<ul>
+<li><strong>Description</strong>: Semantic code search and analysis via MCP. Ask questions in natural language, find functions by behavior, trace dependencies.</li>
+<li><strong>Features</strong>: Find similar functions, get function source, list callees, semantic search</li>
+</ul>
+<h3 id="agent-session-manager_1">Agent Session Manager</h3>
+<ul>
+<li><strong>Description</strong>: MCP integration for managing AI agent sessions.</li>
+</ul>
+<hr />
+<h2 id="ai-friendly-testing-tools">AI-Friendly Testing Tools</h2>
+<h3 id="exunit-json">ExUnit JSON</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/ex_unit_json">hex.pm/packages/ex_unit_json</a></li>
+<li><strong>Description</strong>: AI-friendly JSON test output for ExUnit.</li>
+<li><strong>Features</strong>:</li>
+<li>Structured JSON output for Claude Code, Cursor, etc.</li>
+<li>Deterministic test ordering</li>
+<li>Coverage with <code>--cover</code> and threshold gating</li>
+<li>AI-optimized defaults (shows failures only)</li>
+</ul>
+<h3 id="hammox">Hammox</h3>
+<ul>
+<li><strong>Hex</strong>: <a href="https://hex.pm/packages/hammox">hex.pm/packages/hammox</a></li>
+<li><strong>Downloads</strong>: 4.1M all time</li>
+<li><strong>Description</strong>: Automated contract testing for functions and mocks.</li>
+<li><strong>Status</strong>: Active - v0.7.1 (Jul 2025)</li>
+</ul>
+<hr />
+<h2 id="awesome-lists">Awesome Lists</h2>
+<h3 id="awesome-ml-genai-in-elixir">Awesome ML &amp; GenAI in Elixir</h3>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/georgeguimaraes/awesome-ml-gen-ai-elixir">georgeguimaraes/awesome-ml-gen-ai-elixir</a></li>
+<li><strong>Stars</strong>: 249 | <strong>Forks</strong>: 12</li>
+<li><strong>Description</strong>: Curated list of Machine Learning and GenAI packages and resources for Elixir.</li>
+<li><strong>Status</strong>: Very active - v7 (Feb 2026)</li>
+</ul>
+<hr />
+<h2 id="key-developers-organizations">Key Developers &amp; Organizations</h2>
+<table>
+<thead>
+<tr>
+<th>Organization</th>
+<th>Notable Projects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nshkrdotcom</td>
+<td>Claude Agent SDK, Agent Session Manager, Gemini CLI SDK, ElixirScope, Tidewave</td>
+</tr>
+<tr>
+<td>sagents-ai</td>
+<td>Sagents, Sagents Live Debugger</td>
+</tr>
+<tr>
+<td>E-xyza</td>
+<td>Codicil</td>
+</tr>
+<tr>
+<td>alloy-ex</td>
+<td>Alloy</td>
+</tr>
+<tr>
+<td>agentjido</td>
+<td>JidoCode</td>
+</tr>
+<tr>
+<td>thatsme</td>
+<td>AlexClaw</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="research-notes">Research Notes</h2>
+<h3 id="community-insights-from-elixirforum">Community Insights from ElixirForum</h3>
+<ul>
+<li>"Most agent projects are optimized for one-shot tasks: run a prompt, call a few tools, return a result, exit."</li>
+<li>"NexAgent is aimed at a different problem: keep an agent online, put it inside chat apps, give it persistent sessions and memory, let it run autonomously for weeks."</li>
+<li>Cursor with Sonnet 3.5 + agent feature in composer is popular for Elixir development</li>
+<li>GitHub Copilot has made great suggestions for Elixir syntax</li>
+</ul>
+<h3 id="security-considerations">Security Considerations</h3>
+<ul>
+<li>Secure AI Coding in Elixir talk at Elixir Montreal Sept 2025 (YouTube)</li>
+</ul>
+<hr />
+<h2 id="external-links-all-3-years-old">External Links (All ≤ 3 Years Old)</h2>
+<table>
+<thead>
+<tr>
+<th>Link</th>
+<th>Date</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.reddit.com/r/elixir/comments/1ihsih0/best_ai_code_assistants_for_elixir/">Reddit: Best AI code assistants for Elixir</a></td>
+<td>~1 year ago</td>
+<td>Community discussion</td>
+</tr>
+<tr>
+<td><a href="https://www.reddit.com/r/elixir/comments/1rpz7s4/nexagent_a_selfevolving_ai_agent_built_on/">ElixirForum: NexAgent self-evolving AI agent</a></td>
+<td>~1 week ago</td>
+<td>Mar 2026</td>
+</tr>
+<tr>
+<td><a href="https://www.reddit.com/r/elixir/comments/1rv1scb/more_fun_with_multiagent_orchestration/">ElixirForum: Multi-Agent Orchestration</a></td>
+<td>~3 days ago</td>
+<td>Mar 2026</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=H1iyBresVkM">Thinking Elixir Podcast: Sage Advice for AI Agents</a></td>
+<td>Feb 2026</td>
+<td>Very recent</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=ojaoe3h8hXA">YouTube: We Vibe Coded with AI in 2 Hours</a></td>
+<td>Jun 2025</td>
+<td>~9 months old</td>
+</tr>
+<tr>
+<td><a href="https://elixirforum.com/t/x-trace-a-new-tool-for-easy-to-use-recon-trace/55120">ElixirForum: X-Trace announcement</a></td>
+<td>Apr 2023</td>
+<td>~3 years old - borderline</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=biSJm-S08Qw">Secure AI Coding in Elixir - Elixir Montréal</a></td>
+<td>Sep 2025</td>
+<td>~6 months old</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Researched via Playwright MCP web searches on GitHub, Hex.pm, and ElixirForum.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

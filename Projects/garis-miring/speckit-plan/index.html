@@ -1,0 +1,2073 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/Projects/garis-miring/speckit-plan/">
+      
+      
+        <link rel="prev" href="../phoenix/">
+      
+      
+        <link rel="next" href="../speckit-planv2/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Spec Plan - Service Marketplace - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spec-plan-service-marketplace-ash-framework-elixir" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spec Plan - Service Marketplace
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Garis Miring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            Garis Miring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../garismiring/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6c.58 0 1.05.2 1.42.59.38.41.58.86.58 1.41v11c0 .55-.2 1-.58 1.41-.37.39-.84.59-1.42.59H4c-.58 0-1.05-.2-1.42-.59C2.2 20 2 19.55 2 19V8c0-.55.2-1 .58-1.41C2.95 6.2 3.42 6 4 6h4V4c0-.58.2-1.05.58-1.42C8.95 2.2 9.42 2 10 2h4c.58 0 1.05.2 1.42.58.38.37.58.84.58 1.42v2zM4 8v11h16V8zm10-2V4h-4v2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Garis Miring Speckit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phoenix/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6c.58 0 1.05.2 1.42.59.38.41.58.86.58 1.41v11c0 .55-.2 1-.58 1.41-.37.39-.84.59-1.42.59H4c-.58 0-1.05-.2-1.42-.59C2.2 20 2 19.55 2 19V8c0-.55.2-1 .58-1.41C2.95 6.2 3.42 6 4 6h4V4c0-.58.2-1.05.58-1.42C8.95 2.2 9.42 2 10 2h4c.58 0 1.05.2 1.42.58.38.37.58.84.58 1.42v2zM4 8v11h16V8zm10-2V4h-4v2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Garis Miring Speckit (Phoenix)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-7 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M7 7h10V5h2v14H5V5h2zm.5 6.5L9 12l2 2 4.5-4.5L17 11l-6 6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Spec Plan - Service Marketplace
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-7 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M7 7h10V5h2v14H5V5h2zm.5 6.5L9 12l2 2 4.5-4.5L17 11l-6 6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Spec Plan - Service Marketplace
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-level goals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tech stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actors-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actors / Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-domain-resources-ash-style-conceptual-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Domain Resources (Ash-style conceptual list)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apis-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIs (REST)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="APIs (REST)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-customer-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public / Customer APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provider-project-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider / Project APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks-boards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks &amp; Boards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realtime-ui-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realtime / UI plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realtime-architecture-how-updates-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realtime architecture (how updates flow)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-concurrency-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background &amp; concurrency strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notifications-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notifications &amp; communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Authorization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensibility-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensibility &amp; integrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing &amp; Quality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-migrations-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data migrations &amp; deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestones-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Milestones (example)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceptance criteria (example)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-functional requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-elixir-ash-for-this-project-key-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why use Elixir &amp; Ash for this project (key advantages)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risks &amp; mitigations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-next-steps-non-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes / Next steps (non-code)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speckit-planv2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1M7 7h10V5h2v14H5V5h2zm5 10v-2h5v2zm0-6V9h5v2zm-4 1V9H7V8h2v4zm1.25 2c.41 0 .75.34.75.75 0 .2-.08.39-.21.52L8.12 17H10v1H7v-.92L9 15H7v-1z"/></svg>
+  
+  <span class="md-ellipsis">
+    Speckit Plan v2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speckit/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.58 2 11a7.22 7.22 0 0 0 2.75 5.5c0 .6-.42 2.17-2.75 4.5 2.37-.11 4.64-1 6.47-2.5 1.14.33 2.34.5 3.53.5 5.5 0 10-3.58 10-8s-4.5-8-10-8m0 14c-4.42 0-8-2.69-8-6s3.58-6 8-6 8 2.69 8 6-3.58 6-8 6m5-5v-2h-2v2zm-4 0v-2h-2v2zm-4 0v-2H7v2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Prompt For Spec Kit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../AI-Research/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-level goals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tech stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actors-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actors / Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-domain-resources-ash-style-conceptual-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Domain Resources (Ash-style conceptual list)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apis-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIs (REST)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="APIs (REST)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-customer-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public / Customer APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provider-project-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider / Project APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks-boards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasks &amp; Boards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realtime-ui-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realtime / UI plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realtime-architecture-how-updates-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realtime architecture (how updates flow)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-concurrency-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background &amp; concurrency strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notifications-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notifications &amp; communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Authorization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensibility-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensibility &amp; integrations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing &amp; Quality
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-migrations-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data migrations &amp; deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestones-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Milestones (example)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceptance-criteria-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceptance criteria (example)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-functional requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-elixir-ash-for-this-project-key-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why use Elixir &amp; Ash for this project (key advantages)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risks &amp; mitigations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-next-steps-non-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes / Next steps (non-code)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">ash</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">elixir</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">plan</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">speckit</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="spec-plan-service-marketplace-ash-framework-elixir">Spec Plan — Service Marketplace (Ash Framework / Elixir)</h1>
+<p><strong>Name:</strong> ServiceMarket (e-commerce for services)
+<strong>Summary:</strong> A marketplace for booking and managing services (not physical goods). Built with Elixir/Ash Framework, PostgreSQL, Phoenix LiveView for realtime UI. Exposes a REST API for Projects/Services/Tasks/Bookings/Notifications and supports drag-and-drop task/board interactions with realtime updates.</p>
+<hr />
+<h2 id="high-level-goals">High-level goals</h2>
+<ul>
+<li>Enable service providers to list services and manage bookings.</li>
+<li>Enable customers to browse, book, and track service tasks.</li>
+<li>Provide a drag-and-drop board view (kanban) for service workflows with realtime collaboration.</li>
+<li>Expose REST APIs: Projects (or ServiceGroups), Services, Tasks (work items), Bookings/Orders, Notifications.</li>
+<li>Strong consistency for bookings, resilient background processing for long-running jobs, and realtime notifications.</li>
+</ul>
+<hr />
+<h2 id="tech-stack">Tech stack</h2>
+<ul>
+<li><strong>Backend language / framework:</strong> Elixir + Ash Framework (resources + APIs)</li>
+<li><strong>Web framework / realtime UI:</strong> Phoenix + LiveView (server-rendered, realtime)</li>
+<li><strong>Database:</strong> PostgreSQL (Ash Postgres adapter)</li>
+<li><strong>Pub/Sub / messaging:</strong> Phoenix.PubSub (or Ash PubSub integration)</li>
+<li><strong>Background jobs / workers:</strong> GenServer / Task / Oban (optional)</li>
+<li><strong>Authentication:</strong> Guardian / Pow / Ash authentication patterns (token and session)</li>
+<li><strong>Frontend:</strong> Phoenix LiveView + minimal JS hooks for drag/drop and client behaviors (Blazor equivalent replaced by LiveView)</li>
+<li><strong>APIs:</strong> REST endpoints generated/defined via Ash APIs (JSON), optionally GraphQL via Absinthe if later desired</li>
+</ul>
+<hr />
+<h2 id="actors-roles">Actors / Roles</h2>
+<ul>
+<li><strong>Admin</strong> — full site management, manage providers, categories, global settings</li>
+<li><strong>Service Provider</strong> — create/maintain services, manage schedule, accept/decline bookings, manage tasks on boards</li>
+<li><strong>Customer</strong> — browse services, make bookings, view order and task progress</li>
+<li><strong>Worker / Technician</strong> — assigned to tasks, update status on boards</li>
+<li><strong>System / Scheduler</strong> — background processes for reminders, retries, external integrations</li>
+</ul>
+<hr />
+<h2 id="core-domain-resources-ash-style-conceptual-list">Core Domain Resources (Ash-style conceptual list)</h2>
+<ul>
+<li><strong>User</strong> — attributes: name, email, role, profile, contact info</li>
+<li><strong>ServiceCategory</strong> — hierarchical categories for services</li>
+<li><strong>Service</strong> — title, description, price model (fixed / hourly), provider_id, availability windows, metadata</li>
+<li><strong>Project / ServiceGroup</strong> — optional grouping of related services for big contracts</li>
+<li><strong>Booking / Order</strong> — customer_id, service_id, scheduled_time, status (pending, confirmed, in_progress, completed, canceled), payment_info_reference</li>
+<li><strong>Task / WorkItem</strong> — booking_id, assigned_to, status, priority, board_column, position (for ordering)</li>
+<li><strong>Notification</strong> — user_id, type, payload, read_at, priority</li>
+<li><strong>ProviderProfile</strong> — provider-specific details, ratings, response time SLA</li>
+<li><strong>Audit / Activity</strong> — timeline entries for changes (for history &amp; audit)</li>
+</ul>
+<p><em>(Each resource will define validations, aggregates, relationships and actions in Ash — planned but not coded here.)</em></p>
+<hr />
+<h2 id="apis-rest">APIs (REST)</h2>
+<h3 id="public-customer-apis">Public / Customer APIs</h3>
+<ul>
+<li><code>GET /services</code> — list / search services</li>
+<li><code>GET /services/:id</code> — service detail</li>
+<li><code>POST /bookings</code> — create booking (auth required)</li>
+<li><code>GET /bookings/:id</code> — view booking status</li>
+</ul>
+<h3 id="provider-project-apis">Provider / Project APIs</h3>
+<ul>
+<li><code>GET /providers/:id/services</code> — provider services</li>
+<li><code>POST /services</code> — create service (provider auth)</li>
+<li><code>PUT /services/:id</code> — update service</li>
+<li><code>GET /projects/:id/board</code> — retrieve board state (tasks grouped by column)</li>
+<li><code>PATCH /tasks/:id</code> — update task (status / assignee / position)</li>
+</ul>
+<h3 id="tasks-boards">Tasks &amp; Boards</h3>
+<ul>
+<li><code>POST /tasks/reorder</code> — reorder tasks within/between columns (server accepts new positions)</li>
+<li><code>POST /tasks/assign</code> — assign user to task</li>
+</ul>
+<h3 id="notifications">Notifications</h3>
+<ul>
+<li><code>GET /notifications</code> — list user notifications</li>
+<li><code>POST /notifications/mark_read</code> — mark notifications read</li>
+</ul>
+<h3 id="admin">Admin</h3>
+<ul>
+<li>CRUD endpoints for users, categories, site settings</li>
+</ul>
+<p><em>(All endpoints return JSON; use standard HTTP status codes and include pagination and filtering.)</em></p>
+<hr />
+<h2 id="realtime-ui-plan">Realtime / UI plan</h2>
+<ul>
+<li>
+<p><strong>Primary UI:</strong> Phoenix LiveView pages for:</p>
+</li>
+<li>
+<p>Service catalog &amp; search</p>
+</li>
+<li>Provider dashboard</li>
+<li>Drag-and-drop Kanban board for bookings/tasks</li>
+<li>Booking flow &amp; realtime status updates</li>
+<li><strong>Drag-and-drop:</strong> implement with LiveView + JS hooks to capture drag events and push minimal events to the server to update task positions. Server updates broadcast via PubSub.</li>
+<li><strong>Realtime updates:</strong> when tasks/bookings change, publish events on Phoenix.PubSub; LiveView subscribers update clients instantly (no polling).</li>
+<li><strong>Presence:</strong> use Phoenix Presence for showing who’s viewing/editing a board and for optimistic collaboration cues (e.g., “Ari is editing Task X”).</li>
+<li><strong>Optimistic UI:</strong> small client-side interactions via JS hooks for snappy drag UX, with server authoritative ordering.</li>
+</ul>
+<hr />
+<h2 id="realtime-architecture-how-updates-flow">Realtime architecture (how updates flow)</h2>
+<ol>
+<li>Client drag-drop triggers a LiveView event (or JS hook + pushEvent).</li>
+<li>LiveView calls Ash action to reorder/update Task resource.</li>
+<li>Ash action persists change to Postgres.</li>
+<li>After commit, an Ash event / Phoenix PubSub broadcast is emitted (notification + board update).</li>
+<li>Interested LiveView processes receive it and re-render; browser updates in-place.</li>
+</ol>
+<hr />
+<h2 id="background-concurrency-strategy">Background &amp; concurrency strategy</h2>
+<ul>
+<li><strong>GenServer(s):</strong> manage short-lived booking state machines, throttling, and in-memory caches if needed (e.g., rate limiter, transient locks for concurrent booking attempts).</li>
+<li><strong>Supervision trees:</strong> each worker / scheduler managed under supervisors for restartability.</li>
+<li><strong>Long-running / scheduled jobs:</strong> prefer Oban (database-backed job processing) for retries, heavy tasks (notifications, external payments). Use GenServers for small, low-latency coordination tasks.</li>
+<li><strong>Transactions / consistency:</strong> use DB transactions for booking &amp; task moves when atomicity is required. Use optimistic locking/versioning for concurrency-sensitive records.</li>
+</ul>
+<hr />
+<h2 id="notifications-communication">Notifications &amp; communication</h2>
+<ul>
+<li><strong>Immediate in-app notifications:</strong> Phoenix.PubSub + LiveView push to connected clients.</li>
+<li><strong>Persistent notifications:</strong> stored in <code>Notification</code> resource (so users who are offline can fetch them).</li>
+<li><strong>Delivery channels:</strong> in-app (LiveView), email (via Swoosh), SMS/webhooks via background jobs.</li>
+<li><strong>Notification patterns:</strong> event-driven (on booking change, task reassignment, booking reminders).</li>
+</ul>
+<hr />
+<h2 id="security-authorization">Security &amp; Authorization</h2>
+<ul>
+<li><strong>Authentication:</strong> JWT/session + refresh tokens; support provider OAuth later.</li>
+<li><strong>Authorization:</strong> resource-level policies (Ash supports policy engines) with role checks (Admin/Provider/Customer).</li>
+<li><strong>Data validation &amp; sanitization:</strong> server-side validations in Ash resources for inputs and business rules.</li>
+<li><strong>Rate limiting &amp; abuse controls:</strong> GenServer or Plug-level rate limits for sensitive endpoints (bookings, logins).</li>
+</ul>
+<hr />
+<h2 id="extensibility-integrations">Extensibility &amp; integrations</h2>
+<ul>
+<li><strong>Payments:</strong> integrate Stripe or local payment gateways via background jobs.</li>
+<li><strong>Calendar sync:</strong> webhook or OAuth with Google Calendar for provider schedule sync.</li>
+<li><strong>External CRM / accounting:</strong> webhooks for export of bookings/invoices.</li>
+<li><strong>GraphQL (optional):</strong> add Absinthe on top for richer client integration later.</li>
+</ul>
+<hr />
+<h2 id="testing-quality">Testing &amp; Quality</h2>
+<ul>
+<li><strong>Unit tests:</strong> resource actions &amp; validations (Ash resource tests).</li>
+<li><strong>Integration tests:</strong> API endpoints, LiveView flows for critical paths (booking creation, task board operations).</li>
+<li><strong>Realtime tests:</strong> simulate PubSub broadcasts, presence usage, concurrency scenarios.</li>
+<li><strong>Load &amp; concurrency tests:</strong> booking contention, many simultaneous board updates.</li>
+<li><strong>CI:</strong> run test suite, static checks (Credo), Dialyzer, and release build pipeline.</li>
+</ul>
+<hr />
+<h2 id="data-migrations-deployment">Data migrations &amp; deployment</h2>
+<ul>
+<li><strong>Migrations:</strong> Ecto migrations for Postgres (or Ash Postgres managed migrations). Keep migration plan with rollbacks.</li>
+<li><strong>Deploy:</strong> build releases with Mix release; use Docker images with minimal Elixir runtime (distillery/mix release). Deploy to Kubernetes, Fly.io, or traditional VM.</li>
+<li><strong>Observability:</strong> logs (Logger), metrics (telemetry), tracing for long flows. Monitor queue/backlog health (Oban dashboard).</li>
+</ul>
+<hr />
+<h2 id="milestones-example">Milestones (example)</h2>
+<ol>
+<li>Project scaffolding, DB models (Ash resources) and core REST endpoints.</li>
+<li>Authentication + provider/customer flows + bookings persistence.</li>
+<li>LiveView-based provider dashboard + simple board UI (no DnD).</li>
+<li>Add drag-and-drop reordering + server-side ordering persistence.</li>
+<li>Realtime notifications + presence.</li>
+<li>Background jobs integration (reminders, payments).</li>
+<li>Hardening, tests, deployment automation.</li>
+</ol>
+<hr />
+<h2 id="acceptance-criteria-example">Acceptance criteria (example)</h2>
+<ul>
+<li>User can create a booking that becomes a task assigned to a provider.</li>
+<li>Provider sees booking appear on their LiveView board within 1s of creation.</li>
+<li>Users receive persistent notifications for booking state changes.</li>
+<li>Dragging a task between columns updates the DB and broadcasts to all connected clients.</li>
+<li>Concurrent booking attempts for the same slot are handled safely (only one confirmed).</li>
+</ul>
+<hr />
+<h2 id="non-functional-requirements">Non-functional requirements</h2>
+<ul>
+<li><strong>Scalability:</strong> horizontally scale Phoenix endpoints and job workers; stateful processes remain small and supervised.</li>
+<li><strong>Latency:</strong> LiveView updates should be sub-second for typical events.</li>
+<li><strong>Durability:</strong> bookings and critical notifications persisted in DB and retried on failure.</li>
+<li><strong>Resilience:</strong> supervisors ensure workers restart on crashes.</li>
+</ul>
+<hr />
+<h2 id="why-use-elixir-ash-for-this-project-key-advantages">Why use Elixir &amp; Ash for this project (key advantages)</h2>
+<ul>
+<li><strong>Realtime-first (Phoenix LiveView):</strong> LiveView gives server-rendered, stateful UI with realtime DOM updates — ideal for collaborative task boards and instant booking status updates without a heavy SPA. This dramatically reduces frontend complexity compared to client-side frameworks while keeping excellent UX.</li>
+<li><strong>Built-in PubSub &amp; Presence:</strong> Phoenix.PubSub and Presence make broadcasting updates and tracking connected users simple and robust — perfect for multi-user boards, presence indicators, and live notifications.</li>
+<li><strong>Concurrency &amp; fault tolerance (GenServer &amp; OTP):</strong> Elixir/OTP primitives (GenServer, Supervisors) allow modeling in-memory coordinators, locks, and stateful processes safely. Supervisors provide automatic restart strategies for reliability.</li>
+<li><strong>Ash Framework productivity:</strong> Ash provides declarative resource definitions, actions, and policies — dramatically reducing boilerplate for CRUD, validations, and API surface. Ash's adapters (Ash Postgres) streamline persistence, and Ash APIs can centralize REST endpoints with consistent behavior.</li>
+<li><strong>Performance &amp; scalability:</strong> BEAM (Erlang VM) excels at handling many concurrent connections (WebSocket/LiveView) and long-running processes with low memory overhead. Good fit for many simultaneous users interacting with boards and realtime updates.</li>
+<li><strong>Ecosystem compatibility:</strong> Easy integration with mature Elixir libraries (Oban for jobs, Swoosh for email, Telemetry for metrics) and straightforward deployment via releases or container images.</li>
+<li><strong>Safe concurrency patterns:</strong> Compared to ad-hoc locking solutions, OTP patterns encourage explicit, monitored processes for stateful coordination (reducing race conditions and improving maintainability).</li>
+</ul>
+<hr />
+<h2 id="risks-mitigations">Risks &amp; mitigations</h2>
+<ul>
+<li><strong>Drag-and-drop latency on high-latency networks:</strong> Use optimistic UI/local reordering and background reconciliation. Keep server the source of truth but reduce chattiness by batching reorder operations.</li>
+<li><strong>Concurrent booking conflicts:</strong> Use DB transactions and optimistic locks; consider dedicated GenServer or distributed locking for hot slots.</li>
+<li><strong>Learning curve for Ash:</strong> Ash is powerful but opinionated; allocate time for developers to learn resource/action patterns and lifecycle hooks.</li>
+</ul>
+<hr />
+<h2 id="notes-next-steps-non-code">Notes / Next steps (non-code)</h2>
+<ul>
+<li>Create a mapping from business rules to Ash resource actions (create_booking, confirm_booking, cancel_booking, move_task).</li>
+<li>Draft API contracts (JSON shapes) for each endpoint and notification payloads.</li>
+<li>Prototype the LiveView board UI to validate UX for drag-and-drop and presence indicators.</li>
+<li>Decide on background job system (Oban recommended) and payment provider integration details.</li>
+</ul>
+<hr />
+<p>If you want, I can now convert this plan into a formal <code>speckit.plan</code>-style spec (fields mapped to the spec-kit schema) in plain Markdown (still no code) — or expand any section (API contract examples, DB schema outline, or acceptance tests). Which section should I expand next?</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.path", "navigation.prune"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

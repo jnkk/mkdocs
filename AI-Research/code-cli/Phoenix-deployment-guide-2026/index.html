@@ -1,0 +1,4117 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AI-Research/code-cli/Phoenix-deployment-guide-2026/">
+      
+      
+        <link rel="prev" href="../../code/mkdocs-guide/">
+      
+      
+        <link rel="next" href="../../elixir/phoenix-ecosystem-guide/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Phoenix Deployment Guide 2026 - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phoenix-deployment-guide-2026" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phoenix Deployment Guide 2026
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-prompting-ux-design-pipelines/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ash-phoenix-deployment-with-safe-env-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code-business-automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3v18h6v-3.5h2V21h6V3zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm8 0h2v2h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Business Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code-elixir/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8 5H9v2c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v2h2v2H9c-1.1 0-2-.9-2-2v-1c0-1.1-.9-2-2-2v-2c1.1 0 2-.9 2-2V8c0-1.1.9-2 2-2h2zm8 5c-1.1 0-2 .9-2 2v1c0 1.1-.9 2-2 2h-2v-2h2v-2c0-1.1.9-2 2-2-1.1 0-2-.9-2-2V8h-2V6h2c1.1 0 2 .9 2 2v1c0 1.1.9 2 2 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Elixir Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elixir-ai-dev-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elixir-debugging-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elixir-vs-javascript-ecosystem-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Why Elixir is Shadowed by JavaScript/TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jido-jido_ai-phoenix-ash-claude-installation-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Installing Jido/Jido_AI into Ash/Phoenix with Claude Code Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openai-symphony-ai-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    OpenAI Symphony - AI Agent Orchestration for Phoenix Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openclaw-project-manager-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Using OpenClaw as Project Manager for Website Companies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serena-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Serena - AI Coding Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_15" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13_15" id="__nav_13_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Code CLI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13_15">
+            <span class="md-nav__icon md-icon"></span>
+            Code CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Phoenix Deployment Guide 2026
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Phoenix Deployment Guide 2026
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Advantages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-main-deployment-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Main Deployment Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-production-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Production Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mix-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mix Releases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mix Releases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Releases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the Release
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-release-module-for-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Release Module for Migrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering-with-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering with Releases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-stage-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Stage Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-for-local-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose for Local Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running with Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Providers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fly.io
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gigalixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gigalixir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    <span class="md-ellipsis">
+      Render
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#railway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Railway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heroku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heroku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-ec2-with-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EC2 with GitHub Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-kubernetes-engine-gke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Kubernetes Engine (GKE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Pipelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-for-phoenix" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions for Phoenix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preview Environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring &amp; Observability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-check-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Check Endpoints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blue-green-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blue-Green Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canary-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canary Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rolling-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rolling Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues and Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-could-not-find-static-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Could not find static manifest"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-liveview-socket-falls-over-to-longpoll-immediately" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: LiveView socket falls over to longpoll immediately
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-database-connection-pool-exhaustion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Database connection pool exhaustion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-memory-leaks-in-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Memory leaks in production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Guides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../elixir/phoenix-ecosystem-guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Elixir
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../homelab/adguard/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Homelab
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llms/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robotics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Advantages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-main-deployment-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Main Deployment Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-production-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Production Script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mix-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mix Releases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mix Releases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Releases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the Release
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-release-module-for-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Release Module for Migrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering-with-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering with Releases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-stage-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Stage Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-for-local-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose for Local Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running with Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Providers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fly.io
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gigalixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gigalixir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    <span class="md-ellipsis">
+      Render
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#railway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Railway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heroku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heroku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-ec2-with-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EC2 with GitHub Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-kubernetes-engine-gke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Kubernetes Engine (GKE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Pipelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-for-phoenix" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions for Phoenix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preview Environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring &amp; Observability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-check-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Check Endpoints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blue-green-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blue-Green Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canary-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canary Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rolling-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rolling Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Checklist
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues and Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-could-not-find-static-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Could not find static manifest"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-liveview-socket-falls-over-to-longpoll-immediately" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: LiveView socket falls over to longpoll immediately
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-database-connection-pool-exhaustion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Database connection pool exhaustion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-memory-leaks-in-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Memory leaks in production
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community Guides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Platforms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">ci-cd</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">deployment</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">devops</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">docker</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">elixir</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">kubernetes</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">phoenix</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="phoenix-deployment-guide-2026">Phoenix Deployment Guide 2026</h1>
+<p>Comprehensive guide to deploying Phoenix applications to production environments, covering modern strategies, cloud providers, CI/CD pipelines, and best practices.</p>
+<p><strong>Researched via:</strong>
+- Official Phoenix documentation (hexdocs.pm)
+- OneUptime production deployment guide
+- Fly.io community discussions
+- Gigalixir deployment guides
+- AWS deployment examples
+- Blue-green and canary deployment patterns
+- CI/CD implementation guides</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#deployment-strategies">Deployment Strategies</a></li>
+<li><a href="#mix-releases">Mix Releases</a></li>
+<li><a href="#docker-deployment">Docker Deployment</a></li>
+<li><a href="#cloud-providers">Cloud Providers</a></li>
+<li><a href="#flyio">Fly.io</a></li>
+<li><a href="#gigalixir">Gigalixir</a></li>
+<li><a href="#render">Render</a></li>
+<li><a href="#railway">Railway</a></li>
+<li><a href="#heroku">Heroku</a></li>
+<li><a href="#aws">AWS</a></li>
+<li><a href="#google-cloud">Google Cloud</a></li>
+<li><a href="#cicd-pipelines">CI/CD Pipelines</a></li>
+<li><a href="#monitoring-observability">Monitoring &amp; Observability</a></li>
+<li><a href="#deployment-patterns">Deployment Patterns</a></li>
+<li><a href="#production-checklist">Production Checklist</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>Phoenix is a web framework for the Elixir programming language that gives you peace of mind from development to production. Deploying Phoenix applications involves understanding Elixir releases, proper configuration management, database migrations, and infrastructure setup.</p>
+<p>Phoenix applications benefit from BEAM virtual machine'"'"'"s fault tolerance and hot code upgrades. Combined with OTP releases, you get a deployment model that is reliable, efficient, and straightforward once you understand fundamentals.</p>
+<h3 id="key-advantages">Key Advantages</h3>
+<ul>
+<li><strong>Fault tolerance</strong>: BEAM VM provides exceptional reliability and self-healing capabilities</li>
+<li><strong>Hot code upgrades</strong>: Zero-downtime deployments are possible with Erlang/OTP</li>
+<li><strong>Concurrency</strong>: Built-in actor model and lightweight processes</li>
+<li><strong>Real-time</strong>: Native support for WebSockets and Phoenix Channels</li>
+<li><strong>Scalability</strong>: Distributed systems support with clustering</li>
+</ul>
+<h2 id="deployment-strategies">Deployment Strategies</h2>
+<h3 id="three-main-deployment-steps">Three Main Deployment Steps</h3>
+<p>When preparing an application for deployment, there are three main steps:</p>
+<ol>
+<li><strong>Handling of your application secrets</strong></li>
+<li><strong>Compiling your application assets</strong></li>
+<li><strong>Starting your server in production</strong></li>
+</ol>
+<h3 id="basic-production-script">Basic Production Script</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initial setup</span>
+mix<span class="w"> </span>deps.get<span class="w"> </span>--only<span class="w"> </span>prod
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>compile
+
+<span class="c1"># Compile assets</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>assets.deploy
+
+<span class="c1"># Custom tasks (like DB migrations)</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>ecto.migrate
+
+<span class="c1"># Finally run server</span>
+<span class="nv">PORT</span><span class="o">=</span><span class="m">4001</span><span class="w"> </span><span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>phx.server
+</code></pre></div>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>Required environment variables for production:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Required</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SECRET_KEY_BASE</span><span class="o">=</span><span class="s2">&quot;your-64-character-secret-key&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">&quot;ecto://user:pass@host/database&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PHX_HOST</span><span class="o">=</span><span class="s2">&quot;your-domain.com&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="s2">&quot;4000&quot;</span>
+
+<span class="c1"># Optional but recommended</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">POOL_SIZE</span><span class="o">=</span><span class="s2">&quot;20&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ECTO_IPV6</span><span class="o">=</span><span class="s2">&quot;false&quot;</span>
+
+<span class="c1"># For clustering (if using distributed Elixir)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RELEASE_NODE</span><span class="o">=</span><span class="s2">&quot;my_app@10.0.0.1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">RELEASE_COOKIE</span><span class="o">=</span><span class="s2">&quot;your-erlang-cookie&quot;</span>
+
+<span class="c1"># Application-specific</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SMTP_HOST</span><span class="o">=</span><span class="s2">&quot;smtp.example.com&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_URL</span><span class="o">=</span><span class="s2">&quot;redis://localhost:6379&quot;</span>
+</code></pre></div>
+<p><strong>Important:</strong> Generate SECRET_KEY_BASE using <code>mix phx.gen.secret</code>, not by copying values.</p>
+<h2 id="mix-releases">Mix Releases</h2>
+<p>Mix releases bundle your application, Erlang runtime, and all dependencies into a self-contained directory. This eliminates the need to install Elixir or Erlang on your production servers.</p>
+<h3 id="building-releases">Building Releases</h3>
+<p>Phoenix 1.6 and later include release configuration by default.</p>
+<p><strong>mix.exs configuration:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.MixProject</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">Mix.Project</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="ss">:my_app</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">elixir</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;~&gt; 1.14&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1"># Release configuration</span>
+<span class="w">    </span><span class="ss">releases</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="ss">my_app</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="ss">include_executables_for</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">:unix</span><span class="p">],</span>
+<span class="w">        </span><span class="ss">applications</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">runtime_tools</span><span class="p">:</span><span class="w"> </span><span class="ss">:permanent</span><span class="p">]</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><strong>Building the release:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set environment to production</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MIX_ENV</span><span class="o">=</span>prod
+
+<span class="c1"># Get dependencies</span>
+mix<span class="w"> </span>deps.get<span class="w"> </span>--only<span class="w"> </span>prod
+
+<span class="c1"># Compile</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>compile
+
+<span class="c1"># Compile assets</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>assets.deploy
+
+<span class="c1"># Create release</span>
+mix<span class="w"> </span>phx.gen.release
+
+<span class="c1"># Build with release</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>release
+</code></pre></div>
+<p>The release is created in <code>_build/prod/rel/my_app/</code>. This directory contains everything needed to run your application.</p>
+<h3 id="running-the-release">Running the Release</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start your system</span>
+_build/prod/rel/my_app/bin/my_app<span class="w"> </span>start
+
+<span class="c1"># Start with Phoenix server</span>
+_build/prod/rel/my_app/bin/server
+
+<span class="c1"># Run migrations in release</span>
+_build/prod/rel/my_app/bin/my_app<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;MyApp.Release.migrate&quot;</span>
+</code></pre></div>
+<h3 id="custom-release-module-for-migrations">Custom Release Module for Migrations</h3>
+<p>Create <code>lib/my_app/release.ex</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Release</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="na">@moduledoc</span><span class="w"> </span><span class="sh">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sh">Functions for running migrations and other release tasks.</span>
+<span class="sh">  These are used via release commands: bin/my_app eval &quot;MyApp.Release.migrate&quot;</span>
+<span class="w">  </span><span class="sh">&quot;&quot;&quot;</span>
+
+<span class="w">  </span><span class="na">@app</span><span class="w"> </span><span class="ss">:my_app</span>
+
+<span class="w">  </span><span class="c1"># Run all pending migrations</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">migrate</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">load_app</span><span class="p">()</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">repos</span><span class="p">()</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">with_repo</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="ni">&amp;1</span><span class="p">,</span><span class="w"> </span><span class="ss">:up</span><span class="p">,</span><span class="w"> </span><span class="ss">all</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="c1"># Rollback to last migration</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">rollback</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">load_app</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">with_repo</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="ni">&amp;1</span><span class="p">,</span><span class="w"> </span><span class="ss">:down</span><span class="p">,</span><span class="w"> </span><span class="ss">to</span><span class="p">:</span><span class="w"> </span><span class="n">version</span><span class="p">))</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="c1"># Get current migration status</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">migration_status</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">load_app</span><span class="p">()</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">repos</span><span class="p">()</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">with_repo</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">migrations</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
+<span class="w">      </span><span class="k">end</span><span class="p">)</span>
+<span class="w">      </span><span class="nc">IO</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="s2">&quot;Migrations for </span><span class="si">#{</span><span class="n">inspect</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="nc">Enum</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="p">{</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="nc">IO</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="s2">&quot; </span><span class="si">#{</span><span class="n">status</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">version</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="k">end</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="c1"># Seed database</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">load_app</span><span class="p">()</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">repos</span><span class="p">()</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Ecto.Migrator</span><span class="o">.</span><span class="n">with_repo</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">_repo</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">seed_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">priv_path_for</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;seeds.exs&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nc">File</span><span class="o">.</span><span class="n">exists?</span><span class="p">(</span><span class="n">seed_path</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">          </span><span class="nc">Code</span><span class="o">.</span><span class="n">eval_file</span><span class="p">(</span><span class="n">seed_path</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">      </span><span class="k">end</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="n">repos</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nc">Application</span><span class="o">.</span><span class="n">fetch_env!</span><span class="p">(</span><span class="na">@app</span><span class="p">,</span><span class="w"> </span><span class="ss">:ecto_repos</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="n">load_app</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nc">Application</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="na">@app</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="n">priv_path_for</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Keyword</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">repo</span><span class="o">.</span><span class="n">config</span><span class="p">(),</span><span class="w"> </span><span class="ss">:otp_app</span><span class="p">)</span>
+<span class="w">    </span><span class="n">priv_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">#{</span><span class="ss">:code</span><span class="o">.</span><span class="n">priv_dir</span><span class="p">(</span><span class="n">app</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nc">Path</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">priv_dir</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;repo&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">])</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="clustering-with-releases">Clustering with Releases</h3>
+<p>Phoenix applications running on multiple nodes need clustering configuration. Phoenix supports two types of transports for its Socket implementation: WebSocket and Long-Polling.</p>
+<p><strong>For Long-Polling to work properly in multi-node deployments, your application must either:</strong></p>
+<ol>
+<li>Utilize Erlang VM'"'"'"s clustering capabilities (default Phoenix.PubSub adapter)</li>
+<li>Choose a different Phoenix.PubSub adapter (such as Phoenix.PubSub.Redis)</li>
+<li>Or your deployment option must implement sticky sessions</li>
+</ol>
+<h2 id="docker-deployment">Docker Deployment</h2>
+<p>Docker provides consistent deployments across environments. Phoenix releases work well with container technologies.</p>
+<h3 id="multi-stage-dockerfile">Multi-Stage Dockerfile</h3>
+<p>A production-ready Dockerfile using multi-stage builds to minimize image size:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Dockerfile</span>
+<span class="c"># Build stage - compiles application</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">hexpm/elixir:1.15.7-erlang-26.1.2-alpine-3.18.4</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
+
+<span class="c"># Install build dependencies</span>
+<span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--no-cache<span class="w"> </span>build-base<span class="w"> </span>git<span class="w"> </span>npm
+
+<span class="c"># Set working directory</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Install hex and rebar</span>
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>local.hex<span class="w"> </span>--force<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mix<span class="w"> </span>local.rebar<span class="w"> </span>--force
+
+<span class="c"># Set build environment</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">MIX_ENV</span><span class="o">=</span>prod
+
+<span class="c"># Copy dependency files first for better caching</span>
+<span class="k">COPY</span><span class="w"> </span>mix.exs<span class="w"> </span>mix.lock<span class="w"> </span>./
+<span class="k">COPY</span><span class="w"> </span>config<span class="w"> </span>config/
+
+<span class="c"># Install and compile dependencies</span>
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>deps.get<span class="w"> </span>--only<span class="w"> </span><span class="nv">$MIX_ENV</span>
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>deps.compile
+
+<span class="c"># Copy compile-time config</span>
+<span class="k">COPY</span><span class="w"> </span>config/config.exs<span class="w"> </span>config/<span class="si">${</span><span class="nv">MIX_ENV</span><span class="si">}</span>.exs<span class="w"> </span>config/
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>compile
+
+<span class="c"># Copy application code</span>
+<span class="k">COPY</span><span class="w"> </span>priv<span class="w"> </span>priv<span class="w"> </span>COPY<span class="w"> </span>lib<span class="w"> </span>lib<span class="w"> </span>COPY<span class="w"> </span>assets
+
+<span class="c"># Build assets</span>
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>assets.deploy
+
+<span class="c"># Copy runtime configuration</span>
+<span class="k">COPY</span><span class="w"> </span>config/runtime.exs<span class="w"> </span>config/
+
+<span class="c"># Create release</span>
+<span class="k">COPY</span><span class="w"> </span>rel<span class="w"> </span>rel
+<span class="k">RUN</span><span class="w"> </span>mix<span class="w"> </span>release
+
+<span class="c"># Runtime stage - minimal image for running application</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">alpine:3.18.4</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">runner</span>
+
+<span class="c"># Install runtime dependencies</span>
+<span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--no-cache<span class="w"> </span>libstdc++<span class="w"> </span>openssl<span class="w"> </span>ncurses-libs
+
+<span class="c"># Set working directory</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Create non-root user for security</span>
+<span class="k">RUN</span><span class="w"> </span>addgroup<span class="w"> </span>-S<span class="w"> </span>myapp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>adduser<span class="w"> </span>-S<span class="w"> </span>myapp<span class="w"> </span>-G<span class="w"> </span>myapp
+<span class="k">USER</span><span class="w"> </span><span class="s">myapp</span>
+
+<span class="c"># Copy release from builder stage</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>--chown<span class="o">=</span>myapp:myapp<span class="w"> </span>/app/_build/prod/rel/my_app<span class="w"> </span>./
+
+<span class="c"># Set environment variables</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">HOME</span><span class="o">=</span>/app
+<span class="k">ENV</span><span class="w"> </span><span class="nv">MIX_ENV</span><span class="o">=</span>prod
+<span class="k">ENV</span><span class="w"> </span><span class="nv">PHX_SERVER</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># Expose application port</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">4000</span>
+
+<span class="c"># Health check endpoint</span>
+<span class="k">HEALTHCHECK</span><span class="w"> </span>--interval<span class="o">=</span>30s<span class="w"> </span>--timeout<span class="o">=</span>5s<span class="w"> </span>--start-period<span class="o">=</span>5s<span class="w"> </span>--retries<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>CMD<span class="w"> </span>wget<span class="w"> </span>--no-verbose<span class="w"> </span>--tries<span class="o">=</span><span class="m">1</span><span class="w"> </span>--spider<span class="w"> </span>http://localhost:4000/health<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+
+<span class="c"># Start application</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bin/my_app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="docker-compose-for-local-testing">Docker Compose for Local Testing</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># docker-compose.yml</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;4000:4000&quot;</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ecto://postgres:postgres@db/my_app_prod</span>
+<span class="w">      </span><span class="nt">SECRET_KEY_BASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SECRET_KEY_BASE}</span>
+<span class="w">      </span><span class="nt">PHX_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">      </span><span class="nt">PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4000</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15-alpine</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_app_prod</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres_data:/var/lib/postgresql/data</span>
+<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">postgres&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgres_data</span><span class="p">:</span>
+</code></pre></div>
+<h3 id="running-with-docker">Running with Docker</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate secret key base</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SECRET_KEY_BASE</span><span class="o">=</span><span class="k">$(</span>mix<span class="w"> </span>phx.gen.secret<span class="k">)</span>
+
+<span class="c1"># Build image</span>
+docker-compose<span class="w"> </span>build
+
+<span class="c1"># Start services</span>
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+
+<span class="c1"># View logs</span>
+docker-compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>app
+</code></pre></div>
+<h2 id="cloud-providers">Cloud Providers</h2>
+<h3 id="flyio">Fly.io</h3>
+<p>Fly.io is a PaaS that deploys your servers close to your users with built-in distribution support.</p>
+<p><strong>Key Features:</strong>
+- Built-in DNS clustering support
+- Private networking with DNS queries
+- Automatic scaling
+- Global deployment</p>
+<p><strong>Getting Started:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Fly CLI</span>
+curl<span class="w"> </span>-L<span class="w"> </span>https://fly.io/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+
+<span class="c1"># Launch app</span>
+fly<span class="w"> </span>launch
+</code></pre></div>
+<p>Fly automatically:
+- Creates a <code>fly.toml</code> configuration file
+- Attaches a PostgreSQL database
+- Sets up SSL certificates
+- Configures DNS and networking</p>
+<p><strong>Important Notes:</strong>
+- Fly provides private networks with DNS service discovery out of the box
+- LiveView sockets may fall over to long-poll immediately on Fly (community forum discussion)
+- Use standard PostgreSQL configuration for best performance</p>
+<h3 id="gigalixir">Gigalixir</h3>
+<p>Elixir-specific Platform as a Service with automatic deployment pipelines.</p>
+<p><strong>Key Features:</strong>
+- Elixir-optimized infrastructure
+- Buildpack system for auto-detection
+- Standard and Free tier databases
+- ASDF version management support</p>
+<p><strong>Getting Started:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install ASDF</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/asdf-vm/asdf.git
+.<span class="w"> </span>asdf/asdf.sh
+
+<span class="c1"># Install versions</span>
+asdf<span class="w"> </span>install<span class="w"> </span>erlang<span class="w"> </span><span class="m">28</span>.4.1
+asdf<span class="w"> </span>install<span class="w"> </span>elixir<span class="w"> </span><span class="m">1</span>.19.5-otp-28
+asdf<span class="w"> </span>install<span class="w"> </span>nodejs<span class="w"> </span><span class="m">25</span>.8.1
+
+<span class="c1"># Set active versions</span>
+asdf<span class="w"> </span><span class="nb">set</span><span class="w"> </span>erlang<span class="w"> </span><span class="m">28</span>.4.1
+asdf<span class="w"> </span><span class="nb">set</span><span class="w"> </span>elixir<span class="w"> </span><span class="m">1</span>.19.5-otp-28
+asdf<span class="w"> </span><span class="nb">set</span><span class="w"> </span>nodejs<span class="w"> </span><span class="m">25</span>.8.1
+
+<span class="c1"># Create app</span>
+gigalixir<span class="w"> </span>create
+
+<span class="c1"># Create database (optional)</span>
+gigalixir<span class="w"> </span>pg:create<span class="w"> </span>--free
+
+<span class="c1"># Link to repo</span>
+gigalixir<span class="w"> </span>git:remote<span class="w"> </span>&lt;your-repo-url&gt;
+
+<span class="c1"># Deploy</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>gigalixir<span class="w"> </span>main
+</code></pre></div>
+<p><strong>Versions Supported:</strong>
+- Phoenix: 1.8.5
+- Elixir: 1.19.5
+- Erlang/OTP: 28.4.1</p>
+<h3 id="render">Render</h3>
+<p>Render has first-class support for Phoenix applications with guides for hosting with Mix releases and as a Distributed Elixir Cluster.</p>
+<p><strong>Getting Started:</strong>
+1. Create a Render account
+2. Connect your GitHub repository
+3. Create a new Web Service
+4. Render will auto-detect Elixir/Phoenix
+5. Configure environment variables
+6. Deploy</p>
+<p><strong>Key Features:</strong>
+- Automatic build system (Railpack)
+- Managed databases (PostgreSQL, MySQL)
+- Native Docker support
+- Auto-scaling capabilities
+- Preview environments for pull requests</p>
+<h3 id="railway">Railway</h3>
+<p>Railway offers multiple deployment methods:
+1. From a GitHub repository
+2. Using CLI
+3. One-click deploy from a template</p>
+<p><strong>CLI Deployment:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Railway CLI</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@railway/cli
+
+<span class="c1"># Login</span>
+railway<span class="w"> </span>login
+
+<span class="c1"># Initialize project</span>
+railway<span class="w"> </span>init
+
+<span class="c1"># Deploy</span>
+railway<span class="w"> </span>up
+</code></pre></div>
+<p><strong>Recommended Settings:</strong>
+- Start command: <code>mix ecto.setup &amp;&amp; mix phx.server</code>
+- Environment variable: <code>MIX_ENV=prod</code>
+- Database: Add PostgreSQL service
+- IPv6: Set <code>ECTO_IPV6=true</code> for private networking</p>
+<h3 id="heroku">Heroku</h3>
+<p>Heroku remains one of the most popular PaaS options for Phoenix deployment.</p>
+<p><strong>Getting Started:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Heroku CLI</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>heroku
+
+<span class="c1"># Login</span>
+heroku<span class="w"> </span>login
+
+<span class="c1"># Create app</span>
+heroku<span class="w"> </span>create<span class="w"> </span>my-app
+
+<span class="c1"># Add buildpack</span>
+heroku<span class="w"> </span>buildpacks:set<span class="w"> </span>https://github.com/HashNuke/heroku-buildpack-elixir.git
+
+<span class="c1"># Set environment variables</span>
+heroku<span class="w"> </span>config:set<span class="w"> </span><span class="nv">SECRET_KEY_BASE</span><span class="o">=</span><span class="k">$(</span>mix<span class="w"> </span>phx.gen.secret<span class="k">)</span>
+heroku<span class="w"> </span>config:set<span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>ecto://user:pass@host/database
+heroku<span class="w"> </span>config:set<span class="w"> </span><span class="nv">PHX_HOST</span><span class="o">=</span>my-app.herokuapp.com
+
+<span class="c1"># Deploy</span>
+git<span class="w"> </span>push<span class="w"> </span>heroku<span class="w"> </span>main
+</code></pre></div>
+<p><strong>Configuration:</strong>
+- Buildpack auto-detects Elixir
+- Uses PostgreSQL by default (free tier available)
+- Requires <code>runtime.exs</code> configuration
+- Automatic SSL provided</p>
+<h3 id="aws">AWS</h3>
+<p>AWS provides multiple deployment options for Phoenix applications.</p>
+<h4 id="aws-ec2-with-github-actions">AWS EC2 with GitHub Actions</h4>
+<p><strong>Advantages:</strong>
+- Full control over infrastructure
+- Cost-effective for sustained workloads
+- Familiarity with AWS ecosystem</p>
+<p><strong>Example GitHub Actions Workflow:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/deploy.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build &amp; Deploy Phoenix (linux/x86) to EC2</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">MIX_ENV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span>
+<span class="w">    </span><span class="nt">ELIXIR_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.18.4&quot;</span>
+<span class="w">    </span><span class="nt">OTP_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;27.3.4.2&quot;</span>
+<span class="w">    </span><span class="nt">BASE_OTP_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;27&quot;</span>
+<span class="w">    </span><span class="nt">APP_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myapp&quot;</span>
+<span class="w">    </span><span class="nt">PHX_PORT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4000&quot;</span>
+<span class="w">    </span><span class="nt">PHX_HOST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build &amp; Release</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">mix deps.get --only prod</span>
+<span class="w">          </span><span class="no">MIX_ENV=prod mix compile</span>
+<span class="w">          </span><span class="no">MIX_ENV=prod mix assets.deploy</span>
+<span class="w">          </span><span class="no">MIX_ENV=prod mix release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Package Release</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">cd _build/prod/rel/my_app</span>
+<span class="w">          </span><span class="no">tar -czf ../../my_app-${{ github.sha }}.tar.gz .</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Release Artifact</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release-tarball</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_app-${{ github.sha }}.tar.gz</span>
+
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Download Release</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release-tarball</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configure SSH</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">mkdir -p ~/.ssh</span>
+<span class="w">          </span><span class="no">echo &quot;${{ secrets.EC2_SSH_KEY }}&quot; &gt; ~/.ssh/id_rsa</span>
+<span class="w">          </span><span class="no">chmod 600 ~/.ssh/id_rsa</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to EC2</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/ssh-action@v1.0.0</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.EC2_HOST }}</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.EC2_SSH_KEY }}</span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
+<span class="w">          </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no"># Extract release</span>
+<span class="w">            </span><span class="no">cd /opt/myapp</span>
+<span class="w">            </span><span class="no">tar -xzf /tmp/my_app.tar.gz</span>
+
+<span class="w">            </span><span class="no"># Run migrations</span>
+<span class="w">            </span><span class="no">./bin/my_app eval &quot;MyApp.Release.migrate&quot;</span>
+
+<span class="w">            </span><span class="no"># Restart application</span>
+<span class="w">            </span><span class="no">sudo systemctl restart myapp</span>
+
+<span class="w">            </span><span class="no"># Wait for health check</span>
+<span class="w">            </span><span class="no">sleep 5</span>
+<span class="w">            </span><span class="no">for i in {1..30}; do</span>
+<span class="w">              </span><span class="no">if curl -s http://localhost:4000/health | grep -q &quot;ok&quot;; then</span>
+<span class="w">                </span><span class="no">echo &quot;Health check passed&quot;</span>
+<span class="w">                </span><span class="no">break</span>
+<span class="w">              </span><span class="no">fi</span>
+<span class="w">              </span><span class="no">echo &quot;Waiting for health check...&quot;</span>
+<span class="w">              </span><span class="no">sleep 2</span>
+<span class="w">            </span><span class="no">done</span>
+</code></pre></div>
+<p><strong>Key AWS Services:</strong>
+- <strong>EC2</strong>: Virtual machines for full control
+- <strong>Elastic Beanstalk</strong>: Managed platform with auto-scaling
+- <strong>ECS/Fargate</strong>: Container orchestration
+- <strong>Lambda</strong>: Serverless functions (with some limitations)
+- <strong>RDS</strong>: Managed PostgreSQL/MySQL
+- <strong>ElastiCache</strong>: Redis caching
+- <strong>ALB/ELB</strong>: Load balancing</p>
+<h3 id="google-cloud">Google Cloud</h3>
+<h4 id="google-kubernetes-engine-gke">Google Kubernetes Engine (GKE)</h4>
+<p>Google provides two main options for Phoenix deployment:</p>
+<p><strong>Option 1: Google Kubernetes Engine</strong>
+- Managed Kubernetes cluster
+- Auto-scaling and self-healing
+- Regional deployment
+- Integrated with Google Cloud services</p>
+<p><strong>Option 2: Google Cloud Run</strong>
+- Serverless container platform
+- Auto-scaling from zero
+- Pay-per-use pricing
+- Good for variable workloads</p>
+<p><strong>Example GKE Deployment:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># kubernetes/deployment.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcr.io/my-project/my-app:latest</span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4000</span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PORT</span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4000&quot;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PHX_HOST</span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET_KEY_BASE</span>
+<span class="w">              </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-secrets</span>
+<span class="w">                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret-key-base</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATABASE_URL</span>
+<span class="w">              </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-secrets</span>
+<span class="w">                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database-url</span>
+<span class="w">          </span><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/health</span>
+<span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4000</span>
+<span class="w">              </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">              </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">          </span><span class="nt">readinessProbe</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/health/ready</span>
+<span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4000</span>
+<span class="w">              </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">              </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">          </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;256Mi&quot;</span>
+<span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;250m&quot;</span>
+<span class="w">            </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span>
+<span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500m&quot;</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4000</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">cert-manager.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-tls</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">      </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">            </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">                </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</code></pre></div>
+<h2 id="cicd-pipelines">CI/CD Pipelines</h2>
+<h3 id="github-actions-for-phoenix">GitHub Actions for Phoenix</h3>
+<p>GitHub Actions allow you to build, test, and deploy Phoenix applications automatically.</p>
+<p><strong>Elixir CI Action Template:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/ci.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Elixir CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mix test</span>
+<span class="w">    </span><span class="nt">services</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">          </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">          </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Elixir</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">erlef/setup-beam@v1</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">otp-version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;27&quot;</span>
+<span class="w">          </span><span class="nt">elixir-version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.18&quot;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore dependencies cache</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deps</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-mix-${{ hashFiles(&#39;&#39;**/mix.lock&#39;) }}</span>
+<span class="w">          </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">${{ runner.os }}-mix-${{ hashFiles(&#39;**/mix.lock&#39;) }}</span>
+<span class="w">            </span><span class="no">${{ runner.os }}-build-</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mix deps.get</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mix test</span>
+
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restore dependencies cache</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deps</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-mix-${{ hashFiles(&#39;&#39;**/mix.lock&#39;) }}</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Release</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">mix deps.get --only prod</span>
+<span class="w">          </span><span class="no">MIX_ENV=prod mix compile</span>
+<span class="w">          </span><span class="no">MIX_ENV=prod mix assets.deploy</span>
+<span class="w">          </span><span class="no">MIX_ENV=prod mix release</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Release</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release-tarball</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_build/prod/rel/my_app</span>
+
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;&quot;&#39;&quot;&#39;&quot;refs/heads/main&#39;&quot;&#39;&quot;&#39;&#39;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release-tarball</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Production</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no"># Add your deployment command here</span>
+<span class="w">          </span><span class="no">echo &quot;Deploying to production...&quot;</span>
+</code></pre></div>
+<h3 id="preview-environments">Preview Environments</h3>
+<p><strong>Bunnyshell</strong> offers automatic preview environments for Phoenix:
+- Zero CI/CD maintenance
+- Automatic webhooks on pull requests
+- Ephemeral environments created/destroyed on PR events
+- Support for GitHub, GitLab, Bitbucket</p>
+<p><strong>Setup:</strong>
+1. Connect Bunnyshell account
+2. Link GitHub repository
+3. Create project and environment
+4. Toggle "Create ephemeral environments on pull request"</p>
+<h2 id="monitoring-observability">Monitoring &amp; Observability</h2>
+<h3 id="telemetry-setup">Telemetry Setup</h3>
+<p>Phoenix uses Telemetry for instrumentation. Configure it to export metrics.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># lib/my_app/telemetry.ex</span>
+<span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Telemetry</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">Supervisor</span>
+<span class="w">  </span><span class="kn">import</span><span class="w"> </span><span class="nc">Telemetry.Metrics</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">start_link</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nc">Supervisor</span><span class="o">.</span><span class="n">start_link</span><span class="p">(</span><span class="bp">__MODULE__</span><span class="p">,</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="bp">__MODULE__</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="na">@impl</span><span class="w"> </span><span class="no">true</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">init</span><span class="p">(</span><span class="n">_arg</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="ss">:telemetry_poller</span><span class="p">,</span><span class="w"> </span><span class="ss">measurements</span><span class="p">:</span><span class="w"> </span><span class="n">periodic_measurements</span><span class="p">(),</span><span class="w"> </span><span class="ss">period</span><span class="p">:</span><span class="w"> </span><span class="mi">10_000</span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">    </span><span class="nc">Supervisor</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="ss">strategy</span><span class="p">:</span><span class="w"> </span><span class="ss">:one_for_one</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">      </span><span class="c1"># Phoenix Metrics</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;phoenix.endpoint.start.system_time&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:native</span><span class="p">,</span><span class="w"> </span><span class="ss">:millisecond</span><span class="p">}),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;phoenix.endpoint.stop.duration&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:native</span><span class="p">,</span><span class="w"> </span><span class="ss">:millisecond</span><span class="p">}),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;phoenix.router_dispatch.start.system_time&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">:route</span><span class="p">],</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:native</span><span class="p">,</span><span class="w"> </span><span class="ss">:millisecond</span><span class="p">}),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;phoenix.router_dispatch.stop.duration&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">:route</span><span class="p">],</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:native</span><span class="p">,</span><span class="w"> </span><span class="ss">:millisecond</span><span class="p">}),</span>
+
+<span class="w">      </span><span class="c1"># Database Metrics</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;my_app.repo.query.total_time&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:native</span><span class="p">,</span><span class="w"> </span><span class="ss">:millisecond</span><span class="p">},</span><span class="w"> </span><span class="ss">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Total time spent on database queries&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;my_app.repo.query.queue_time&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:native</span><span class="p">,</span><span class="w"> </span><span class="ss">:millisecond</span><span class="p">},</span><span class="w"> </span><span class="ss">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Time queries spend waiting for a connection&quot;</span><span class="p">),</span>
+
+<span class="w">      </span><span class="c1"># VM Metrics</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;vm.memory.total&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">unit</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:byte</span><span class="p">,</span><span class="w"> </span><span class="ss">:megabyte</span><span class="p">}),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;vm.total_run_queue_lengths.total&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;vm.total_run_queue_lengths.cpu&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">summary</span><span class="p">(</span><span class="s2">&quot;vm.total_run_queue_lengths.io&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="n">periodic_measurements</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nc">MyApp.Telemetry</span><span class="p">,</span><span class="w"> </span><span class="ss">:measure_users</span><span class="p">,</span><span class="w"> </span><span class="p">[]},</span>
+<span class="w">      </span><span class="p">{</span><span class="nc">MyApp.Telemetry</span><span class="p">,</span><span class="w"> </span><span class="ss">:measure_connections</span><span class="p">,</span><span class="w"> </span><span class="p">[]}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">measure_users</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="ss">:telemetry</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="ss">:my_app</span><span class="p">,</span><span class="w"> </span><span class="ss">:users</span><span class="p">],</span><span class="w"> </span><span class="p">%{</span><span class="ss">total</span><span class="p">:</span><span class="w"> </span><span class="nc">MyApp.Accounts</span><span class="o">.</span><span class="n">count_users</span><span class="p">()},</span><span class="w"> </span><span class="p">%{})</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">measure_connections</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="ss">:telemetry</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="ss">:my_app</span><span class="p">,</span><span class="w"> </span><span class="ss">:connections</span><span class="p">],</span><span class="w"> </span><span class="p">%{</span><span class="ss">active</span><span class="p">:</span><span class="w"> </span><span class="nc">Phoenix.Tracker</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="nc">MyAppWeb.Presence</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;users&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">length</span><span class="p">()},</span><span class="w"> </span><span class="p">%{})</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Add Prometheus exporter to <code>mix.exs</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add to dependencies</span>
+<span class="p">{</span><span class="ss">:telemetry_metrics_prometheus</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;~&gt; 1.1&quot;</span><span class="p">}</span>
+
+<span class="c1"># Add to application.exs</span>
+<span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Application</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">Application</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">start</span><span class="p">(</span><span class="n">_type</span><span class="p">,</span><span class="w"> </span><span class="n">_args</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nc">MyApp.Repo</span><span class="p">,</span>
+<span class="w">      </span><span class="nc">MyAppWeb.Telemetry</span><span class="p">,</span>
+<span class="w">      </span><span class="nc">MyAppWeb.Endpoint</span><span class="p">,</span>
+<span class="w">      </span><span class="c1"># Add Prometheus exporter</span>
+<span class="w">      </span><span class="p">{</span><span class="nc">TelemetryMetricsPrometheus</span><span class="p">,</span><span class="w"> </span><span class="ss">metrics</span><span class="p">:</span><span class="w"> </span><span class="nc">MyApp.Telemetry</span><span class="o">.</span><span class="n">metrics</span><span class="p">()}</span>
+<span class="w">    </span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="ss">strategy</span><span class="p">:</span><span class="w"> </span><span class="ss">:one_for_one</span><span class="p">,</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MyApp.Supervisor</span><span class="p">]</span>
+<span class="w">    </span><span class="nc">Supervisor</span><span class="o">.</span><span class="n">start_link</span><span class="p">(</span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="health-check-endpoints">Health Check Endpoints</h3>
+<p>Add health check endpoints for load balancers and container orchestrators.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># lib/my_app_web/controllers/health_controller.ex</span>
+<span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyAppWeb.HealthController</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">MyAppWeb</span><span class="p">,</span><span class="w"> </span><span class="ss">:controller</span>
+
+<span class="w">  </span><span class="na">@doc</span><span class="w"> </span><span class="sh">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sh">Basic health check - returns 200 if app is running.</span>
+<span class="sh">  Used by load balancers and container health checks.</span>
+<span class="w">  </span><span class="sh">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">index</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="n">_params</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">conn</span>
+<span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_status</span><span class="p">(</span><span class="ss">:ok</span><span class="p">)</span>
+<span class="w">    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">json</span><span class="p">(%{</span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">})</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="na">@doc</span><span class="w"> </span><span class="sh">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sh">Deep health check - verifies database connectivity.</span>
+<span class="sh">  Use for readiness probes in Kubernetes.</span>
+<span class="w">  </span><span class="sh">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">ready</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="n">_params</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">check_database</span><span class="p">()</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="ss">:ok</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">conn</span>
+<span class="w">        </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_status</span><span class="p">(</span><span class="ss">:ok</span><span class="p">)</span>
+<span class="w">        </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">json</span><span class="p">(%{</span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">database</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;connected&quot;</span><span class="p">})</span>
+<span class="w">      </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">conn</span>
+<span class="w">        </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_status</span><span class="p">(</span><span class="ss">:service_unavailable</span><span class="p">)</span>
+<span class="w">        </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">json</span><span class="p">(%{</span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">database</span><span class="p">:</span><span class="w"> </span><span class="n">reason</span><span class="p">})</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">defp</span><span class="w"> </span><span class="n">check_database</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="k">do</span>
+<span class="w">      </span><span class="nc">Ecto.Adapters.SQL</span><span class="o">.</span><span class="n">query!</span><span class="p">(</span><span class="nc">MyApp.Repo</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;SELECT 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+<span class="w">      </span><span class="ss">:ok</span>
+<span class="w">    </span><span class="k">rescue</span>
+<span class="w">      </span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="nc">Exception</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Add routes to <code>router.ex</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># lib/my_app_web/router.ex</span>
+<span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyAppWeb.Router</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">MyAppWeb</span><span class="p">,</span><span class="w"> </span><span class="ss">:router</span>
+
+<span class="w">  </span><span class="n">scope</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">MyAppWeb</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">pipe_through</span><span class="w"> </span><span class="p">[</span><span class="ss">:api</span><span class="p">]</span>
+<span class="w">    </span><span class="n">get</span><span class="w"> </span><span class="s2">&quot;/health&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">HealthController</span><span class="p">,</span><span class="w"> </span><span class="ss">:index</span>
+<span class="w">    </span><span class="n">get</span><span class="w"> </span><span class="s2">&quot;/health/ready&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">HealthController</span><span class="p">,</span><span class="w"> </span><span class="ss">:ready</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h2 id="deployment-patterns">Deployment Patterns</h2>
+<h3 id="blue-green-deployment">Blue-Green Deployment</h3>
+<p>Blue-green deployment maintains two identical production-ready environments. At any given time, only one environment serves live traffic while the other remains on standby.</p>
+<p><strong>How It Works:</strong>
+1. Deploy new version to Green environment
+2. Test and validate Green environment
+3. Instantly switch all traffic from Blue to Green via load balancer
+4. Old Blue environment becomes backup/standby</p>
+<p><strong>Advantages:</strong>
+- Instant rollback (just switch traffic back to Blue)
+- Zero downtime deployment
+- Extensive testing before full cutover
+- Reduced risk exposure</p>
+<p><strong>Disadvantages:</strong>
+- Double infrastructure cost (maintain two full environments)
+- Increased complexity</p>
+<p><strong>Load Balancer Configuration:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># AWS Application Load Balancer</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_lb_target_group&quot; &quot;blue&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name        = &quot;${var.app_name}-blue&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">port        = 8080</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_lb_target_group&quot; &quot;green&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name        = &quot;${var.app_name}-green&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">port        = 8080</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_lb_listener&quot; &quot;front_end&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">load_balancer_arn = &quot;${var.lb_arn}&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">port              = 443</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">protocol           = &quot;HTTPS&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">default_action {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">type             = &quot;forward&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">target_group_arn = &quot;${var.blue_tg_arn}&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
+<h3 id="canary-deployment">Canary Deployment</h3>
+<p>Canary deployment gradually shifts a small percentage of traffic to a new version before exposing it to the entire user base.</p>
+<p><strong>How It Works:</strong>
+1. Deploy new version to small percentage (e.g., 5%) of users
+2. Monitor key metrics: performance, errors, user feedback
+3. Gradually increase traffic percentage (10%, 25%, 50%, 100%)
+4. Monitor throughout rollout</p>
+<p><strong>Advantages:</strong>
+- Real-world validation with minimal exposure
+- Quick detection of issues
+- Gradual rollout reduces risks
+- Automatic rollback based on metrics</p>
+<p><strong>Disadvantages:</strong>
+- More complex to orchestrate
+- Longer deployment time
+- Requires robust monitoring and automation</p>
+<p><strong>Canary Ingress with Nginx:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp-canary</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Enable canary mode</span>
+<span class="w">    </span><span class="nt">nginx.ingress.kubernetes.io/canary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;25&quot;</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp-tls</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">      </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">            </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp</span>
+<span class="w">                </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</code></pre></div>
+<h3 id="rolling-deployment">Rolling Deployment</h3>
+<p>Rolling updates incrementally replace instances of the old application version with new ones.</p>
+<p><strong>How It Works:</strong>
+- Replace instances one at a time (e.g., 10% at a time)
+- Each instance handles traffic during replacement
+- No immediate traffic switch</p>
+<p><strong>Advantages:</strong>
+- Simpler than blue-green
+- More efficient resource utilization
+- Good for frequent, smaller updates</p>
+<p><strong>Disadvantages:</strong>
+- Slower full rollout
+- Mixed versions during rollout
+- Requires more sophisticated coordination</p>
+<p><strong>Rolling Deployment Script:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># deploy.sh - Rolling deployment script</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="nv">SERVERS</span><span class="o">=</span><span class="s2">&quot;server1.example.com server2.example.com server3.example.com&quot;</span>
+<span class="nv">APP_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/my_app&quot;</span>
+<span class="nv">RELEASE_TAR</span><span class="o">=</span><span class="s2">&quot;my_app.tar.gz&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Starting rolling deployment...&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>SERVER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$SERVERS</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deploying to </span><span class="nv">$SERVER</span><span class="s2">...&quot;</span>
+
+<span class="w">  </span><span class="c1"># Upload new release</span>
+<span class="w">  </span>scp<span class="w"> </span><span class="nv">$RELEASE_TAR</span><span class="w"> </span>deploy@<span class="nv">$SERVER</span>:/tmp/
+
+<span class="w">  </span><span class="c1"># Deploy on server</span>
+<span class="w">  </span>ssh<span class="w"> </span>deploy@<span class="nv">$SERVER</span><span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">  set -e</span>
+
+<span class="s">  # E</span>xtract<span class="w"> </span>new<span class="w"> </span>release
+<span class="w">  </span><span class="nb">cd</span><span class="w"> </span>/opt/my_app
+<span class="w">  </span>tar<span class="w"> </span>-xzf<span class="w"> </span>/tmp/my_app.tar.gz
+
+<span class="w">  </span><span class="c1"># Run migrations</span>
+<span class="w">  </span>bin/my_app<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;MyApp.Release.migrate&quot;</span>
+
+<span class="w">  </span><span class="c1"># Restart application</span>
+<span class="w">  </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>my_app
+
+<span class="w">  </span><span class="c1"># Wait for health check</span>
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">5</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..30<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:4000/health<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Health check passed&quot;</span>
+<span class="w">      </span><span class="k">break</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Waiting for health check...&quot;</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">2</span>
+<span class="w">  </span><span class="k">done</span>
+
+<span class="w">  </span><span class="c1"># Cleanup</span>
+<span class="w">  </span>rm<span class="w"> </span>/tmp/my_app.tar.gz
+
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Successfully deployed to </span><span class="nv">$SERVER</span><span class="s2">&quot;</span>
+
+<span class="w">  </span><span class="c1"># Wait before deploying to next server</span>
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">10</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Rolling deployment complete!&quot;</span>
+</code></pre></div>
+<h2 id="production-checklist">Production Checklist</h2>
+<p>Before deploying to production, verify these items:</p>
+<h3 id="security">Security</h3>
+<ul>
+<li>[ ] SECRET_KEY_BASE is set and secure</li>
+<li>[ ] SSL/TLS configured</li>
+<li>[ ] Database credentials are not in code</li>
+<li>[ ] Firewall rules configured</li>
+<li>[ ] Rate limiting enabled</li>
+<li>[ ] CSRF tokens configured</li>
+</ul>
+<h3 id="database">Database</h3>
+<ul>
+<li>[ ] Migrations tested on staging</li>
+<li>[ ] Backup strategy configured</li>
+<li>[ ] Connection pool sized appropriately</li>
+<li>[ ] Timeout values configured for production</li>
+<li>[ ] Read replicas configured for high availability</li>
+</ul>
+<h3 id="application">Application</h3>
+<ul>
+<li>[ ] Assets compiled with digest</li>
+<li>[ ] Static manifest generated</li>
+<li>[ ] Cache configuration appropriate for production</li>
+<li>[ ] Server mode enabled</li>
+<li>[ ] Logging configured for production</li>
+<li>[ ] Error tracking configured</li>
+</ul>
+<h3 id="monitoring">Monitoring</h3>
+<ul>
+<li>[ ] Health check endpoint working</li>
+<li>[ ] Metrics collection enabled</li>
+<li>[ ] APM integration configured</li>
+<li>[ ] Logging configured for log aggregation</li>
+<li>[ ] Alerting rules configured</li>
+<li>[ ] Dashboard set up</li>
+</ul>
+<h3 id="infrastructure">Infrastructure</h3>
+<ul>
+<li>[ ] Load balancer configured</li>
+<li>[ ] Auto-scaling configured (if needed)</li>
+<li>[ ] CDN configured (if serving static assets)</li>
+<li>[ ] DNS configured</li>
+<li>[ ] SSL certificates valid</li>
+<li>[ ] CDN cache rules configured</li>
+</ul>
+<h3 id="performance">Performance</h3>
+<ul>
+<li>[ ] Response time baselines measured</li>
+<li>[ ] Database query performance monitored</li>
+<li>[ ] Memory usage tracked</li>
+<li>[ ] CPU usage tracked</li>
+<li>[ ] Connection pooling tested</li>
+<li>[ ] Static assets cached appropriately</li>
+</ul>
+<h2 id="common-issues-and-solutions">Common Issues and Solutions</h2>
+<h3 id="issue-could-not-find-static-manifest">Issue: "Could not find static manifest"</h3>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Compile assets</span>
+<span class="nv">MIX_ENV</span><span class="o">=</span>prod<span class="w"> </span>mix<span class="w"> </span>assets.deploy
+
+<span class="c1"># Or remove configuration from config/prod.exs</span>
+<span class="c1"># Comment out: cache_static_manifest: &quot;priv/static/cache_manifest.json&quot;</span>
+</code></pre></div></p>
+<h3 id="issue-liveview-socket-falls-over-to-longpoll-immediately">Issue: LiveView socket falls over to longpoll immediately</h3>
+<p><strong>Solution:</strong>
+- Ensure clustering is configured correctly
+- Use Phoenix.PubSub.Redis adapter for multi-node deployments
+- Configure sticky sessions on load balancer
+- Check network connectivity between nodes</p>
+<h3 id="issue-database-connection-pool-exhaustion">Issue: Database connection pool exhaustion</h3>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># config/runtime.exs</span>
+<span class="n">pool_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">to_integer</span><span class="p">(</span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p">(</span><span class="s2">&quot;POOL_SIZE&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+
+<span class="c1"># Configure connection timeout</span>
+<span class="ss">timeout</span><span class="p">:</span><span class="w"> </span><span class="mi">60_000</span>
+<span class="ss">queue_target</span><span class="p">:</span><span class="w"> </span><span class="mi">5_000</span>
+</code></pre></div></p>
+<h3 id="issue-memory-leaks-in-production">Issue: Memory leaks in production</h3>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># config/prod.exs</span>
+<span class="c1"># Enable BEAM VM monitoring</span>
+<span class="n">config</span><span class="w"> </span><span class="ss">:logger</span><span class="p">,</span>
+<span class="w">  </span><span class="ss">level</span><span class="p">:</span><span class="w"> </span><span class="ss">:info</span><span class="p">,</span>
+<span class="w">  </span><span class="ss">handle_otp_reports</span><span class="p">:</span><span class="w"> </span><span class="no">true</span>
+
+<span class="c1"># Set VM memory limits</span>
+<span class="n">config</span><span class="w"> </span><span class="ss">:my_app</span><span class="p">,</span><span class="w"> </span><span class="nc">MyAppWeb.Endpoint</span><span class="p">,</span>
+<span class="w">  </span><span class="c1"># Configure websocket timeout</span>
+<span class="w">  </span><span class="ss">websocket_timeout</span><span class="p">:</span><span class="w"> </span><span class="mi">60_000</span>
+</code></pre></div></p>
+<h2 id="recommended-resources">Recommended Resources</h2>
+<h3 id="official-documentation">Official Documentation</h3>
+<ul>
+<li><a href="https://hexdocs.pm/phoenix/deployment.html">Phoenix Deployment Guide</a></li>
+<li><a href="https://hexdocs.pm/phoenix/releases.html">Phoenix Releases Guide</a></li>
+<li><a href="https://hexdocs.pm/phoenix/fly.html">Phoenix Fly.io Guide</a></li>
+<li><a href="https://hexdocs.pm/phoenix/gigalixir.html">Phoenix Gigalixir Guide</a></li>
+<li><a href="https://hexdocs.pm/phoenix/heroku.html">Phoenix Heroku Guide</a></li>
+</ul>
+<h3 id="community-guides">Community Guides</h3>
+<ul>
+<li><a href="https://oneuptime.com/blog/post/2026-02-02-phoenix-production-deployment/view">OneUptime Production Deployment</a></li>
+<li><a href="https://www.bunnyshell.com/guides/preview-environments-for-phoenix-elixir/">Bunnyshell Preview Environments</a></li>
+<li><a href="https://docs.railway.app/guides/phoenix">Railway Phoenix Guides</a></li>
+</ul>
+<h3 id="tools-and-platforms">Tools and Platforms</h3>
+<ul>
+<li><a href="https://fly.io">Fly.io</a></li>
+<li><a href="https://gigalixir.com">Gigalixir</a></li>
+<li><a href="https://render.com">Render</a></li>
+<li><a href="https://railway.app">Railway</a></li>
+<li><a href="https://docs.aws.amazon.com">AWS Documentation</a></li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-03-21
+<strong>Next Review:</strong> 2027-03-21</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.path", "navigation.prune"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

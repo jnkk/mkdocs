@@ -1,0 +1,5129 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AI-Research/elixir/phoenix-ecosystem-guide/">
+      
+      
+        <link rel="prev" href="../../code-cli/Phoenix-deployment-guide-2026/">
+      
+      
+        <link rel="next" href="../../homelab/adguard/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Elixir & Phoenix Ecosystem Comprehensive Guide - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elixir-phoenix-ecosystem-comprehensive-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Elixir & Phoenix Ecosystem Comprehensive Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Code-CLI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code-CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-prompting-ux-design-pipelines/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    AI Prompting for UX Design Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ash-phoenix-deployment-with-safe-env-management/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39S16.66.269 11 5.93c-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.55.56 1.37.74 2.12.46A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61m-7.07 7.07c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg>
+  
+  <span class="md-ellipsis">
+    Ash/Phoenix Deployment Guide with Safe .env Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code-business-automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3v18h6v-3.5h2V21h6V3zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm8 0h2v2h-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Business Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code-elixir/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8 5H9v2c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v2h2v2H9c-1.1 0-2-.9-2-2v-1c0-1.1-.9-2-2-2v-2c1.1 0 2-.9 2-2V8c0-1.1.9-2 2-2h2zm8 5c-1.1 0-2 .9-2 2v1c0 1.1-.9 2-2 2h-2v-2h2v-2c0-1.1.9-2 2-2-1.1 0-2-.9-2-2V8h-2V6h2c1.1 0 2 .9 2 2v1c0 1.1.9 2 2 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Claude Code for Elixir Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elixir-ai-dev-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir AI Tools for Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elixir-debugging-tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a6 6 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir Internal Debugging Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elixir-vs-javascript-ecosystem-analysis/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg>
+  
+  <span class="md-ellipsis">
+    Why Elixir is Shadowed by JavaScript/TypeScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jido-jido_ai-phoenix-ash-claude-installation-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Installing Jido/Jido_AI into Ash/Phoenix with Claude Code Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openai-symphony-ai-agent-orchestration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    OpenAI Symphony - AI Agent Orchestration for Phoenix Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openclaw-project-manager-guide/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Using OpenClaw as Project Manager for Website Companies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../serena-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"/></svg>
+  
+  <span class="md-ellipsis">
+    Serena - AI Coding Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../code/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../code-cli/Phoenix-deployment-guide-2026/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Code CLI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_16" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_13_16" id="__nav_13_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Elixir
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_16_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13_16">
+            <span class="md-nav__icon md-icon"></span>
+            Elixir
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir & Phoenix Ecosystem Comprehensive Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Elixir & Phoenix Ecosystem Comprehensive Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-beam-virtual-machine-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The BEAM Virtual Machine Foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The BEAM Virtual Machine Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-beam-replaces-in-your-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      What BEAM Replaces in Your Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-beam-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core BEAM Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core BEAM Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-actor-process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Actor Process Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rpc-remote-procedure-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RPC (Remote Procedure Call)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-parallel-garbage-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Parallel Garbage Collection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-built-in-ets-erlang-term-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Built-in ETS (Erlang Term Storage)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-built-in-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Built-in Observability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-built-in-network-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Built-in Network Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elixir-language-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elixir Language Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Elixir Language Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Tooling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in Tooling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-exunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing - ExUnit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Formatting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-library-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Library Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modern-language-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Language Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modern Language Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocols
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipes-and-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipes and Comprehensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hex-ecosystem-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hex Ecosystem Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hex Ecosystem Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machine-learning-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine Learning &amp; AI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Machine Learning &amp; AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-aillm-packages-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern AI/LLM Packages (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nx-numerical-elixir-latest-v0110" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nx (Numerical Elixir) - Latest v0.11.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axon-deep-learning-framework-latest-v081" class="md-nav__link">
+    <span class="md-ellipsis">
+      Axon (Deep Learning Framework) - Latest v0.8.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exla-backend-gputpu-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXLA Backend - GPU/TPU Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedded &amp; IoT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web &amp; HTTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON &amp; Serialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internationalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internationalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Live Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#media-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background Jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#native-interop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Native Interop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-components-liveview-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Components &amp; LiveView Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-modeling-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Modeling &amp; Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-quality-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing &amp; Quality Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility &amp; Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phoenix-framework-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix Framework Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phoenix Framework Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-library-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Library Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Library Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-plugs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Plugs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvc-controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      MVC Controllers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internationalization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internationalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websockets-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebSockets &amp; Channels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebSockets &amp; Channels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Channel Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liveview-server-side-reactive-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiveView - Server-Side Reactive UI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LiveView - Server-Side Reactive UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-liveview-10-december-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveView 1.0 (December 2024) 🎉
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-liveview-11-july-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveView 1.1 (July 2025) 🚀
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Tooling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-via-esbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript (via esbuild)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css-via-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSS (via Tailwind)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecto-database-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ecto - Database Toolkit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ecto - Database Toolkit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Databases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecto-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ecto Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-deployment-strategies-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Deployment Strategies (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-benchmarks-case-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Benchmarks &amp; Case Studies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Benchmarks &amp; Case Studies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elixir-vs-go-benchmarks-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elixir vs Go Benchmarks (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixir-vs-java-benchmarks-may-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elixir vs Java Benchmarks (May 2024)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-case-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Case Studies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-choose-elixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Choose Elixir
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-frameworks-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Frameworks &amp; Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Frameworks &amp; Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exunit-built-in-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExUnit - Built-in Testing Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-based-testing-with-streamdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property-Based Testing with StreamData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-liveview-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveView Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-best-practices-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Best Practices (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways-for-ai-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways for AI LLMs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Takeaways for AI LLMs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pattern-matching-over-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pattern Matching Over Conditionals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processes-are-cheap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Processes Are Cheap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-supervision-trees-for-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Supervision Trees for Resilience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-use-ets-for-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Use ETS for Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-liveview-for-real-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. LiveView for Real-Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ecto-changesets-for-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Ecto Changesets for Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-prefer-pipe-over-nested-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Prefer Pipe Over Nested Calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-use-protocol-for-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Use Protocol for Polymorphism
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      External References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../homelab/adguard/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Homelab
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llms/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    LLMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robotics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Robotics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-beam-virtual-machine-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The BEAM Virtual Machine Foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The BEAM Virtual Machine Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-beam-replaces-in-your-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      What BEAM Replaces in Your Stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-beam-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core BEAM Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core BEAM Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-actor-process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Actor Process Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rpc-remote-procedure-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RPC (Remote Procedure Call)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-parallel-garbage-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Parallel Garbage Collection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-built-in-ets-erlang-term-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Built-in ETS (Erlang Term Storage)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-built-in-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Built-in Observability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-built-in-network-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Built-in Network Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elixir-language-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elixir Language Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Elixir Language Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Tooling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Built-in Tooling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-exunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing - ExUnit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Formatting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-library-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Library Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modern-language-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Language Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modern Language Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protocols
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipes-and-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipes and Comprehensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hex-ecosystem-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hex Ecosystem Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hex Ecosystem Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machine-learning-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine Learning &amp; AI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Machine Learning &amp; AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-aillm-packages-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern AI/LLM Packages (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nx-numerical-elixir-latest-v0110" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nx (Numerical Elixir) - Latest v0.11.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axon-deep-learning-framework-latest-v081" class="md-nav__link">
+    <span class="md-ellipsis">
+      Axon (Deep Learning Framework) - Latest v0.8.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exla-backend-gputpu-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXLA Backend - GPU/TPU Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedded-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedded &amp; IoT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web &amp; HTTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON &amp; Serialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internationalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internationalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Live Notebooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#media-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background Jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#native-interop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Native Interop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-components-liveview-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Components &amp; LiveView Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-modeling-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Modeling &amp; Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-quality-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing &amp; Quality Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributed Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility &amp; Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phoenix-framework-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix Framework Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phoenix Framework Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-library-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Library Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Library Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-plugs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Plugs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvc-controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      MVC Controllers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internationalization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internationalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websockets-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      WebSockets &amp; Channels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WebSockets &amp; Channels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Channel Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liveview-server-side-reactive-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiveView - Server-Side Reactive UI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LiveView - Server-Side Reactive UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-liveview-10-december-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveView 1.0 (December 2024) 🎉
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-liveview-11-july-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveView 1.1 (July 2025) 🚀
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-tooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Tooling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-via-esbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript (via esbuild)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css-via-tailwind" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSS (via Tailwind)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecto-database-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ecto - Database Toolkit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ecto - Database Toolkit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Databases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecto-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ecto Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-deployment-strategies-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modern Deployment Strategies (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-benchmarks-case-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Benchmarks &amp; Case Studies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Benchmarks &amp; Case Studies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elixir-vs-go-benchmarks-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elixir vs Go Benchmarks (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixir-vs-java-benchmarks-may-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elixir vs Java Benchmarks (May 2024)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-case-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Case Studies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-choose-elixir" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Choose Elixir
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-frameworks-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Frameworks &amp; Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Frameworks &amp; Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exunit-built-in-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExUnit - Built-in Testing Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-based-testing-with-streamdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property-Based Testing with StreamData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phoenix-liveview-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phoenix LiveView Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-best-practices-2024-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Best Practices (2024-2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways-for-ai-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways for AI LLMs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Takeaways for AI LLMs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pattern-matching-over-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pattern Matching Over Conditionals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processes-are-cheap" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Processes Are Cheap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-supervision-trees-for-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Supervision Trees for Resilience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-use-ets-for-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Use ETS for Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-liveview-for-real-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. LiveView for Real-Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ecto-changesets-for-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Ecto Changesets for Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-prefer-pipe-over-nested-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Prefer Pipe Over Nested Calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-use-protocol-for-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Use Protocol for Polymorphism
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      External References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">beam</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">ecosystem</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">elixir</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">phoenix</span>
+      
+    
+  </nav>
+
+
+
+<blockquote>
+<p><strong>Original Source</strong>: <a href="https://fly.io/phoenix-files/elixir-and-phoenix-can-do-it-all/">Elixir and Phoenix can do it all! - Fly.io Phoenix Files</a></p>
+<p><strong>Original Author</strong>: Jason Stiebs (@peregrine)</p>
+<p><strong>Original Published</strong>: October 26, 2023</p>
+<p><strong>Expanded &amp; Updated</strong>: March 21, 2026</p>
+<p><strong>Research Method</strong>: Playwright MCP live web fetch for current information (2024-2026)</p>
+<p><strong>Additional Research Sources</strong>: Official documentation, GitHub releases, production case studies, community blog posts</p>
+</blockquote>
+<h1 id="elixir-phoenix-ecosystem-comprehensive-guide">Elixir &amp; Phoenix Ecosystem Comprehensive Guide</h1>
+<blockquote>
+<p><strong>Source</strong>: <a href="https://fly.io/phoenix-files/elixir-and-phoenix-can-do-it-all/">Elixir and Phoenix can do it all! - Fly.io Phoenix Files</a></p>
+<p><strong>Author</strong>: Jason Stiebs (@peregrine)</p>
+<p><strong>Published</strong>: October 26, 2023</p>
+<p><strong>Researched via</strong>: Playwright MCP live web fetch</p>
+</blockquote>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This guide catalogs everything developers get "for free" when choosing Elixir and Phoenix. The key insight from the article: <strong>Elixir/Phoenix removes entire categories of problems rather than just solving them</strong>. As José Valim stated: <em>"removing the problem altogether instead of solving the problem."</em></p>
+<hr />
+<h2 id="the-beam-virtual-machine-foundation">The BEAM Virtual Machine Foundation</h2>
+<p>The BEAM (Erlang Virtual Machine) is the foundation that enables Elixir's capabilities. It provides built-in solutions for problems other ecosystems require third-party tools to solve.</p>
+<h3 id="what-beam-replaces-in-your-stack">What BEAM Replaces in Your Stack</h3>
+<table>
+<thead>
+<tr>
+<th>Traditional Need</th>
+<th>BEAM Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message Queue</td>
+<td>Actor Process Model</td>
+</tr>
+<tr>
+<td>Load Balancer</td>
+<td>Built-in Scheduler + Distribution</td>
+</tr>
+<tr>
+<td>Redis/Memcached</td>
+<td>ETS (Erlang Term Storage)</td>
+</tr>
+<tr>
+<td>Docker/K8s clustering</td>
+<td>Built-in Distribution + RPC</td>
+</tr>
+<tr>
+<td>Tracing infrastructure</td>
+<td>Built-in Tracing + Observer</td>
+</tr>
+<tr>
+<td>Connection pooling</td>
+<td>OTP Supervision Trees</td>
+</tr>
+<tr>
+<td>Background workers</td>
+<td>GenServer/Task modules</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core-beam-features">Core BEAM Features</h3>
+<h4 id="1-actor-process-model">1. Actor Process Model</h4>
+<ul>
+<li>Lightweight processes with no shared memory</li>
+<li>Message passing between processes</li>
+<li>Managed by BEAM's built-in scheduler</li>
+<li>Millions of processes on a single machine</li>
+<li><strong>Reference</strong>: <a href="https://www.erlang.org/">Erlang.org</a></li>
+</ul>
+<h4 id="2-distribution">2. Distribution</h4>
+<ul>
+<li>Seamless communication between servers</li>
+<li>Automatic connection management</li>
+<li><strong>Reference</strong>: <a href="https://fly.io/phoenix-files/beam-clustering-made-easy/">Beam Clustering Made Easy - Fly.io</a></li>
+</ul>
+<h4 id="3-rpc-remote-procedure-call">3. RPC (Remote Procedure Call)</h4>
+<ul>
+<li>Calling remote functions is identical to local calls</li>
+<li>No manual serialization/deserialization</li>
+<li>Works seamlessly across WireGuard-based private networks</li>
+<li><strong>Reference</strong>: <a href="https://fly.io/docs/reference/private-networking/">Fly.io Private Networking</a></li>
+</ul>
+<h4 id="4-parallel-garbage-collection">4. Parallel Garbage Collection</h4>
+<ul>
+<li>Soft Real Time GC</li>
+<li>Minimal pausing (sub-millisecond)</li>
+<li>No "stop the world" events</li>
+</ul>
+<h4 id="5-built-in-ets-erlang-term-storage">5. Built-in ETS (Erlang Term Storage)</h4>
+<ul>
+<li>In-memory key-value store</li>
+<li>Persistent between process restarts</li>
+<li>O(1) lookups</li>
+<li><strong>Reference</strong>: <a href="https://www.erlang.org/doc/man/ets.html">ETS Documentation</a></li>
+</ul>
+<h4 id="6-built-in-observability">6. Built-in Observability</h4>
+<ul>
+<li><strong>Tracing</strong>: <a href="https://www.erlang.org/doc/apps/erts/tracing">Erlang Tracing</a></li>
+<li><strong>Observer</strong>: <a href="https://www.erlang.org/doc/man/observer">Erlang Observer</a></li>
+</ul>
+<h4 id="7-built-in-network-support">7. Built-in Network Support</h4>
+<ul>
+<li>UDP/TCP/SSL servers</li>
+<li>37 years of production use and refinement</li>
+</ul>
+<hr />
+<h2 id="elixir-language-features">Elixir Language Features</h2>
+<h3 id="package-management">Package Management</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mix</strong></td>
+<td>Build tool and dependency management</td>
+<td><a href="https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html">Mix OTP Introduction</a></td>
+</tr>
+<tr>
+<td><strong>Hex</strong></td>
+<td>Package registry (similar to npm/pip)</td>
+<td><a href="https://hex.pm">hex.pm</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="built-in-tooling">Built-in Tooling</h3>
+<h4 id="testing-exunit">Testing - ExUnit</h4>
+<ul>
+<li>Full-featured testing framework built into Elixir</li>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/ex_unit/1.15/ExUnit.html">ExUnit Documentation</a></li>
+</ul>
+<h4 id="documentation-system">Documentation System</h4>
+<ul>
+<li>First-class documentation with <code>@moduledoc</code> and <code>@doc</code></li>
+<li>Mix task <code>mix docs</code> generates browsable docs</li>
+<li><strong>Reference</strong>: <a href="https://github.com/elixir-lang/ex_doc">ExDoc</a></li>
+</ul>
+<h4 id="code-formatting">Code Formatting</h4>
+<ul>
+<li><code>mix format</code> for consistent code style</li>
+<li>No configuration needed (sane defaults)</li>
+</ul>
+<h3 id="standard-library-highlights">Standard Library Highlights</h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kernel</strong></td>
+<td>Core language functions - remarkably small, no deprecated cruft</td>
+</tr>
+<tr>
+<td><strong>Enum</strong></td>
+<td>Enumerable operations (map, filter, reduce, etc.)</td>
+</tr>
+<tr>
+<td><strong>Stream</strong></td>
+<td>Lazy enumerables for memory-efficient processing</td>
+</tr>
+<tr>
+<td><strong>Access</strong></td>
+<td>Key-based access for nested data structures</td>
+</tr>
+<tr>
+<td><strong>Date/Time/DateTime/Calendar</strong></td>
+<td>Full-featured date/time handling</td>
+</tr>
+<tr>
+<td><strong>Task</strong></td>
+<td>Trivial parallel processing</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>Simple shared state management</td>
+</tr>
+<tr>
+<td><strong>Config</strong></td>
+<td>Environment-specific configuration</td>
+</tr>
+<tr>
+<td><strong>Registry</strong></td>
+<td>Decentralized key-value process storage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modern-language-features">Modern Language Features</h3>
+<h4 id="protocols">Protocols</h4>
+<ul>
+<li>Polymorphism mechanism enabling extensible code</li>
+<li>Foundation for Enum, Stream, Access</li>
+<li><strong>Reference</strong>: <a href="https://elixir-lang.org/getting-started/protocols.html">Elixir Protocols</a></li>
+</ul>
+<h4 id="pipes-and-comprehensions">Pipes and Comprehensions</h4>
+<ul>
+<li>Clean functional composition</li>
+<li><strong>Reference</strong>: <a href="https://elixir-lang.org/getting-started/comprehensions.html">Comprehensions</a></li>
+</ul>
+<hr />
+<h2 id="hex-ecosystem-packages">Hex Ecosystem Packages</h2>
+<p>Hex is the Elixir package registry with a deep catalog of battle-tested libraries.</p>
+<h3 id="machine-learning-ai">Machine Learning &amp; AI</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bumblebee</strong></td>
+<td>ML serving with HuggingFace integration, batching, global distribution</td>
+<td><a href="https://github.com/elixir-nx/bumblebee">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>Scholar</strong></td>
+<td>NumPy-equivalent for math/science</td>
+<td><a href="https://github.com/elixir-nx/scholar">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="modern-aillm-packages-2024-2025">Modern AI/LLM Packages (2024-2025)</h4>
+<p>| Package | Purpose | Version | Downloads | Reference |
+|---------|---------|----------|-----------|
+| <strong>nous</strong> | AI agent framework with multi-provider LLM support | v0.12.9 (Mar 2026) | 3,241/week | <a href="https://github.com/nyo16/nous">GitHub</a> |
+| <strong>gemini_ex</strong> | Google Gemini API client with tool calling | v0.10.0 (Feb 2026) | 4,632 total | <a href="https://github.com/nshkrdotcom/gemini_ex">GitHub</a> |
+| <strong>req_llm</strong> | Composable LLM library built on Req &amp; Finch | v1.7.1 | 49,824/week | <a href="https://hex.pm/packages/req_llm">Hex</a> |
+| <strong>genai</strong> | Generative AI client with plugin extension support | v0.0.3 | - | <a href="https://github.com/noizu-labs-ml/genai">GitHub</a> |
+| <strong>elixir_llm</strong> | Unified API for all LLMs | v0.3.0 | - | <a href="https://hexdocs.pm/elixir_llm/">HexDocs</a> |
+| <strong>nexlm</strong> | Provider-agnostic LLM interface | - | - | <a href="https://github.com/liboshen/nexlm">GitHub</a> |</p>
+<h4 id="nx-numerical-elixir-latest-v0110">Nx (Numerical Elixir) - Latest v0.11.0</h4>
+<p><strong>Core Capabilities:</strong>
+- Multi-dimensional tensor support with named dimensions
+- Vectorization with "for-each" semantics
+- Broadcasted operations without intermediate allocations
+- Nx.Serving with streaming support for both inputs and outputs
+- Named tensors for clearer code (e.g., <code>Nx.iota({2, 3}, names: [:x, :y])</code>)</p>
+<p><strong>Ecosystem Extensions:</strong>
+- <strong>NxColor</strong>: Color space conversions (RGB, CMYK, CIE-Lab)
+- <strong>NxImage</strong>: Image processing with HWC/CHW order support
+- <strong>NxAudio</strong>: Audio tensor operations
+- <strong>Nx.Random</strong>: Multivariate distributions and sampling functions</p>
+<p><strong>Reference</strong>: <a href="https://hexdocs.pm/nx/">HexDocs</a></p>
+<h4 id="axon-deep-learning-framework-latest-v081">Axon (Deep Learning Framework) - Latest v0.8.1</h4>
+<p><strong>Major Features (v0.8.0 - Nov 2025):</strong>
+- Simple quantization API for model optimization (60% less memory)
+- Advanced model state management with state structs
+- Support for blocks with multiple inputs
+- Metric learning for image similarity search
+- Time-series regression examples
+- PyTorch cheat sheet for Python engineers</p>
+<p><strong>Layer Improvements:</strong>
+- RMS Norm Layer for root mean square normalization
+- Gradient accumulation for larger batch sizes with limited GPU memory
+- Mixed precision to avoid unintended integer casting</p>
+<p><strong>Reference</strong>: <a href="https://hexdocs.pm/axon/">HexDocs</a></p>
+<h4 id="exla-backend-gputpu-support">EXLA Backend - GPU/TPU Support</h4>
+<p><strong>Supported Hardware:</strong>
+- <strong>CUDA</strong>: Full support with client configuration
+- <strong>ROCm</strong>: AMD GPU support
+- <strong>TPU</strong>: Experimental support via vLLM backend (up to 5x performance)</p>
+<p><strong>Configuration:</strong>
+<div class="highlight"><pre><span></span><code><span class="n">config</span><span class="w"> </span><span class="ss">:nx</span><span class="p">,</span><span class="w"> </span><span class="ss">:default_backend</span><span class="p">,</span><span class="w"> </span><span class="nc">EXLA.Backend</span>
+<span class="n">config</span><span class="w"> </span><span class="ss">:nx</span><span class="p">,</span><span class="w"> </span><span class="ss">:default_defn_options</span><span class="p">,</span><span class="w"> </span><span class="ss">compiler</span><span class="p">:</span><span class="w"> </span><span class="nc">EXLA</span>
+<span class="nc">Nx</span><span class="o">.</span><span class="n">global_default_backend</span><span class="p">(</span><span class="nc">EXLA.Backend</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Reference</strong>: <a href="https://hexdocs.pm/exla/">EXLA Docs</a></p>
+<h3 id="data-processing">Data Processing</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GenStage</strong></td>
+<td>Complex distributed big data processing</td>
+<td><a href="https://hexdocs.pm/gen_stage/GenStage.html">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>Broadway</strong></td>
+<td>High-level data processing pipelines</td>
+<td><a href="https://github.com/dashbitco/broadway">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="embedded-iot">Embedded &amp; IoT</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nerves</strong></td>
+<td>Embedded and IoT programming framework</td>
+<td><a href="https://nerves-project.org/">nerves-project.org</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-http">Web &amp; HTTP</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plug</strong></td>
+<td>HTTP servers and adapters</td>
+<td><a href="https://github.com/elixir-plug/plug/">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>Bandit</strong></td>
+<td>Pure Elixir HTTP1/2 server</td>
+<td><a href="https://github.com/mtrudel/bandit">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>Req</strong></td>
+<td>High-level HTTP client</td>
+<td><a href="https://hex.pm/packages/req">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-serialization">JSON &amp; Serialization</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jason</strong></td>
+<td>Highly performant JSON encoding/decoding</td>
+<td><a href="https://hexdocs.pm/jason/readme.html">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>Msgpuck</strong></td>
+<td>MessagePack implementation</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="image-processing">Image Processing</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Image</strong></td>
+<td>Image manipulation</td>
+<td><a href="https://hex.pm/packages/image">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="number-handling">Number Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decimal</strong></td>
+<td>Arbitrary precision decimal arithmetic</td>
+<td><a href="https://hexdocs.pm/decimal/readme.html">HexDocs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="internationalization">Internationalization</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CLDR</strong></td>
+<td>Most complete i18n/l10n outside browsers</td>
+<td><a href="https://github.com/elixir-cldr/cldr">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="live-notebooks">Live Notebooks</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LiveBook</strong></td>
+<td>Jupyter-like notebooks for Elixir</td>
+<td><a href="https://livebook.dev/">livebook.dev</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="media-processing">Media Processing</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Membrane</strong></td>
+<td>Video/audio stream processing</td>
+<td><a href="https://membrane.stream/">membrane.stream</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing">Testing</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>StreamData</strong></td>
+<td>Property-based and generative testing</td>
+<td><a href="https://hex.pm/packages/stream_data">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="security">Security</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sobelow</strong></td>
+<td>Security-focused static analysis</td>
+<td><a href="https://hex.pm/packages/sobelow">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="background-jobs">Background Jobs</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Oban</strong></td>
+<td>Production-grade job/worker queue</td>
+<td><a href="https://hex.pm/packages/oban">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="native-interop">Native Interop</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rustler</strong></td>
+<td>Rust NIF (Native Implemented Function) support</td>
+<td><a href="https://github.com/rusterlium/rustler">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>Zigler</strong></td>
+<td>Zig NIF support</td>
+<td><a href="https://github.com/E-xyza/zigler">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="web-components-liveview-libraries">Web Components &amp; LiveView Libraries</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Version</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PhiaUI</strong></td>
+<td>Largest LiveView component library (829 components)</td>
+<td>v0.1.17 (Mar 2026)</td>
+<td><a href="https://github.com/charlenopires/PhiaUI">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>live_table</strong></td>
+<td>Advanced data tables with filtering, sorting, export</td>
+<td>v0.4.1 (Mar 2026)</td>
+<td><a href="https://github.com/gurujada/live_table">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>live_vue</strong></td>
+<td>End-to-end reactivity for Vue + LiveView</td>
+<td>v1.0.1</td>
+<td><a href="https://hex.pm/packages/live_vue">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-modeling-frameworks">Data Modeling &amp; Frameworks</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Version</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ash Framework</strong></td>
+<td>Declarative, resource-oriented application framework</td>
+<td>v3.19.3</td>
+<td><a href="https://hexdocs.pm/ash/">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>ash_cubdb</strong></td>
+<td>CubDB data layer for Ash resources</td>
+<td>v0.6.2</td>
+<td><a href="https://hex.pm/packages/ash_cubdb">Hex</a></td>
+</tr>
+<tr>
+<td><strong>ash_mock</strong></td>
+<td>Mock resource generator for Ash</td>
+<td>v0.2.2</td>
+<td><a href="https://github.com/devall-org/ash_mock">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing-quality-tools">Testing &amp; Quality Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Version</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mox</strong></td>
+<td>Mocking with explicit contracts</td>
+<td>v1.2.0</td>
+<td><a href="https://hexdocs.pm/mox/">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>ExMachina</strong></td>
+<td>Factory pattern for test data</td>
+<td>v2.8.0</td>
+<td><a href="https://hexdocs.pm/ex_machina/">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>Faker</strong></td>
+<td>Realistic test data generation</td>
+<td>v0.18+</td>
+<td><a href="https://hex.pm/packages/faker">Hex</a></td>
+</tr>
+<tr>
+<td><strong>Sobelow</strong></td>
+<td>Security-focused static analysis</td>
+<td>-</td>
+<td><a href="https://hex.pm/packages/sobelow">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="distributed-systems">Distributed Systems</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Version</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>libcluster_hcloud</strong></td>
+<td>Hetzner Cloud clustering for libcluster</td>
+<td>v0.1.1</td>
+<td><a href="https://hex.pm/packages/libcluster_hcloud">Hex</a></td>
+</tr>
+<tr>
+<td><strong>libcluster_uplink</strong></td>
+<td>Uplink clustering strategy</td>
+<td>v0.4.1</td>
+<td><a href="https://hex.pm/packages/libcluster_uplink">Hex</a></td>
+</tr>
+<tr>
+<td><strong>elector</strong></td>
+<td>Master node election for clusters</td>
+<td>v0.3.2</td>
+<td><a href="https://hex.pm/packages/elector">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="utility-infrastructure">Utility &amp; Infrastructure</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Version</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>aasm</strong></td>
+<td>Finite state machine implementation</td>
+<td>v0.2.0</td>
+<td><a href="https://hex.pm/packages/aasm">Hex</a></td>
+</tr>
+<tr>
+<td><strong>aegis</strong></td>
+<td>Lightweight resource authorization</td>
+<td>v0.2.0</td>
+<td><a href="https://hex.pm/packages/aegis">Hex</a></td>
+</tr>
+<tr>
+<td><strong>open_feature</strong></td>
+<td>OpenFeature SDK for feature flags</td>
+<td>v0.1.3</td>
+<td><a href="https://hex.pm/packages/open_feature">Hex</a></td>
+</tr>
+<tr>
+<td><strong>cli_mate</strong></td>
+<td>Enhanced OptionParser for CLI tools</td>
+<td>v0.9.0</td>
+<td><a href="https://hex.pm/packages/cli_mate">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phoenix-framework-capabilities">Phoenix Framework Capabilities</h2>
+<p>Phoenix builds on Elixir/BEAM to provide a comprehensive web framework.</p>
+<h3 id="http-library-features">HTTP Library Features</h3>
+<h4 id="routing">Routing</h4>
+<ul>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/Phoenix.Router.html">Phoenix.Router</a></li>
+</ul>
+<h4 id="pipeline-plugs">Pipeline Plugs</h4>
+<ul>
+<li>Composable middleware chains</li>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/Phoenix.Router.html#module-pipelines-and-plugs">Phoenix.Router - Pipelines and Plugs</a></li>
+</ul>
+<h4 id="content-handling">Content Handling</h4>
+<ul>
+<li><strong>HTML</strong>: <a href="https://hexdocs.pm/phoenix/components.html">Phoenix.HTML Components</a></li>
+<li><strong>JSON</strong>: <a href="https://hexdocs.pm/phoenix/json_and_apis.html">JSON and APIs</a></li>
+</ul>
+<h4 id="security_1">Security</h4>
+<ul>
+<li>HTTPS with sane defaults</li>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/using_ssl.html">Using SSL</a></li>
+<li>Secure Cookie Sessions</li>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/mix_phx_gen_auth.html#tracking-sessions">Mix Phx Gen Auth - Sessions</a></li>
+<li>Secure Tokens</li>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/Phoenix.Token.html">Phoenix.Token</a></li>
+</ul>
+<h4 id="mvc-controllers">MVC Controllers</h4>
+<ul>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/controllers.html">Controllers</a></li>
+</ul>
+<h4 id="internationalization_1">Internationalization</h4>
+<ul>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/gettext/Gettext.html">Gettext</a></li>
+</ul>
+<h3 id="websockets-channels">WebSockets &amp; Channels</h3>
+<h4 id="channel-features">Channel Features</h4>
+<ul>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/channels.html">Phoenix Channels</a></li>
+<li>Built-in JavaScript client with backoff/error handling</li>
+<li>Message serialization</li>
+<li>Session handling</li>
+<li><strong>PubSub</strong>: Fully distributed, multi-server</li>
+<li><strong>Presence</strong>: Track who's in a channel using CRDTs</li>
+<li><strong>Scalability</strong>: Proven to 2 million concurrent connections</li>
+<li><strong>Reference</strong>: <a href="https://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections">Road to 2 Million WebSocket Connections</a></li>
+</ul>
+<h3 id="liveview-server-side-reactive-ui">LiveView - Server-Side Reactive UI</h3>
+<p>LiveView enables real-time UIs without client-side JavaScript frameworks.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server-rendered HTML</td>
+<td>Pure Elixir templates</td>
+<td><a href="https://hexdocs.pm/phoenix_live_view/welcome.html">LiveView Welcome</a></td>
+</tr>
+<tr>
+<td>HEEx templates</td>
+<td>HTML with compile-time verification</td>
+<td><a href="https://hexdocs.pm/phoenix/components.html#heex">HEEx Components</a></td>
+</tr>
+<tr>
+<td>Latency simulation</td>
+<td>Test with configurable delays</td>
+<td><a href="https://hexdocs.pm/phoenix_live_view/js-interop.html#simulating-latency">JS Interop</a></td>
+</tr>
+<tr>
+<td>Single process</td>
+<td>One BEAM process per connection</td>
+<td><a href="https://fly.io/phoenix-files/a-liveview-is-a-process/">LiveView is a Process</a></td>
+</tr>
+<tr>
+<td>JS Interop</td>
+<td>Call JavaScript from server</td>
+<td><a href="https://hexdocs.pm/phoenix_live_view/js-interop.html">JS Interop</a></td>
+</tr>
+<tr>
+<td>File uploads</td>
+<td>To disk or cloud</td>
+<td><a href="https://hexdocs.pm/phoenix/file_uploads.html">File Uploads</a></td>
+</tr>
+<tr>
+<td>Highly optimized</td>
+<td>Minimal latency rendering</td>
+<td><a href="https://dashbit.co/blog/latency-rendering-liveview">Latency Rendering Blog</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="phoenix-liveview-10-december-2024">Phoenix LiveView 1.0 (December 2024) 🎉</h4>
+<p><strong>Significance</strong>: Six years after first commit - reached production maturity</p>
+<p><strong>Key Features:</strong></p>
+<p><strong>Extended HEEx Syntax:</strong>
+- HTML-aware <code>{}</code> interpolation now works within tag bodies (previously only in attributes)
+- Example:
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="ss">:if</span><span class="o">=</span><span class="p">{</span><span class="na">@some_condition?</span><span class="p">}</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="ss">:for</span><span class="o">=</span><span class="p">{</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="na">@values</span><span class="p">}</span><span class="o">&gt;</span><span class="nc">Value</span><span class="w"> </span><span class="p">{</span><span class="n">val</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</code></pre></div></p>
+<p><strong>Performance Optimizations:</strong>
+- Comprehension fingerprinting for better change tracking
+- Tree sharing optimizations
+- Stream primitives for handling large collections
+- Reduced payload sizes</p>
+<p><strong>New Installer:</strong>
+- <code>new.phoenixframework.org</code> - quick project setup
+- Single command to install Elixir and create Phoenix project</p>
+<p><strong>Reference</strong>: <a href="https://www.phoenixframework.org/blog/phoenix-liveview-1-0-released">Phoenix LiveView 1.0 Announcement</a></p>
+<h4 id="phoenix-liveview-11-july-2025">Phoenix LiveView 1.1 (July 2025) 🚀</h4>
+<p><strong>New Features:</strong></p>
+<p><strong>1. Colocated Hooks</strong>
+- Write JavaScript hook code directly in same file as Elixir component
+- Automatic module namespacing with dot prefix (<code>.PhoneNumber</code>)
+- Requires esbuild configuration for <code>phoenix-colocated</code> folder</p>
+<p><strong>2. Change Tracking in Comprehensions</strong>
+- Default change tracking for <code>:for</code> comprehensions (breaking change)
+- Only changed items sent over wire instead of entire lists
+- New <code>:key</code> attribute for efficient list operations
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="ss">:for</span><span class="o">=</span><span class="p">{</span><span class="n">item</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="na">@items</span><span class="p">}</span><span class="w"> </span><span class="ss">:key</span><span class="o">=</span><span class="p">{</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">}</span><span class="o">&gt;</span>
+</code></pre></div></p>
+<p><strong>3. TypeScript Support for JavaScript Client</strong>
+- Official type annotations for all public JavaScript APIs
+- Hooks can be defined as subclasses of <code>ViewHook</code>
+- IntelliSense support in TypeScript-enabled editors</p>
+<p><strong>4. Portal Component (<code>&lt;.portal&gt;</code>)</strong>
+- Teleport elements outside their regular DOM hierarchy
+- Similar to Vue's <code>&lt;Teleport&gt;</code> and React's <code>createPortal</code>
+- Perfect for tooltips, dialogs, modals with CSS constraints</p>
+<p><strong>5. JS.ignore_attributes</strong>
+- Prevent LiveView from patching specific attributes
+- Useful for native elements like <code>&lt;dialog&gt;</code> with <code>open</code> attribute</p>
+<p><strong>6. Improved Debugging</strong>
+- <code>Phoenix.LiveView.Debug</code> module for runtime LiveView inspection
+- <code>data-phx-pid</code> attribute on root elements for process ID
+- Enhanced <code>debug_attributes</code> option with slot/line annotations</p>
+<p><strong>7. LazyHTML Migration</strong>
+- Moved from Floki to LazyHTML (based on lexbor)
+- Supports modern CSS selectors: <code>:is()</code>, <code>:has()</code>, etc.
+- Better performance and accuracy</p>
+<p><strong>Reference</strong>: <a href="https://www.phoenixframework.org/blog/phoenix-liveview-1-1-released">Phoenix LiveView 1.1 Announcement</a></p>
+<h3 id="development-tooling">Development Tooling</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Live Code Reloading</td>
+<td>Changes reflect instantly</td>
+</tr>
+<tr>
+<td>Debugger</td>
+<td>Helpful, actionable error pages</td>
+</tr>
+<tr>
+<td>E2E Testing</td>
+<td>No Chromedriver needed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asset-pipeline">Asset Pipeline</h3>
+<h4 id="javascript-via-esbuild">JavaScript (via esbuild)</h4>
+<ul>
+<li>Bundling, minification, integrity hashes, cache busting</li>
+<li>NPM support</li>
+<li>Custom JS integration</li>
+</ul>
+<h4 id="css-via-tailwind">CSS (via Tailwind)</h4>
+<ul>
+<li>Bundling, minification, integrity hashes, cache busting</li>
+<li>Custom CSS support</li>
+</ul>
+<h3 id="ecto-database-toolkit">Ecto - Database Toolkit</h3>
+<p>Ecto provides a complete database solution.</p>
+<h4 id="supported-databases">Supported Databases</h4>
+<ul>
+<li><strong>Reference</strong>: <a href="https://github.com/elixir-ecto/ecto_sql">Ecto SQL</a></li>
+<li>PostgreSQL, MySQL, SQLite, and more</li>
+</ul>
+<h4 id="ecto-components">Ecto Components</h4>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ecto.Query</strong></td>
+<td>Full Query DSL</td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.Query.html">Query Documentation</a></td>
+</tr>
+<tr>
+<td><strong>Raw SQL escape hatch</strong></td>
+<td>Complex queries</td>
+<td><a href="https://hexdocs.pm/ecto_sql/Ecto.Adapters.SQL.html#query!/4">Ecto.Adapters.SQL</a></td>
+</tr>
+<tr>
+<td><strong>Query Fragments</strong></td>
+<td>Advanced SQL in Ecto</td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.Query.html#module-fragments">Ecto.Query Fragments</a></td>
+</tr>
+<tr>
+<td><strong>Migrations</strong></td>
+<td>Schema versioning</td>
+<td><a href="https://hexdocs.pm/ecto_sql/Ecto.Migration.html">Ecto.Migration</a></td>
+</tr>
+<tr>
+<td><strong>Schemas</strong></td>
+<td>Data mapping</td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.Schema.html">Ecto.Schema</a></td>
+</tr>
+<tr>
+<td><strong>Changesets</strong></td>
+<td>Validation and casting</td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.Changeset.html">Ecto.Changeset</a></td>
+</tr>
+<tr>
+<td><strong>Transactions</strong></td>
+<td>Atomic operations</td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.Repo.html#transaction-api">Ecto.Repo.transaction</a></td>
+</tr>
+<tr>
+<td><strong>Multi</strong></td>
+<td>Multi-step transactions</td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.Multi.html">Ecto.Multi</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="authentication-generator">Authentication Generator</h3>
+<p><code>mix phx.gen.auth</code> generates complete authentication:</p>
+<ul>
+<li>Registration, login, forgot password</li>
+<li>Email verification</li>
+<li>Session management</li>
+<li>Works with both traditional controllers and LiveView</li>
+<li><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/mix_phx_gen_auth.html">Mix Phx Gen Auth</a></li>
+</ul>
+<h3 id="email">Email</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Swoosh</strong></td>
+<td>Email rendering and sending</td>
+<td><a href="https://github.com/swoosh/swoosh">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="observability">Observability</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Telemetry</strong></td>
+<td>Built-in metrics hooks</td>
+<td><a href="https://hexdocs.pm/phoenix/telemetry.html#metrics">Telemetry</a></td>
+</tr>
+<tr>
+<td><strong>Live Dashboard</strong></td>
+<td>One-line metrics dashboard</td>
+<td><a href="https://github.com/phoenixframework/phoenix_live_dashboard">Phoenix Live Dashboard</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="deployment">Deployment</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dockerfile Generator</strong></td>
+<td>Container-ready</td>
+<td><a href="https://hexdocs.pm/phoenix/releases.html#containers">Containers Guide</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="modern-deployment-strategies-2024-2025">Modern Deployment Strategies (2024-2025)</h4>
+<p><strong>Mix Releases</strong> - Production Standard:
+- Self-contained directories with Erlang VM included
+- Zero-downtime upgrades with hot code swapping
+- <code>mix phx.gen.release</code> generates release artifacts
+- Custom release modules for migrations
+- <strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix/releases.html">Phoenix Releases Guide</a></p>
+<p><strong>Docker Containerization</strong>:
+- Multi-stage builds for production
+- Build stage: <code>hexpm/elixir</code> image
+- Minimal runtime stage with Alpine
+- Health checks integrated
+- <strong>Reference</strong>: <a href="https://oneuptime.com/blog/post/2026-01-26-elixir-production-deployment/">OneUptime Production Guide</a></p>
+<p><strong>Cloud Platforms:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Type</th>
+<th>Features</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fly.io</strong></td>
+<td>PaaS</td>
+<td>Built-in DNS clustering, private networking, <code>fly launch</code></td>
+<td><a href="https://community.fly.io/">Fly.io Community</a></td>
+</tr>
+<tr>
+<td><strong>Gigalixir</strong></td>
+<td>Elixir-specific PaaS</td>
+<td>ASDF support, buildpack auto-detection</td>
+<td><a href="https://docs.gigalixir.com/">Gigalixir Docs</a></td>
+</tr>
+<tr>
+<td><strong>Render</strong></td>
+<td>PaaS</td>
+<td>Distributed Elixir cluster support</td>
+<td><a href="https://render.com/docs/deploy-elixir-phoenix">Render Guide</a></td>
+</tr>
+<tr>
+<td><strong>Railway</strong></td>
+<td>PaaS</td>
+<td>GitHub, CLI, template deployments</td>
+<td><a href="https://docs.railway.app/">Railway Guide</a></td>
+</tr>
+<tr>
+<td><strong>Heroku</strong></td>
+<td>PaaS</td>
+<td>Buildpack auto-detection, dynos</td>
+<td><a href="https://devcenter.heroku.com/articles/getting-started-with-elixir">Heroku Guide</a></td>
+</tr>
+<tr>
+<td><strong>AWS</strong></td>
+<td>Cloud</td>
+<td>EC2, Elastic Beanstalk, Lambda, RDS, ElastiCache</td>
+<td><a href="https://docs.aws.amazon.com/elixir/">AWS Guide</a></td>
+</tr>
+<tr>
+<td><strong>Google Cloud</strong></td>
+<td>Cloud</td>
+<td>GKE, Cloud Run, Compute Engine</td>
+<td><a href="https://cloud.google.com/docs/elixir">GCP Guide</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deployment Patterns:</strong></p>
+<p><strong>Blue-Green Deployment:</strong>
+- Two identical environments with instant traffic switch
+- Zero downtime deployments</p>
+<p><strong>Canary Deployment:</strong>
+- Gradual traffic shift (5% → 10% → 25% → 50% → 100%)
+- Test with small user group before full rollout</p>
+<p><strong>Rolling Deployment:</strong>
+- Incremental instance replacement
+- Continuous availability during updates</p>
+<p><strong>CI/CD Pipelines:</strong>
+- GitHub Actions for Elixir with caching
+- Automatic deployment to Fly.io, Heroku, Railway
+- Zero-downtime rolling updates</p>
+<p><strong>Monitoring &amp; Observability:</strong>
+- Telemetry metrics with Prometheus export
+- Health check endpoints (<code>/health</code>, <code>/health/ready</code>)
+- Nginx load balancer configuration
+- Systemd service configuration
+- Production checklist with 40+ verification items</p>
+<hr />
+<h2 id="performance-benchmarks-case-studies">Performance Benchmarks &amp; Case Studies</h2>
+<h3 id="elixir-vs-go-benchmarks-2024-2025">Elixir vs Go Benchmarks (2024-2025)</h3>
+<p><strong>Anton Putra's Benchmark (December 2024):</strong>
+- <strong>Elixir</strong>: ~80k requests/second
+- <strong>Go</strong>: ~110k requests/second
+- <strong>Ratio</strong>: Go approximately 1.4x faster in raw throughput
+- <strong>Source</strong>: <a href="https://elixirforum.com/t/elixir-vs-go-performance-anton-putra/68037">Elixir Forum Discussion</a></p>
+<p><strong>Elixir vs Go Concurrency Comparison:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Elixir/BEAM</th>
+<th>Go</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Process Size</td>
+<td>0.5KB per process</td>
+<td>2KB per goroutine</td>
+</tr>
+<tr>
+<td>Scheduler</td>
+<td>Preemptive</td>
+<td>Cooperative</td>
+</tr>
+<tr>
+<td>Memory Model</td>
+<td>Isolated heaps per process</td>
+<td>Shared memory</td>
+</tr>
+<tr>
+<td>Fault Tolerance</td>
+<td>Process isolation ("let it crash")</td>
+<td>Shared memory vulnerability</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Source</strong>: <a href="https://www.cloudbees.com/blog/comparing-elixir-go/">CloudBees - Comparing Elixir and Go</a></p>
+<h3 id="elixir-vs-java-benchmarks-may-2024">Elixir vs Java Benchmarks (May 2024)</h3>
+<p><strong>Test Environment:</strong>
+- Hardware: Google Compute Node (AMD EPYC 7B12, 8 cores, 31.36 GB RAM)
+- Elixir 1.16.2 + Erlang 26.2.4 (JIT enabled)
+- Java 21 (Platform Threads &amp; Virtual Threads)</p>
+<p><strong>Performance Results:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Concurrent Tasks</th>
+<th>Elixir</th>
+<th>Java Platform Threads</th>
+<th>Java Virtual Threads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>320</td>
+<td>2.52s</td>
+<td>2.52s</td>
+<td>2.52s</td>
+</tr>
+<tr>
+<td>640</td>
+<td>2.52s</td>
+<td>2.52s</td>
+<td>2.52s</td>
+</tr>
+<tr>
+<td>1280</td>
+<td>2.51s</td>
+<td>2.52s (11% error)</td>
+<td>2.52s</td>
+</tr>
+<tr>
+<td>2560</td>
+<td>5.01s</td>
+<td>7 errors</td>
+<td>2.52s (7 errors)</td>
+</tr>
+<tr>
+<td>5120</td>
+<td>5.01s</td>
+<td>High error rate</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>10240</td>
+<td>5.02s</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>20480</td>
+<td>7.06s</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical Finding</strong>: Elixir maintained rock-solid stability at high concurrency, while Java began experiencing errors and instability.</p>
+<p><strong>Code Complexity Comparison:</strong>
+- <strong>Elixir</strong>: 195 source lines of code, cyclomatic complexity 9
+- <strong>Java</strong>: 269 source lines of code, cyclomatic complexity 12</p>
+<p><strong>Source</strong>: <a href="https://www.erlang-solutions.com/blog/comparing-elixir-vs-java/">Erlang Solutions - Comparing Elixir vs Java</a></p>
+<h3 id="production-case-studies">Production Case Studies</h3>
+<p><strong>Discord - Scaling to 5 Million Concurrent Users:</strong>
+- <strong>5 million concurrent users</strong>
+- <strong>Millions of events per second</strong>
+- Original prototype built entirely in Elixir</p>
+<p><strong>Technical Solutions Developed:</strong>
+1. <strong>Manifold Library</strong> - Distributed message fanout (reduced network traffic significantly)
+2. <strong>FastGlobal</strong> - Shared data optimization (lookup time: 17.5s → 750ms)
+3. <strong>Semaphore</strong> - Concurrency limiting (atomic counter-based)</p>
+<p><strong>Source</strong>: <a href="https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users">Discord Engineering Blog</a></p>
+<p><strong>PagerDuty - Notification Scheduling Service:</strong>
+- Infrastructure reduced to 1/10th (compute and storage)
+- 50% reduction in lag time
+- 10x throughput improvement
+- Zero-downtime migration (January 2019)</p>
+<p><strong>Source</strong>: <a href="https://www.pagerduty.com/eng/elixir-stateful-services/">PagerDuty Engineering Blog</a></p>
+<h3 id="when-to-choose-elixir">When to Choose Elixir</h3>
+<p><strong>Choose Elixir When:</strong>
+- ✅ Ultra-high concurrency (100k+ simultaneous connections)
+- ✅ Fault tolerance is critical ("nine nines" availability)
+- ✅ Real-time systems (chat, live updates, gaming)
+- ✅ Stateful services with in-memory data
+- ✅ Team values maintainability over raw speed</p>
+<p><strong>Choose Go When:</strong>
+- ✅ Maximum raw throughput is priority #1
+- ✅ Simple single-binary deployment
+- ✅ CPU-bound computation</p>
+<hr />
+<h2 id="testing-frameworks-best-practices">Testing Frameworks &amp; Best Practices</h2>
+<h3 id="exunit-built-in-testing-framework">ExUnit - Built-in Testing Framework</h3>
+<p><strong>Latest Version</strong>: ExUnit v1.19.5 - v1.20.0-rc.1</p>
+<p><strong>Key Features:</strong>
+- Concurrent by default with <code>async: true</code>
+- Pattern matching in assertions for better error messages
+- Tags for test organization (<code>@moduletag</code>, <code>@tag</code>)
+- Setup callbacks (<code>setup</code>, <code>setup_all</code>)
+- Test helpers and custom assertions</p>
+<p><strong>Reference</strong>: <a href="https://hexdocs.pm/ex_unit/ExUnit.html">ExUnit Documentation</a></p>
+<h3 id="property-based-testing-with-streamdata">Property-Based Testing with StreamData</h3>
+<p><strong>Purpose</strong>: Generate random inputs and verify invariants hold across thousands of test cases</p>
+<p><strong>Basic Usage:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">use</span><span class="w"> </span><span class="nc">ExUnit.Case</span>
+<span class="kn">use</span><span class="w"> </span><span class="nc">StreamData</span>
+
+<span class="n">test</span><span class="w"> </span><span class="s2">&quot;list reversal is symmetric&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">check_all</span><span class="p">(</span><span class="nc">StreamData</span><span class="o">.</span><span class="n">list_of</span><span class="p">(</span><span class="nc">StreamData</span><span class="o">.</span><span class="n">integer</span><span class="p">()),</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="nc">Enum</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">list</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">list</span>
+<span class="w">  </span><span class="k">end</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></p>
+<p><strong>Reference</strong>: <a href="https://hexdocs.pm/stream_data/StreamData.html">StreamData Documentation</a></p>
+<h3 id="phoenix-liveview-testing">Phoenix LiveView Testing</h3>
+<p><strong>Phoenix.LiveViewTest</strong> provides server-side testing without browser drivers.</p>
+<p><strong>Key Features:</strong>
+- Test LiveViews in isolation (no Chromedriver needed)
+- Test events and forms with DOM-like assertions
+- Test LiveComponents independently
+- Use <code>data-test</code> attributes to decouple tests from HTML structure</p>
+<p><strong>Reference</strong>: <a href="https://hexdocs.pm/phoenix_live_view/Phoenix.LiveViewTest.html">LiveView Testing Guide</a></p>
+<h3 id="testing-tools">Testing Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+<th>Version</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mox</strong></td>
+<td>Mocking with explicit contracts</td>
+<td>v1.2.0</td>
+<td><a href="https://hexdocs.pm/mox/Mox.html">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>ExMachina</strong></td>
+<td>Factory pattern for test data</td>
+<td>v2.8.0</td>
+<td><a href="https://hexdocs.pm/ex_machina/">HexDocs</a></td>
+</tr>
+<tr>
+<td><strong>Faker</strong></td>
+<td>Realistic test data generation</td>
+<td>v0.18+</td>
+<td><a href="https://hex.pm/packages/faker">Hex</a></td>
+</tr>
+<tr>
+<td><strong>Wallaby</strong></td>
+<td>Browser-based E2E testing</td>
+<td>v0.30+</td>
+<td><a href="https://hex.pm/packages/wallaby">Hex</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing-best-practices-2024-2025">Testing Best Practices (2024-2025)</h3>
+<ol>
+<li><strong>Use data-test attributes</strong> to decouple tests from HTML structure</li>
+<li><strong>Test state transitions, not just HTML</strong> in LiveView tests</li>
+<li><strong>Layered testing strategy</strong>: Changeset validation → Database integrity → UI behavior</li>
+<li><strong>Keep tests isolated and fast</strong> with <code>async: true</code> and Ecto.Sandbox</li>
+<li><strong>Use tags effectively</strong> for test organization (<code>mix test --exclude slow</code>)</li>
+<li><strong>Mock external dependencies</strong> to avoid slow network calls</li>
+</ol>
+<hr />
+<h2 id="key-takeaways-for-ai-llms">Key Takeaways for AI LLMs</h2>
+<h3 id="1-pattern-matching-over-conditionals">1. Pattern Matching Over Conditionals</h3>
+<p>Elixir excels at pattern matching. Use <code>case</code>, <code>with</code>, and function clauses instead of nested if/else:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Good</span>
+<span class="kd">def</span><span class="w"> </span><span class="n">handle_message</span><span class="p">(%{</span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">data</span><span class="p">:</span><span class="w"> </span><span class="n">data</span><span class="p">}),</span><span class="w"> </span><span class="ss">do</span><span class="p">:</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="kd">def</span><span class="w"> </span><span class="n">handle_message</span><span class="p">(%{</span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ss">data</span><span class="p">:</span><span class="w"> </span><span class="n">data</span><span class="p">}),</span><span class="w"> </span><span class="ss">do</span><span class="p">:</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
+<span class="kd">def</span><span class="w"> </span><span class="n">handle_message</span><span class="p">(</span><span class="bp">_</span><span class="p">),</span><span class="w"> </span><span class="ss">do</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:unknown_message</span><span class="p">}</span>
+
+<span class="c1"># Avoid</span>
+<span class="kd">def</span><span class="w"> </span><span class="n">handle_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">msg</span><span class="o">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;create&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="n">create</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="c1"># ... nested conditionals</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="2-processes-are-cheap">2. Processes Are Cheap</h3>
+<p>Don't fear spawning processes. They cost ~1-2KB each:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Spawn for parallel work</span>
+<span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">items</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nc">Task</span><span class="o">.</span><span class="n">async</span><span class="p">(</span><span class="k">fn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">process_item</span><span class="p">(</span><span class="ni">&amp;1</span><span class="p">)</span><span class="w"> </span><span class="k">end</span><span class="p">))</span>
+<span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nc">Task</span><span class="o">.</span><span class="n">await</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-supervision-trees-for-resilience">3. Supervision Trees for Resilience</h3>
+<p>Supervisors restart failed processes automatically:</p>
+<div class="highlight"><pre><span></span><code><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nc">MyApp.Repo</span><span class="p">,</span>
+<span class="w">  </span><span class="nc">MyAppWeb.Endpoint</span><span class="p">,</span>
+<span class="w">  </span><span class="p">{</span><span class="nc">MyApp.Worker</span><span class="p">,</span><span class="w"> </span><span class="p">[]}</span>
+<span class="p">]</span>
+
+<span class="nc">Supervisor</span><span class="o">.</span><span class="n">start_link</span><span class="p">(</span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="ss">strategy</span><span class="p">:</span><span class="w"> </span><span class="ss">:one_for_one</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="4-use-ets-for-caching">4. Use ETS for Caching</h3>
+<p>In-memory caching is built-in:</p>
+<div class="highlight"><pre><span></span><code><span class="ss">:ets</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:my_cache</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="ss">:set</span><span class="p">,</span><span class="w"> </span><span class="ss">:named_table</span><span class="p">,</span><span class="w"> </span><span class="ss">read_concurrency</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">])</span>
+<span class="ss">:ets</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="ss">:my_cache</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="ss">:key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">})</span>
+<span class="ss">:ets</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="ss">:my_cache</span><span class="p">,</span><span class="w"> </span><span class="ss">:key</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="5-liveview-for-real-time">5. LiveView for Real-Time</h3>
+<p>Don't build separate APIs for real-time features:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyAppWeb.CounterLive</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="nc">Phoenix.LiveView</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">mount</span><span class="p">(</span><span class="n">_params</span><span class="p">,</span><span class="w"> </span><span class="n">_session</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">assign</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="ss">:count</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)}</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">render</span><span class="p">(</span><span class="n">assigns</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="sx">~H</span><span class="sh">&quot;&quot;&quot;</span>
+<span class="sh">    &lt;button phx-click=&quot;inc&quot;&gt;Count: &lt;%= @count %&gt;&lt;/button&gt;</span>
+<span class="w">    </span><span class="sh">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="k">end</span>
+
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">handle_event</span><span class="p">(</span><span class="s2">&quot;inc&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="p">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">assign</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="ss">:count</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="o">.</span><span class="n">assigns</span><span class="o">.</span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)}</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="6-ecto-changesets-for-validation">6. Ecto Changesets for Validation</h3>
+<p>Always validate at the boundary:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">def</span><span class="w"> </span><span class="n">changeset</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p">)</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="n">user</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">cast</span><span class="p">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="ss">:name</span><span class="p">,</span><span class="w"> </span><span class="ss">:email</span><span class="p">,</span><span class="w"> </span><span class="ss">:age</span><span class="p">])</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">validate_required</span><span class="p">([</span><span class="ss">:name</span><span class="p">,</span><span class="w"> </span><span class="ss">:email</span><span class="p">])</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">validate_format</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span><span class="w"> </span><span class="sx">~r/@/</span><span class="p">)</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">validate_number</span><span class="p">(</span><span class="ss">:age</span><span class="p">,</span><span class="w"> </span><span class="ss">greater_than</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="7-prefer-pipe-over-nested-calls">7. Prefer Pipe Over Nested Calls</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Good</span>
+<span class="n">result</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">trim</span><span class="p">()</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="o">|&gt;</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="nc">String</span><span class="o">.</span><span class="n">to_integer</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Avoid</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nc">String</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="nc">String</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">result</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">to_integer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">end</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="8-use-protocol-for-polymorphism">8. Use Protocol for Polymorphism</h3>
+<p>Extend behavior without modifying existing code:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">defprotocol</span><span class="w"> </span><span class="nc">Size</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="na">@doc</span><span class="w"> </span><span class="s2">&quot;Returns the size in bytes&quot;</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="kd">defimpl</span><span class="w"> </span><span class="nc">Size</span><span class="p">,</span><span class="w"> </span><span class="ss">for</span><span class="p">:</span><span class="w"> </span><span class="nc">BitString</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="kd">def</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">binary</span><span class="p">),</span><span class="w"> </span><span class="ss">do</span><span class="p">:</span><span class="w"> </span><span class="n">byte_size</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<hr />
+<h2 id="external-references">External References</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BEAM</strong></td>
+<td><a href="https://www.erlang.org/">Erlang.org</a>, <a href="https://fly.io/phoenix-files/beam-clustering-made-easy/">BEAM Clustering</a></td>
+</tr>
+<tr>
+<td><strong>Elixir</strong></td>
+<td><a href="https://elixir-lang.org/">elixir-lang.org</a>, <a href="https://hexdocs.pm/elixir/1.15.7/Kernel.html">HexDocs</a>, <a href="https://hexdocs.pm/ex_unit/1.15/ExUnit.html">ExUnit</a></td>
+</tr>
+<tr>
+<td><strong>Phoenix</strong></td>
+<td><a href="https://hexdocs.pm/phoenix/Phoenix.html">hexdocs.pm/phoenix</a>, <a href="https://hexdocs.pm/phoenix_live_view/welcome.html">LiveView</a>, <a href="https://hexdocs.pm/phoenix/channels.html">Channels</a>, <a href="https://www.phoenixframework.org/blog/phoenix-liveview-1-0-released">Phoenix LiveView 1.0</a>, <a href="https://www.phoenixframework.org/blog/phoenix-liveview-1-1-released">Phoenix LiveView 1.1</a></td>
+</tr>
+<tr>
+<td><strong>Ecto</strong></td>
+<td><a href="https://hexdocs.pm/ecto/Ecto.html">Ecto Documentation</a>, <a href="https://github.com/elixir-ecto/ecto_sql">ecto_sql</a></td>
+</tr>
+<tr>
+<td><strong>Hex Packages</strong></td>
+<td><a href="https://hex.pm">hex.pm</a>, <a href="https://elixir-toolbox.dev/trending/">Trending</a></td>
+</tr>
+<tr>
+<td><strong>Nx Ecosystem</strong></td>
+<td><a href="https://hexdocs.pm/nx/">Nx v0.11.0</a>, <a href="https://hexdocs.pm/axon/">Axon v0.8.1</a>, <a href="https://hexdocs.pm/exla/">EXLA Backend</a></td>
+</tr>
+<tr>
+<td><strong>AI/ML</strong></td>
+<td><a href="https://github.com/elixir-nx/bumblebee">Bumblebee</a>, <a href="https://github.com/elixir-nx/scholar">Scholar</a>, <a href="https://hex.pm/blog/ml-tools-in-elixir-ecosystem">Elixir Hub ML Survey</a></td>
+</tr>
+<tr>
+<td><strong>Nerves</strong></td>
+<td><a href="https://nerves-project.org/">nerves-project.org</a></td>
+</tr>
+<tr>
+<td><strong>LiveBook</strong></td>
+<td><a href="https://livebook.dev/">livebook.dev</a></td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td><a href="https://hexdocs.pm/stream_data/">StreamData</a>, <a href="https://hexdocs.pm/mox/">Mox</a>, <a href="https://hexdocs.pm/ex_machina/">ExMachina</a></td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td><a href="https://www.techempower.com/benchmarks/">TechEmpower Benchmarks</a>, <a href="https://elixirforum.com/t/elixir-vs-go-performance-anton-putra/68037">Elixir vs Go</a>, <a href="https://www.erlang-solutions.com/blog/comparing-elixir-vs-java/">Elixir vs Java</a></td>
+</tr>
+<tr>
+<td><strong>Production Cases</strong></td>
+<td><a href="https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users">Discord Scaling</a>, <a href="https://www.pagerduty.com/eng/elixir-stateful-services/">PagerDuty Migration</a></td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td><a href="https://oneuptime.com/blog/post/2026-01-26-elixir-production-deployment/">OneUptime Guide</a>, <a href="https://fly.io/docs/elixir/">Fly.io</a></td>
+</tr>
+<tr>
+<td><strong>Saša Jurić Talk</strong></td>
+<td><a href="https://www.youtube.com/watch?v=JvBT4XBdoUE">GOTO Conference - The Soul of Erlang/Elixir</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.path", "navigation.prune"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
