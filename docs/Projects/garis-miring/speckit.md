@@ -1,3 +1,13 @@
+---
+title: 'Prompt For Spec Kit'
+icon: material/chat-processing-outline
+tags:
+  - speckit
+  - workflow
+  - prompts
+date_added: 2025-11-26
+last_updated: 2025-12-29
+---
 # Prompt For [Spec Kit](https://github.com/github/spec-kit)
 
 After running `specify init --here`

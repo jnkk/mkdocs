@@ -1,3 +1,13 @@
+---
+title: 'Ash Framework'
+icon: material/code-braces
+tags:
+  - ash
+  - elixir
+  - framework
+date_added: 2025-12-29
+last_updated: 2025-12-29
+---
 # Ash Framework
 
 # 1. Big Picture: Ash + Phoenix (MVC-ish view)

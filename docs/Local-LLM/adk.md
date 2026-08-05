@@ -1,3 +1,14 @@
+---
+title: 'Google Agent Dev Kit (ADK)'
+icon: material/robot
+tags:
+  - adk
+  - google
+  - local-llm
+  - agent
+date_added: 2025-12-29
+last_updated: 2025-12-29
+---
 # Google Agent Dev Kit (ADK)
 
 ```

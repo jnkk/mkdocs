@@ -1,3 +1,13 @@
+---
+title: 'Installing nix + home-manager'
+icon: material/package-variant-closed
+tags:
+  - nix
+  - home-manager
+  - linux
+date_added: 2025-05-04
+last_updated: 2025-05-04
+---
 # Installing nix + home-manager
 
 > [!TIP]

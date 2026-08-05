@@ -1,3 +1,12 @@
+---
+title: 'Gatot Kaca Speckit'
+icon: material/robot-industrial
+tags:
+  - speckit
+  - workflow
+date_added: 2025-12-29
+last_updated: 2025-12-29
+---
 # Gatot Kaca Speckit:
 
 ```

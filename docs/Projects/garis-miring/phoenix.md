@@ -1,3 +1,13 @@
+---
+title: 'Garis Miring Speckit (Phoenix)'
+icon: material/briefcase-outline
+tags:
+  - garis-miring
+  - speckit
+  - phoenix
+date_added: 2026-01-05
+last_updated: 2026-01-13
+---
 # Garis Miring Speckit:
 
 ## Always Include:

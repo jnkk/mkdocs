@@ -99,4 +99,4 @@ warp-cli connect
 # Run 'curl https://www.cloudflare.com/cdn-cgi/trace/' and verify that 'warp=on'.
 ```
 
-### [Proxmox Server Applications and How To's](./proxmox.md)
+### [Proxmox Server Applications and How To's](../Selfhost/Servers/proxmox.md)

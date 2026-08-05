@@ -1,3 +1,15 @@
+---
+title: 'Ash/Phoenix Deployment Guide with Safe .env Management'
+icon: material/rocket-launch
+tags:
+  - ash
+  - phoenix
+  - elixir
+  - deployment
+  - security
+date_added: 2026-03-20
+last_updated: 2026-03-20
+---
 # Ash/Phoenix Deployment Guide with Safe .env Management
 
 > Comprehensive deployment strategies for Ash Framework + Phoenix applications with production-grade secrets management. Researched via Playwright MCP and official documentation.

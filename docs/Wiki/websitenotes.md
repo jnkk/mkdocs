@@ -1,3 +1,13 @@
+---
+title: 'Website Notes'
+icon: material/web
+tags:
+  - website
+  - django
+  - notes
+date_added: 2025-05-04
+last_updated: 2025-05-04
+---
 > [!NOTE] Note for Commands  
 > `npx tailwindcss -i src/static/tailwind/tailwind-input.css -o src/static/css/cfdhome-ui.css --watch`  
 > The command above is inside the `scripts` function inside `package.json`,

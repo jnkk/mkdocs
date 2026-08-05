@@ -1,3 +1,12 @@
+---
+title: 'Informal Workers (Garis Miring)'
+icon: material/account-group
+tags:
+  - research
+  - garis-miring
+date_added: 2025-11-26
+last_updated: 2025-11-26
+---
 Street vendors, who sell goods on sidewalks or roadsides without official permits
 Hawkers, who sell goods such as food, drinks, or tissues on public transportation or in crowded places
 Itinerant vendors, who offer goods on a mobile basis without a fixed location

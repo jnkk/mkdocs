@@ -23,4 +23,4 @@ Qwen is yet to be used at the moment. Still in shock with Copilot.
 
 ### Use [Spec Kit](https://github.com/github/spec-kit)
 
-[SpecKit Personal Post](./speckit.md)
+[SpecKit Personal Post](../Projects/garis-miring/speckit.md)

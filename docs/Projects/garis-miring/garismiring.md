@@ -1,3 +1,15 @@
+---
+title: 'Garis Miring Speckit'
+icon: material/briefcase-outline
+tags:
+  - garis-miring
+  - speckit
+  - elixir
+  - phoenix
+  - ash
+date_added: 2025-12-29
+last_updated: 2026-01-05
+---
 # Garis Miring Speckit:
 
 ```

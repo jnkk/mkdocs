@@ -1,3 +1,13 @@
+---
+title: 'Specification-Driven Development (SDD)'
+icon: material/clipboard-text
+tags:
+  - sdd
+  - workflow
+  - development
+date_added: 2025-12-08
+last_updated: 2025-12-08
+---
 # Specification-Driven Development (SDD)
 
 ## The Power Inversion

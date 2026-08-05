@@ -1,3 +1,13 @@
+---
+title: "Homelab Buyer's Guide Q3-2023"
+icon: material/cart
+tags:
+  - homelab
+  - hardware
+  - buying-guide
+date_added: 2025-05-04
+last_updated: 2025-05-04
+---
 # Homelab Buyer's Guide Q3-2023
 
 *   Consumer server build

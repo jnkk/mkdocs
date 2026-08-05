@@ -43,3 +43,24 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 ```
 
 > Source: [Github](https://github.com/DeterminateSystems/nix-installer)
+
+## Ubuntu Server on a Laptop (test setup)
+
+Current ip => http://192.168.122.21
+
+Using portainer.
+
+### TODOs: Trying to make a website using a server inside Virt Manager
+
+Goals is to make a [Server](../Selfhost/homeserver.md)
+So far installed docker.
+
+There's [FreeBSD Jails](https://www.freebsd.org/) which is "more stable" based by the people who are using it.
+
+### Current Portainer Stack
+
+[Portainer Link](https://192.168.122.21:9443/#!/home)
+
+#### Gitea
+
+[Gitea Link](http://192.168.122.21:3000/)

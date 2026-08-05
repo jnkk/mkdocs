@@ -1,5 +1,5 @@
 site_name: Digital Garden
-site_url: https://sitename.example.com
+site_url: https://jnkk.github.io/mkdocs/
 
 theme:
   name: material
@@ -28,6 +28,19 @@ plugins:
   - search
   - mermaid2:
       version: 10.0.2
+  - redirects:
+      redirect_maps:
+        'Debian/proxmox.md': 'Selfhost/Servers/proxmox.md'
+        'Selfhost/Servers/ubuntu24server.md': 'Debian/ubuntuserver.md'
+        'AI-Research/Code-CLI/Phoenix-deployment-guide-2026.md': 'AI-Research/code-cli/Phoenix-deployment-guide-2026.md'
+        'nota/koperasi.md': 'Notes/koperasi.md'
+        'Nix/Nixos/IP.md': 'Nix/nixos/IP.md'
+        'Nix/Nixos/Learning.md': 'Nix/nixos/Learning.md'
+        'Local-LLM/speckit.md': 'Projects/garis-miring/speckit.md'
+        'Local-LLM/speckit-plan.md': 'Projects/garis-miring/speckit-plan.md'
+        'Local-LLM/speckit-planv2.md': 'Projects/garis-miring/speckit-planv2.md'
+        'Local-LLM/garismiring.md': 'Projects/garis-miring/garismiring.md'
+        'Local-LLM/phoenix.md': 'Projects/garis-miring/phoenix.md'
 
 markdown_extensions:
   - pymdownx.critic
@@ -43,3 +56,143 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:mermaid2.fence_mermaid_custom
+nav:
+  - Home: index.md
+  - Notes:
+    - Notes/Introduction.md
+    - Notes/Jims-Garage-Q3-2023.md
+    - Notes/README.md
+    - Notes/afterinstallARCH.md
+    - Notes/bashalias.md
+    - Notes/development.md
+    - Notes/homenetwork.md
+    - Notes/koperasi.md
+    - Notes/notesgithubpages.md
+    - Notes/pcbuild.md
+    - Notes/syncing.md
+    - Notes/texteditor.md
+    - VPS:
+        - Notes/VPS/localvps.md
+  - Wiki:
+    - Wiki/bookmarks.md
+    - Wiki/languages.md
+    - Wiki/websitenotes.md
+  - Selfhost:
+    - Overview: Selfhost/index.md
+    - Selfhost/HomelabHardware.md
+    - Selfhost/Selfhost.md
+    - Selfhost/homeserver.md
+    - Selfhost/steps.md
+    - Hardware:
+        - Selfhost/Hardware/4gpus.md
+        - Selfhost/Hardware/aiserver.md
+        - Selfhost/Hardware/hardware.md
+        - Selfhost/Hardware/minipc.md
+        - Selfhost/Hardware/network.md
+        - Selfhost/Hardware/pc.md
+    - Networking:
+        - Selfhost/Networking/Networking.md
+        - Selfhost/Networking/stuff-to-buy.md
+    - Servers:
+        - Selfhost/Servers/proxmox.md
+    - Software:
+        - Selfhost/Software/HomelabSoftware.md
+  - Local-LLM:
+    - Overview: Local-LLM/index.md
+    - Local-LLM/adk.md
+    - Local-LLM/antigravity.md
+    - Local-LLM/elixirtools.md
+    - Local-LLM/gatotkaca.md
+    - Local-LLM/nonformal.md
+    - Local-LLM/sdd.md
+  - Debian:
+    - Debian/afterinstallDEBIAN.md
+    - Debian/debian13.md
+    - Debian/ubuntuserver.md
+  - Docker:
+    - Docker/Docker.md
+    - Docker/Mapping.md
+  - Nix:
+    - Nix/FirstSteps.md
+    - NixOS:
+        - Nix/nixos/IP.md
+        - Nix/nixos/Learning.md
+  - Code-CLI:
+    - Code-CLI/README.md
+    - Code-CLI/todos.md
+  - LearningSoftware:
+    - LearningSoftware/Linuxchannel.md
+    - LearningSoftware/Stepstostart.md
+    - LearningSoftware/django.md
+    - LearningSoftware/fedora.md
+    - LearningSoftware/freeBSDJails.md
+    - LearningSoftware/phoenix.md
+    - LearningSoftware/raylib.md
+    - LearningSoftware/thetjs.md
+    - LearningSoftware/websiteDjango.md
+  - AshFramework:
+    - AshFramework/ash.md
+  - Projects:
+    - Garis Miring:
+        - Projects/garis-miring/garismiring.md
+        - Projects/garis-miring/phoenix.md
+        - Projects/garis-miring/speckit-plan.md
+        - Projects/garis-miring/speckit-planv2.md
+        - Projects/garis-miring/speckit.md
+  - AI-Research:
+    - Overview: AI-Research/index.md
+    - AI-Research/ai-prompting-ux-design-pipelines.md
+    - AI-Research/ash-phoenix-deployment-with-safe-env-management.md
+    - AI-Research/claude-code-business-automation.md
+    - AI-Research/claude-code-elixir.md
+    - AI-Research/elixir-ai-dev-tools.md
+    - AI-Research/elixir-debugging-tools.md
+    - AI-Research/elixir-vs-javascript-ecosystem-analysis.md
+    - AI-Research/jido-jido_ai-phoenix-ash-claude-installation-guide.md
+    - AI-Research/openai-symphony-ai-agent-orchestration.md
+    - AI-Research/openclaw-project-manager-guide.md
+    - AI-Research/serena-installation.md
+    - Audio: AI-Research/audio/index.md
+    - Code:
+        - Overview: AI-Research/code/index.md
+        - AI-Research/code/mkdocs-guide.md
+    - Code CLI:
+        - AI-Research/code-cli/Phoenix-deployment-guide-2026.md
+    - Elixir:
+        - AI-Research/elixir/phoenix-ecosystem-guide.md
+    - Homelab:
+        - AI-Research/homelab/adguard.md
+        - AI-Research/homelab/cloudflare-tunnel.md
+        - AI-Research/homelab/routers-subnets.md
+        - Networking:
+            - Overview: AI-Research/homelab/networking/index.md
+            - 1. Basics:
+                - AI-Research/homelab/networking/1-basics/dns-explained.md
+                - AI-Research/homelab/networking/1-basics/ip-addresses.md
+                - AI-Research/homelab/networking/1-basics/router-vs-modem.md
+                - AI-Research/homelab/networking/1-basics/what-is-a-network.md
+            - 2. Intermediate:
+                - AI-Research/homelab/networking/2-intermediate/basic-firewall.md
+                - AI-Research/homelab/networking/2-intermediate/dhcp-explained.md
+                - AI-Research/homelab/networking/2-intermediate/nat-explained.md
+                - AI-Research/homelab/networking/2-intermediate/subnets-cidr.md
+            - 3. Advanced:
+                - AI-Research/homelab/networking/3-advanced/advanced-routing.md
+                - AI-Research/homelab/networking/3-advanced/network-security.md
+                - AI-Research/homelab/networking/3-advanced/vlan-configuration.md
+    - LLMs: AI-Research/llms/index.md
+    - Robotics: AI-Research/robotics/index.md
+  - Blog:
+    - Blog/Blog001.md
+  - Idea:
+    - Idea/chilledwater.md
+  - Builds:
+    - Builds/personalcomputer.md
+  - Godot:
+    - Godot/001-Index-and-Information.md
+  - Tips:
+    - Tips/Markdown-Cheatsheet.md
+  - Static-Site-Generator:
+    - Static-Site-Generator/zola.md
+  - TODOs:
+    - Overview: TODOs/index.md

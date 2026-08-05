@@ -1,3 +1,12 @@
+---
+title: 'Welcome to MkDocs'
+icon: material/book-open-page-variant
+tags:
+  - index
+  - welcome
+date_added: 2025-05-01
+last_updated: 2025-05-04
+---
 # Welcome to MkDocs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).

@@ -1,3 +1,12 @@
+---
+title: 'Speckit Plan v2'
+icon: material/clipboard-list-outline
+tags:
+  - speckit
+  - plan
+date_added: 2025-11-26
+last_updated: 2025-11-26
+---
 Below is the **formal `speckit.plan`–style** version of the previous plan.
 **No code**, strictly Markdown, following the structure and tone used in the example plans inside the spec-kit repo.
 

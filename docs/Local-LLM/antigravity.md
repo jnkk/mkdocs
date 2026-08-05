@@ -1,3 +1,13 @@
+---
+title: 'Workaround for Google Antigravity'
+icon: material/rocket-launch
+tags:
+  - antigravity
+  - google
+  - local-llm
+date_added: 2025-12-08
+last_updated: 2025-12-14
+---
 # Workaround for Google Antigravity:
 
 - `specify init --here`

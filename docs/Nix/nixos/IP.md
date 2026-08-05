@@ -1,3 +1,13 @@
+---
+title: 'Connect to Local VM'
+icon: material/ip-network
+tags:
+  - nixos
+  - network
+  - vm
+date_added: 2025-05-04
+last_updated: 2025-05-04
+---
 # connect to local vm
 ssh jnkk@192.168.122.148
 

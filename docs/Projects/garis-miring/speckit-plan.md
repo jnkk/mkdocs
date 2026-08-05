@@ -1,3 +1,14 @@
+---
+title: 'Spec Plan - Service Marketplace'
+icon: material/clipboard-check-outline
+tags:
+  - speckit
+  - plan
+  - elixir
+  - ash
+date_added: 2025-11-26
+last_updated: 2025-11-26
+---
 # Spec Plan — Service Marketplace (Ash Framework / Elixir)
 
 **Name:** ServiceMarket (e-commerce for services)

@@ -1,3 +1,12 @@
+---
+title: 'Bash Aliases'
+icon: material/console-line
+tags:
+  - bash
+  - alias
+date_added: 2025-05-04
+last_updated: 2025-05-04
+---
 # Moved to dedicated [repo](https://github.com/jnkk/bashalias)
 
 alias vi='nvim'

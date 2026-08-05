@@ -1,3 +1,13 @@
+---
+title: 'Learning Claude Code'
+icon: material/robot
+tags:
+  - claude
+  - ai
+  - code-cli
+date_added: 2026-03-13
+last_updated: 2026-05-04
+---
 # Learning Claude Code
 
 Too many skills can hinder.

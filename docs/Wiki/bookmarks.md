@@ -1,3 +1,13 @@
+---
+title: 'Bookmarks'
+icon: material/bookmark-multiple
+tags:
+  - bookmarks
+  - links
+  - language
+date_added: 2025-05-04
+last_updated: 2025-05-04
+---
 # Language
 
 ## Youtube
