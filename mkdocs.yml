@@ -41,6 +41,7 @@ plugins:
         'Local-LLM/speckit-planv2.md': 'Projects/garis-miring/speckit-planv2.md'
         'Local-LLM/garismiring.md': 'Projects/garis-miring/garismiring.md'
         'Local-LLM/phoenix.md': 'Projects/garis-miring/phoenix.md'
+        'Code-CLI/README.md': 'AgentHarness/README.md'
 
 markdown_extensions:
   - pymdownx.critic
@@ -117,9 +118,8 @@ nav:
     - NixOS:
         - Nix/nixos/IP.md
         - Nix/nixos/Learning.md
-  - Code-CLI:
-    - Code-CLI/README.md
-    - Code-CLI/todos.md
+  - AgentHarness:
+    - AgentHarness/README.md
   - LearningSoftware:
     - LearningSoftware/Linuxchannel.md
     - LearningSoftware/Stepstostart.md
