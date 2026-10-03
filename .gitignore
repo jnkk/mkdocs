@@ -133,6 +133,9 @@ venv.bak/
 # Playwright MCP cache
 .playwright-mcp/
 
+# Oh-My-OpenCode runtime state (session continuation tracking)
+.omo/
+
 # mypy
 .mypy_cache/
 .dmypy.json
