@@ -11,7 +11,7 @@ tags:
     Not smart enough to use it yet.
 
 ```bash
-sudo apt install curl git git-lfs inotify-tools btop micro make automake wx-common build-essential cmake gcc clang autoconf fonts-jetbrains-mono fonts-firacode golang openjdk-21-jdk
+sudo apt install curl git git-lfs inotify-tools btop micro make automake wx-common build-essential cmake gcc clang autoconf fonts-jetbrains-mono fonts-firacode m4 libncurses-dev libwxgtk3.2-dev libwxgtk-webview3.2-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils openjdk-21-jdk
 ```
 # For Fonts:
 ```bash
@@ -39,6 +39,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ## Install [Mise](https://mise.jdx.dev/)
+
+### Before Installing [Erlang](https://github.com/asdf-vm/asdf-erlang)
 
 ```bash
 mise install node@latest # See latest node LTS version from website 
