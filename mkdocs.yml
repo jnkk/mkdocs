@@ -120,6 +120,7 @@ nav:
         - Nix/nixos/Learning.md
   - AgentHarness:
     - AgentHarness/README.md
+    - Linux Tools & CLI Commands: AgentHarness/Linux-Tools.md
   - LearningSoftware:
     - LearningSoftware/Linuxchannel.md
     - LearningSoftware/Stepstostart.md
