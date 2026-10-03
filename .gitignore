@@ -143,3 +143,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Erlang / Elixir crash dumps (written to the cwd of a crashing BEAM)
+erl_crash.dump
