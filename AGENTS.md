@@ -89,7 +89,7 @@ last_updated: YYYY-MM-DD
 ## Documentation Topics
 
 The docs cover diverse topics organized in subdirectories:
-- `Code-CLI/` - CLI tools and code projects
+- `AgentHarness/` - AI coding harnesses, skills, and agent tooling
 - `Local-LLM/` - Local LLM running guides
 - `Debian/` - Debian/Ubuntu server setup
 - `LearningSoftware/` - Software learning notes
