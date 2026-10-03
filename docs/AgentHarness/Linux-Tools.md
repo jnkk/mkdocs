@@ -16,11 +16,15 @@ last_updated: 2026-10-03
 My personal toolbox — the CLI tools I actually have installed and reach for, and
 why I picked them.
 
-This page exists for two reasons:
+This page exists for three reasons:
 
-1. **Future me** — six months from now I will have forgotten which tool solved
-   which problem, and what it replaced. The "Replaced" line is the valuable part.
-2. **AI agents** — an agent reading this knows what the machine can do *before*
+1. **Rebuilding Debian from scratch.** This is the main one. After a reinstall I
+   need to reconstruct a working agent harness — versions, config file paths,
+   install methods, and which tools only exist because something else depends on
+   them. An entry that omits its install command is a hole in the recovery plan.
+2. **Future me** — six months from now I will have forgotten which tool solved
+   which problem, and what it replaced. The "Replaces" line is the valuable part.
+3. **AI agents** — an agent reading this knows what the machine can do *before*
    it falls back to slow generic commands or writes a shell script for something
    a tool already handles.
 
@@ -82,7 +86,94 @@ _Empty — to be filled._
 
 <!-- tmux, zellij, screen, tmate, asciinema -->
 
-_Empty — to be filled._
+### `herdr`
+
+Terminal workspace manager built specifically for AI coding agents. Where tmux
+gives you panes, herdr gives you *named, persistent, addressable agent sessions*
+— you can list running agents, read their output, send them keys, submit
+prompts, and wait for an agent to reach a given state, all from the CLI or over
+a socket API. That is the part tmux cannot do.
+
+- **Install:** _TODO — self-updating; confirm the original install method before a
+  reinstall. `herdr update` fetches releases in place._
+- **Config:** `~/.config/herdr/config.toml` (override with `HERDR_CONFIG_PATH`)
+- **Logs:** `~/.config/herdr/herdr.log`, `herdr-client.log`, `herdr-server.log`
+- **Runtime state:** `~/.local/share/herdr/` — `herdr.sock`, `herdr-client.sock`,
+  `session.json`, `.plugins.lock`, `release-notes.json`
+- **Version:** 0.9.3
+- **Docs:** https://herdr.dev
+
+```bash
+herdr                        # launch or attach to the persistent session
+herdr --session <name>       # named persistent session
+herdr status                 # local client + running server state
+herdr update                 # update in place
+herdr channel set stable     # or: preview
+herdr server stop
+```
+
+Agent control — the reason to use this over tmux:
+
+```bash
+herdr agent list             # what agents are running
+herdr agent prompt <agent> "..."   # submit a prompt
+herdr agent read <agent>     # read an agent's terminal output
+herdr agent send-keys <agent> ...   # inject keystrokes
+herdr agent wait <agent>     # block until it reaches a requested state
+herdr agent explain          # why is an agent detected / not detected
+herdr agent attach <agent>
+```
+
+Workspaces and git worktrees:
+
+```bash
+herdr workspace list|create|focus|close
+herdr worktree create        # create + open a git-worktree-backed workspace
+herdr worktree list|open|remove
+herdr integration status     # which agent integrations are installed
+```
+
+Remote, over SSH to a machine it already knows:
+
+```bash
+herdr --machine <label> <command>
+herdr --remote <ssh-target> [--session <name>]
+herdr machine <subcommand> ...
+```
+
+**Gotcha:** herdr runs a **background server** and communicates over a unix
+socket. The CLI failing usually means the server is down, not that the binary is
+broken — check `herdr status`, then `herdr server stop` / relaunch before
+suspecting a reinstall is needed. `server reload-config` picks up an edited
+`config.toml` without a restart.
+
+**Gotcha:** two separate sockets exist (`herdr.sock` and `herdr-client.sock`)
+plus three log files. When something misbehaves, the cause is usually in
+`herdr-server.log` rather than the client log — check both.
+
+**Gotcha:** it has its own update channel (`stable` / `preview`) and
+`release-notes.json`, so `herdr update` can move you across versions without any
+package manager. Pin deliberately if that matters.
+
+**Gotcha:** `herdr --remote` defaults to *local* keybindings
+(`--remote-keybindings local|server`). A remote attach that ignores your server
+config is usually this default, not a bug.
+
+**Gotcha — worth knowing for agent setups:** herdr ships its own agent-facing
+documentation and can print a skill file directly:
+
+```bash
+herdr --skill               # prints the agent skill file
+```
+
+It also gates its own guidance — `herdr --help` explicitly tells an agent to skip
+those resources unless the task is about Herdr itself, and to prefer the skill
+file if one is already in context. If you wire herdr into an agent harness, that
+`--skill` output is the intended hand-off, not the website.
+
+**Reinstall note:** herdr is self-contained under `~/.config/herdr` and
+`~/.local/share/herdr`, but the sockets and `session.json` are *runtime* state —
+do not copy them to a new machine. Copy `config.toml` only.
 
 ## Shell & Environment
 
@@ -591,6 +682,28 @@ Scratchpad — things I might have installed but have not confirmed or written u
       actual project name before writing an entry — do not trust the spelling
       until a repo or package page is verified.
 - [ ] `_TBD_`
+
+## Reinstall Gaps
+
+Since rebuilding Debian is this page's main job, these entries are **not yet
+self-sufficient** — an entry that cannot be reinstalled from is a hole in the
+recovery plan. Fix these before the next fresh install.
+
+| Entry | What is missing |
+| --- | --- |
+| `herdr` | Install method unknown — it self-updates, but the *original* install path is unrecorded |
+| `rust` | No install command, only "rustup". Need the exact rustup bootstrap URL + whether a `default-toolchain` is set |
+| `docker` | Described as "Docker's own apt repo" but no actual command. Need the repo line, GPG key, and the packages installed |
+| `zed` | Described as a tarball to `~/.local/zed.app` but no URL, no version pin, no update procedure |
+| `hexdocs_mcp` | Burrito path recorded, but not how burrito itself is installed or how the build is triggered |
+| `elixir-ls` | Config hardcodes the mise install path — need the `mise where` command to regenerate it after a reinstall |
+
+Also not recorded anywhere yet, and needed to rebuild the harness:
+
+- [ ] The `~/.config/opencode/opencode.json` MCP block (serena, elixir-ls, playwright, tidewave-mcp) — is it backed up or hand-retyped?
+- [ ] The `~/.config/zed/settings.json` agent block (MiniMax provider, api_url, `default_profile`)
+- [ ] Which of `~/.local/bin/*` are actually needed: `agy`, `picoclaw`, `goose`, `hermes`, `hermes-acp`, `beads`, `shepherd`, `specify`, `sp`, `serena-agent`, `serena-hooks`
+- [ ] Linuxbrew vs mise vs apt — which of the three owns which binary. Expert comes from Linuxbrew, most things from mise, and the split is currently implicit.
 
 ---
 
