@@ -1,0 +1,2749 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jnkk.github.io/mkdocs/AgentHarness/Linux-Tools/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../LearningSoftware/Linuxchannel/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Linux Tools & CLI Commands - Digital Garden</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-tools-cli-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Digital Garden" class="md-header__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Digital Garden
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux Tools & CLI Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Digital Garden" class="md-nav__button md-logo" aria-label="Digital Garden" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Digital Garden
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Notes/Introduction/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Notes
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Wiki/bookmarks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Wiki
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Selfhost/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Selfhost
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Local-LLM/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Local-LLM
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Debian/afterinstallDEBIAN/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Debian
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Docker/Docker/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Nix/FirstSteps/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AgentHarness
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            AgentHarness
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    Learning AI Coding Harness for Elixir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.3 4.3 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Linux Tools & CLI Commands
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.3 4.3 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Linux Tools & CLI Commands
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use this page
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use this page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entry template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File &amp; Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-text-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search &amp; Text Processing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal &amp; Multiplexing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminal &amp; Multiplexing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      herdr
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell &amp; Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell &amp; Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mise" class="md-nav__link">
+    <span class="md-ellipsis">
+      mise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      uv
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      System &amp; Processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disk-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disk &amp; Filesystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-runtimes-toolchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language Runtimes &amp; Toolchains
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Language Runtimes &amp; Toolchains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elixir-erlang" class="md-nav__link">
+    <span class="md-ellipsis">
+      elixir + erlang
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      go
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    <span class="md-ellipsis">
+      rust
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containers-dev-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers &amp; Dev Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containers &amp; Dev Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zed" class="md-nav__link">
+    <span class="md-ellipsis">
+      zed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expert-expert-lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      expert (expert-lsp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixir-ls-the-zed-expert-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      elixir-ls — the Zed ↔ expert bridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hexdocs_mcp-via-burrito" class="md-nav__link">
+    <span class="md-ellipsis">
+      hexdocs_mcp (via burrito)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-facing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent-Facing Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent-Facing Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serena-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      serena (MCP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dexter" class="md-nav__link">
+    <span class="md-ellipsis">
+      dexter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixir-ls" class="md-nav__link">
+    <span class="md-ellipsis">
+      elixir-ls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-mcp-servers-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other MCP servers configured
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tui-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      TUI Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removed-replaced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removed / Replaced
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#still-need-to-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Still Need to Check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstall-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reinstall Gaps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../LearningSoftware/Linuxchannel/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LearningSoftware
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AshFramework/ash/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AshFramework
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../Projects/garis-miring/garismiring/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AI-Research/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AI-Research
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Blog/Blog001/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Idea/chilledwater/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Idea
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Builds/personalcomputer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Builds
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Godot/001-Index-and-Information/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Godot
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Tips/Markdown-Cheatsheet/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tips
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Static-Site-Generator/zola/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Static-Site-Generator
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../TODOs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TODOs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use this page
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use this page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entry template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File &amp; Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-text-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search &amp; Text Processing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-multiplexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal &amp; Multiplexing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminal &amp; Multiplexing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      herdr
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell &amp; Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell &amp; Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mise" class="md-nav__link">
+    <span class="md-ellipsis">
+      mise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      uv
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      System &amp; Processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disk-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disk &amp; Filesystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-runtimes-toolchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language Runtimes &amp; Toolchains
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Language Runtimes &amp; Toolchains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elixir-erlang" class="md-nav__link">
+    <span class="md-ellipsis">
+      elixir + erlang
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      go
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    <span class="md-ellipsis">
+      rust
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containers-dev-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers &amp; Dev Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containers &amp; Dev Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zed" class="md-nav__link">
+    <span class="md-ellipsis">
+      zed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expert-expert-lsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      expert (expert-lsp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixir-ls-the-zed-expert-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      elixir-ls — the Zed ↔ expert bridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hexdocs_mcp-via-burrito" class="md-nav__link">
+    <span class="md-ellipsis">
+      hexdocs_mcp (via burrito)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-facing-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent-Facing Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent-Facing Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serena-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      serena (MCP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dexter" class="md-nav__link">
+    <span class="md-ellipsis">
+      dexter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elixir-ls" class="md-nav__link">
+    <span class="md-ellipsis">
+      elixir-ls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-mcp-servers-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other MCP servers configured
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tui-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      TUI Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removed-replaced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removed / Replaced
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#still-need-to-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Still Need to Check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstall-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reinstall Gaps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">agent-harness</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">cli</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">linux</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">terminal</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">tools</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="linux-tools-cli-commands">Linux Tools &amp; CLI Commands</h1>
+<p>My personal toolbox — the CLI tools I actually have installed and reach for, and
+why I picked them.</p>
+<p>This page exists for three reasons:</p>
+<ol>
+<li><strong>Rebuilding Debian from scratch.</strong> This is the main one. After a reinstall I
+   need to reconstruct a working agent harness — versions, config file paths,
+   install methods, and which tools only exist because something else depends on
+   them. An entry that omits its install command is a hole in the recovery plan.</li>
+<li><strong>Future me</strong> — six months from now I will have forgotten which tool solved
+   which problem, and what it replaced. The "Replaces" line is the valuable part.</li>
+<li><strong>AI agents</strong> — an agent reading this knows what the machine can do <em>before</em>
+   it falls back to slow generic commands or writes a shell script for something
+   a tool already handles.</li>
+</ol>
+<h2 id="how-to-use-this-page">How to use this page</h2>
+<p>Copy the entry template below for each tool. Keep it short — an entry that takes
+more than a few minutes to fill in will not get filled in.</p>
+<p>Drop tools into the category that matches what they <em>do</em>, not what they are.
+<code>fzf</code> is a finder, so it goes under File &amp; Navigation even though it is often
+called a "fuzzy selector".</p>
+<p>If you cannot remember whether you installed something, put it in
+<a href="#still-need-to-check">Still Need to Check</a> at the bottom. That section is a
+scratchpad — promote an entry out of it once you have confirmed the tool is real.</p>
+<h3 id="entry-template">Entry template</h3>
+<div class="highlight"><pre><span></span><code><span class="gu">### `tool-name`</span>
+
+One line on what problem it solves for me.
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Replaces:**</span> what I used before, or <span class="sb">`nothing`</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Install:**</span> <span class="sb">`apt install tool-name`</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Config:**</span> <span class="sb">`~/.config/tool-name/config.toml`</span> (or: none)
+
+<span class="sb">```bash</span>
+<span class="c1"># the 2-3 commands worth remembering</span>
+tool-name<span class="w"> </span>--the-flag-i-forget
+<span class="sb">```</span>
+
+<span class="gs">**Gotcha:**</span> the thing that bit me.
+</code></pre></div>
+<hr />
+<h2 id="file-navigation">File &amp; Navigation</h2>
+<!-- eza, fd, fzf, tree, broot, ranger, lf, bat, exa, dust, duf -->
+
+<p><em>Empty — to be filled.</em></p>
+<h2 id="search-text-processing">Search &amp; Text Processing</h2>
+<!-- ripgrep, ag, ack, jq, yq, sd, sed basics, awk basics, csvkit, miller/mlr -->
+
+<p><em>Empty — to be filled.</em></p>
+<h2 id="git">Git</h2>
+<!-- lazygit, delta, git aliases, pre-commit, gh CLI, git worktree -->
+
+<p>Alias definitions live in a separate repo — see <a href="../../Notes/bashalias/">Bash Aliases</a>.</p>
+<p><em>Empty — to be filled.</em></p>
+<h2 id="terminal-multiplexing">Terminal &amp; Multiplexing</h2>
+<!-- tmux, zellij, screen, tmate, asciinema -->
+
+<h3 id="herdr"><code>herdr</code></h3>
+<p>Terminal workspace manager built specifically for AI coding agents. Where tmux
+gives you panes, herdr gives you <em>named, persistent, addressable agent sessions</em>
+— you can list running agents, read their output, send them keys, submit
+prompts, and wait for an agent to reach a given state, all from the CLI or over
+a socket API. That is the part tmux cannot do.</p>
+<ul>
+<li><strong>Install:</strong> <em>TODO — self-updating; confirm the original install method before a
+  reinstall. <code>herdr update</code> fetches releases in place.</em></li>
+<li><strong>Config:</strong> <code>~/.config/herdr/config.toml</code> (override with <code>HERDR_CONFIG_PATH</code>)</li>
+<li><strong>Logs:</strong> <code>~/.config/herdr/herdr.log</code>, <code>herdr-client.log</code>, <code>herdr-server.log</code></li>
+<li><strong>Runtime state:</strong> <code>~/.local/share/herdr/</code> — <code>herdr.sock</code>, <code>herdr-client.sock</code>,
+  <code>session.json</code>, <code>.plugins.lock</code>, <code>release-notes.json</code></li>
+<li><strong>Version:</strong> 0.9.3</li>
+<li><strong>Docs:</strong> https://herdr.dev</li>
+</ul>
+<div class="highlight"><pre><span></span><code>herdr<span class="w">                        </span><span class="c1"># launch or attach to the persistent session</span>
+herdr<span class="w"> </span>--session<span class="w"> </span>&lt;name&gt;<span class="w">       </span><span class="c1"># named persistent session</span>
+herdr<span class="w"> </span>status<span class="w">                 </span><span class="c1"># local client + running server state</span>
+herdr<span class="w"> </span>update<span class="w">                 </span><span class="c1"># update in place</span>
+herdr<span class="w"> </span>channel<span class="w"> </span><span class="nb">set</span><span class="w"> </span>stable<span class="w">     </span><span class="c1"># or: preview</span>
+herdr<span class="w"> </span>server<span class="w"> </span>stop
+</code></pre></div>
+<p>Agent control — the reason to use this over tmux:</p>
+<div class="highlight"><pre><span></span><code>herdr<span class="w"> </span>agent<span class="w"> </span>list<span class="w">             </span><span class="c1"># what agents are running</span>
+herdr<span class="w"> </span>agent<span class="w"> </span>prompt<span class="w"> </span>&lt;agent&gt;<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w">   </span><span class="c1"># submit a prompt</span>
+herdr<span class="w"> </span>agent<span class="w"> </span><span class="nb">read</span><span class="w"> </span>&lt;agent&gt;<span class="w">     </span><span class="c1"># read an agent&#39;s terminal output</span>
+herdr<span class="w"> </span>agent<span class="w"> </span>send-keys<span class="w"> </span>&lt;agent&gt;<span class="w"> </span>...<span class="w">   </span><span class="c1"># inject keystrokes</span>
+herdr<span class="w"> </span>agent<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>&lt;agent&gt;<span class="w">     </span><span class="c1"># block until it reaches a requested state</span>
+herdr<span class="w"> </span>agent<span class="w"> </span>explain<span class="w">          </span><span class="c1"># why is an agent detected / not detected</span>
+herdr<span class="w"> </span>agent<span class="w"> </span>attach<span class="w"> </span>&lt;agent&gt;
+</code></pre></div>
+<p>Workspaces and git worktrees:</p>
+<div class="highlight"><pre><span></span><code>herdr<span class="w"> </span>workspace<span class="w"> </span>list<span class="p">|</span>create<span class="p">|</span>focus<span class="p">|</span>close
+herdr<span class="w"> </span>worktree<span class="w"> </span>create<span class="w">        </span><span class="c1"># create + open a git-worktree-backed workspace</span>
+herdr<span class="w"> </span>worktree<span class="w"> </span>list<span class="p">|</span>open<span class="p">|</span>remove
+herdr<span class="w"> </span>integration<span class="w"> </span>status<span class="w">     </span><span class="c1"># which agent integrations are installed</span>
+</code></pre></div>
+<p>Remote, over SSH to a machine it already knows:</p>
+<div class="highlight"><pre><span></span><code>herdr<span class="w"> </span>--machine<span class="w"> </span>&lt;label&gt;<span class="w"> </span>&lt;command&gt;
+herdr<span class="w"> </span>--remote<span class="w"> </span>&lt;ssh-target&gt;<span class="w"> </span><span class="o">[</span>--session<span class="w"> </span>&lt;name&gt;<span class="o">]</span>
+herdr<span class="w"> </span>machine<span class="w"> </span>&lt;subcommand&gt;<span class="w"> </span>...
+</code></pre></div>
+<p><strong>Gotcha:</strong> herdr runs a <strong>background server</strong> and communicates over a unix
+socket. The CLI failing usually means the server is down, not that the binary is
+broken — check <code>herdr status</code>, then <code>herdr server stop</code> / relaunch before
+suspecting a reinstall is needed. <code>server reload-config</code> picks up an edited
+<code>config.toml</code> without a restart.</p>
+<p><strong>Gotcha:</strong> two separate sockets exist (<code>herdr.sock</code> and <code>herdr-client.sock</code>)
+plus three log files. When something misbehaves, the cause is usually in
+<code>herdr-server.log</code> rather than the client log — check both.</p>
+<p><strong>Gotcha:</strong> it has its own update channel (<code>stable</code> / <code>preview</code>) and
+<code>release-notes.json</code>, so <code>herdr update</code> can move you across versions without any
+package manager. Pin deliberately if that matters.</p>
+<p><strong>Gotcha:</strong> <code>herdr --remote</code> defaults to <em>local</em> keybindings
+(<code>--remote-keybindings local|server</code>). A remote attach that ignores your server
+config is usually this default, not a bug.</p>
+<p><strong>Gotcha — worth knowing for agent setups:</strong> herdr ships its own agent-facing
+documentation and can print a skill file directly:</p>
+<div class="highlight"><pre><span></span><code>herdr<span class="w"> </span>--skill<span class="w">               </span><span class="c1"># prints the agent skill file</span>
+</code></pre></div>
+<p>It also gates its own guidance — <code>herdr --help</code> explicitly tells an agent to skip
+those resources unless the task is about Herdr itself, and to prefer the skill
+file if one is already in context. If you wire herdr into an agent harness, that
+<code>--skill</code> output is the intended hand-off, not the website.</p>
+<p><strong>Reinstall note:</strong> herdr is self-contained under <code>~/.config/herdr</code> and
+<code>~/.local/share/herdr</code>, but the sockets and <code>session.json</code> are <em>runtime</em> state —
+do not copy them to a new machine. Copy <code>config.toml</code> only.</p>
+<h2 id="shell-environment">Shell &amp; Environment</h2>
+<!-- bash/zsh, starship, atuin, zoxide, direnv, fzf keybindings, mise, nix -->
+
+<h3 id="mise"><code>mise</code></h3>
+<p>Single tool that owns every language runtime on the machine. One <code>mise install</code>,
+one <code>mise use</code>, and the right version of everything is active — no apt, no
+<code>asdf</code>, no juggling <code>~/.bashrc</code> exports.</p>
+<ul>
+<li><strong>Replaces:</strong> apt/asdf/rbenv-style per-language version managers</li>
+<li><strong>Install:</strong> <code>curl https://mise.run | sh</code></li>
+<li><strong>Config:</strong> <code>~/.config/mise/config.toml</code></li>
+<li><strong>Version:</strong> 2026.1.2 (linux-x64)</li>
+<li><strong>Installs into:</strong> <code>~/.local/share/mise/installs/&lt;tool&gt;/&lt;version&gt;</code>, shims in
+  <code>~/.local/share/mise/shims</code></li>
+</ul>
+<p>What it currently manages for me:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Version</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>elixir</td>
+<td>1.20.2 (otp-29)</td>
+<td>paired with erlang 29.0.3</td>
+</tr>
+<tr>
+<td>erlang</td>
+<td>29.0.3</td>
+<td>see the Elixir entry for why the pair matters</td>
+</tr>
+<tr>
+<td>elixir-ls</td>
+<td>0.31.1</td>
+<td>the actual Elixir language server</td>
+</tr>
+<tr>
+<td>go</td>
+<td>1.27.1</td>
+<td></td>
+</tr>
+<tr>
+<td>node</td>
+<td>24.13.0</td>
+<td>only one pinned exactly, rest are <code>latest</code></td>
+</tr>
+<tr>
+<td>bun</td>
+<td>1.3.6</td>
+<td></td>
+</tr>
+<tr>
+<td>deno</td>
+<td>2.9.7</td>
+<td></td>
+</tr>
+<tr>
+<td>pnpm</td>
+<td>10.28.0</td>
+<td></td>
+</tr>
+<tr>
+<td>rebar</td>
+<td>3.27.0</td>
+<td><strong>required</strong> — Erlang deps will not build without it</td>
+</tr>
+<tr>
+<td>gleam</td>
+<td>1.15.2</td>
+<td></td>
+</tr>
+<tr>
+<td>zig</td>
+<td>0.15.2</td>
+<td></td>
+</tr>
+<tr>
+<td>just</td>
+<td>1.58.0</td>
+<td>command runner</td>
+</tr>
+<tr>
+<td>lefthook</td>
+<td>2.1.2</td>
+<td>git hooks</td>
+</tr>
+<tr>
+<td>eza</td>
+<td>0.23.4</td>
+<td></td>
+</tr>
+<tr>
+<td>dexter</td>
+<td>0.6.0</td>
+<td>Elixir semantic search, see Agent-Facing Tools</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>mise<span class="w"> </span>ls<span class="w">                 </span><span class="c1"># everything installed, and which config pins it</span>
+mise<span class="w"> </span>use<span class="w"> </span>-g<span class="w"> </span>erlang@29.0.3<span class="w"> </span>elixir@1.20.2<span class="w">   </span><span class="c1"># pin a pair globally</span>
+mise<span class="w"> </span>where<span class="w"> </span>elixir<span class="w">       </span><span class="c1"># which install dir a tool resolves to</span>
+mise<span class="w"> </span>current<span class="w">            </span><span class="c1"># what is active right now</span>
+</code></pre></div>
+<p><strong>Gotcha:</strong> setting <code>elixir</code> without pinning <code>erlang</code> lets mise pick two
+mismatched majors. Elixir builds against a specific OTP, so always pin the pair
+together — <code>elixir@1.20.2-otp-29</code> is the <code>-otp-NN</code> suffix doing that work. The
+machine currently holds three such pairs: <code>1.18.4-otp-27</code>, <code>1.19.5-otp-28</code>,
+<code>1.20.2-otp-29</code>.</p>
+<p><strong>Gotcha:</strong> <code>latest</code> in <code>config.toml</code> means a future <code>mise upgrade</code> moves
+everything forward at once. Several tools here are on <code>latest</code>; only <code>node</code> is
+pinned to an exact version. Pin the ones you care about reproducing.</p>
+<h3 id="uv"><code>uv</code></h3>
+<p>Python project and package manager. Replaces <code>pip</code>, <code>pipx</code>, <code>virtualenv</code>, and
+<code>poetry</code> for everything I actually needed.</p>
+<ul>
+<li><strong>Replaces:</strong> <code>pip</code>, <code>pipx</code>, <code>virtualenv</code>, <code>poetry</code></li>
+<li><strong>Install:</strong> <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></li>
+<li><strong>Config:</strong> <code>pyproject.toml</code>; per-project <code>.python-version</code></li>
+<li><strong>Version:</strong> 0.11.26</li>
+</ul>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>venv<span class="w">                 </span><span class="c1"># create .venv</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+uv<span class="w"> </span>run<span class="w"> </span>mkdocs<span class="w"> </span>build<span class="w">     </span><span class="c1"># run inside the venv — no manual activate step</span>
+uv<span class="w"> </span>add<span class="w"> </span>&lt;pkg&gt;<span class="w">            </span><span class="c1"># add dep and keep the lockfile in sync</span>
+</code></pre></div>
+<p><strong>Gotcha:</strong> this repo's <code>AGENTS.md</code> mandates <code>uv</code> for all Python work — plain
+<code>pip</code>, <code>pip3</code>, <code>python -m pip</code>, and system Python are off-limits locally. CI
+still uses <code>pip install -r requirements.txt</code> internally, which is fine because
+that is the deploy pipeline, not local development.</p>
+<p><strong>Gotcha:</strong> prefer <code>uv run &lt;cmd&gt;</code> over <code>source .venv/bin/activate</code>. The activate
+step is a shell-state mutation that does not survive a new terminal, and <code>uv run</code>
+always resolves against the project venv.</p>
+<h2 id="system-processes">System &amp; Processes</h2>
+<!-- htop, btop, procs, dust/dua, glances, lsof, strace, tldr -->
+
+<p><em>Empty — to be filled.</em></p>
+<h2 id="networking">Networking</h2>
+<!-- curl, wget, httpie, dig, nc, nmap, ss, bandwhich, tailscale, netcat recipes -->
+
+<p><em>Empty — to be filled.</em></p>
+<h2 id="disk-filesystem">Disk &amp; Filesystem</h2>
+<!-- ncdu, dust, duf, mount, lsblk, rsync, restic, borg, rclone -->
+
+<p><em>Empty — to be filled.</em></p>
+<h2 id="language-runtimes-toolchains">Language Runtimes &amp; Toolchains</h2>
+<!-- elixir/erlang, go, rust, python/uv, zig, gleam, node, bun, deno -->
+
+<h3 id="elixir-erlang"><code>elixir</code> + <code>erlang</code></h3>
+<p>My main language. Erlang and Elixir are installed as a <strong>pair</strong> through mise and
+are never versioned independently — Elixir compiles against a specific OTP
+release, so the two must move together.</p>
+<ul>
+<li><strong>Install:</strong> <code>mise install elixir@1.20.2-otp-29 erlang@29.0.3</code> — the <code>-otp-NN</code>
+  suffix is what binds them</li>
+<li><strong>Config:</strong> <code>~/.config/mise/config.toml</code></li>
+<li><strong>Versions:</strong> Elixir 1.20.2 (compiled with Erlang/OTP 29), OTP 29 / erts-17.0.3,
+  JIT enabled</li>
+<li><strong>Binaries:</strong> <code>elixir</code>, <code>elixirc</code>, <code>iex</code>, <code>erl</code>, <code>erlc</code>, <code>erl_call</code>, plus
+  <code>mix</code> and <code>mix.lock</code> tooling from rebar for deps</li>
+</ul>
+<div class="highlight"><pre><span></span><code>elixir<span class="w"> </span>--version<span class="w">        </span><span class="c1"># confirms BOTH elixir and OTP in one line</span>
+iex<span class="w">                     </span><span class="c1"># interactive shell</span>
+mix<span class="w"> </span>deps.get<span class="w">            </span><span class="c1"># fetch deps</span>
+mix<span class="w"> </span><span class="nb">test</span><span class="w">                </span><span class="c1"># run tests</span>
+mix<span class="w"> </span>compile<span class="w"> </span>--warnings-as-errors
+</code></pre></div>
+<p>Three Elixir/OTP pairs are installed side by side, so switching between a
+project's pinned pair and latest is instant:</p>
+<table>
+<thead>
+<tr>
+<th>Elixir</th>
+<th>OTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.18.4</td>
+<td>27</td>
+</tr>
+<tr>
+<td>1.19.5</td>
+<td>28</td>
+</tr>
+<tr>
+<td>1.20.2</td>
+<td>29 (default)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gotcha:</strong> <code>rebar</code> must be installed or Erlang dependency resolution silently
+fails. It comes from mise (<code>rebar@3.27.0</code>), not from apt.</p>
+<p><strong>Gotcha:</strong> <code>elixir --version</code> prints Erlang's line first. The Elixir version is
+the <em>second</em> line — reading only the first line makes it look like <code>elixir
+--version</code> is broken.</p>
+<p><strong>Gotcha:</strong> the language server is a separate tool from the language.
+<code>elixir-ls</code> (see Agent-Facing Tools) is what an editor or agent talks to for
+definitions and references; plain <code>elixir</code> is the compiler and runtime.</p>
+<h3 id="go"><code>go</code></h3>
+<p>Secondary language, used for small CLI tools and services.</p>
+<ul>
+<li><strong>Replaces:</strong> distro <code>golang</code> package (too old, no version switching)</li>
+<li><strong>Install:</strong> <code>mise install go@1.27.1</code> — do <strong>not</strong> apt install it</li>
+<li><strong>Config:</strong> toolchain is controlled by <code>GOTOOLCHAIN</code>, not by mise</li>
+<li><strong>Version:</strong> go1.27.1 linux/amd64, <code>GOPATH=/home/jnkk/go</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>go<span class="w"> </span>version
+go<span class="w"> </span>env<span class="w"> </span>GOPATH<span class="w"> </span>GOTOOLCHAIN<span class="w">     </span><span class="c1"># GOTOOLCHAIN=auto — go can fetch its own toolchain</span>
+go<span class="w"> </span>build<span class="w"> </span>./...
+go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...
+</code></pre></div>
+<p><strong>Gotcha:</strong> Go has <em>two</em> version mechanisms that fight each other. mise
+installs the binary, but <code>GOTOOLCHAIN=auto</code> (the default) means a <code>go.mod</code>
+declaring a newer Go will make go download and use <em>that</em> version instead,
+silently bypassing mise. Pin <code>GOTOOLCHAIN=local</code> if I want mise to be the only
+authority.</p>
+<h3 id="rust"><code>rust</code></h3>
+<p>Used for performance-sensitive work and native tooling.</p>
+<ul>
+<li><strong>Install:</strong> <code>rustup</code> — the one major runtime on this machine that is <strong>not</strong>
+  managed by mise</li>
+<li><strong>Config:</strong> <code>~/.cargo/</code>, plus <code>rust-toolchain.toml</code> per project for pinning</li>
+<li><strong>Versions:</strong> rustup 1.29.1, rustc 1.98.1, cargo 1.98.1</li>
+<li><strong>Also in <code>~/.cargo/bin</code>:</strong> <code>clippy</code>, <code>rustfmt</code>, <code>miri</code>, <code>rls</code>, <code>cargo-tauri</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>build
+cargo<span class="w"> </span><span class="nb">test</span>
+cargo<span class="w"> </span>clippy<span class="w"> </span>--<span class="w"> </span>-D<span class="w"> </span>warnings<span class="w">    </span><span class="c1"># CI-grade lint gate</span>
+cargo<span class="w"> </span>fmt
+cargo<span class="w"> </span>miri<span class="w"> </span><span class="nb">test</span><span class="w">                </span><span class="c1"># checks for undefined behaviour</span>
+</code></pre></div>
+<p><strong>Gotcha:</strong> rust is the odd one out — everything else goes through mise, but
+rustup owns its own toolchain directory. Do not <code>mise install rust</code>; the two
+will fight over <code>PATH</code> and produce confusing "wrong version" reports.</p>
+<p><strong>Gotcha:</strong> <code>cargo miri</code> only works on nightly. On stable it errors out rather
+than silently skipping, which is easy to mistake for a broken install.</p>
+<h2 id="containers-dev-environments">Containers &amp; Dev Environments</h2>
+<!-- docker, podman, devcontainer, nix, devenv, direnv -->
+
+<h3 id="docker"><code>docker</code></h3>
+<p>Container runtime for isolated dev environments and throwaway services.</p>
+<ul>
+<li><strong>Install:</strong> Docker's own apt repo (do not use Debian/Ubuntu's <code>docker.io</code>)</li>
+<li><strong>Config:</strong> <code>/etc/docker/daemon.json</code></li>
+<li><strong>Versions:</strong> Docker 29.8.2, Docker Compose v5.6.0</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>-a
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;service&gt;
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container&gt;<span class="w"> </span>sh
+</code></pre></div>
+<p><strong>Gotcha:</strong> Compose is a separate binary with its own version line — <code>docker
+--version</code> says nothing about whether <code>docker compose</code> works. Check
+<code>docker compose version</code> separately.</p>
+<p><strong>Gotcha:</strong> images are cached across projects and never pruned by default.
+When disk pressure hits, <code>docker system df</code> first to see what is actually
+consuming space, then prune deliberately.</p>
+<h2 id="editor">Editor</h2>
+<!-- nvim/micro/helix, IDE configs, editor CLI invocation from a terminal -->
+
+<h3 id="zed"><code>zed</code></h3>
+<p>My editor. Chosen over the usual suspects because it treats AI agents as a
+first-class feature rather than a plugin — the agent panel, the context server,
+and the language server MCP bridge are all built in and configured from one
+<code>settings.json</code>.</p>
+<ul>
+<li><strong>Install:</strong> tarball to <code>~/.local/zed.app</code>, launcher symlinked to
+  <code>~/.local/bin/zed</code></li>
+<li><strong>Config:</strong> <code>~/.config/zed/settings.json</code> (and optional <code>keymap.json</code>)</li>
+<li><strong>State:</strong> <code>~/.local/share/zed/</code> — extensions, bundled language servers,
+  <code>conversations/</code>, <code>external_agents/</code></li>
+<li><strong>Version:</strong> 1.20.2</li>
+</ul>
+<div class="highlight"><pre><span></span><code>zed<span class="w"> </span>--version
+zed<span class="w"> </span>.<span class="w">                  </span><span class="c1"># open current directory</span>
+</code></pre></div>
+<p>Layout and theme, as configured:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>project_panel</code>, <code>outline_panel</code>, <code>collaboration_panel</code>, <code>git_panel</code></td>
+<td>all docked <strong>right</strong></td>
+</tr>
+<tr>
+<td><code>agent</code> panel</td>
+<td>docked <strong>left</strong>, <code>default_profile: "ask"</code></td>
+</tr>
+<tr>
+<td>theme</td>
+<td><code>One Light</code> / <code>Catppuccin Frappé</code></td>
+</tr>
+<tr>
+<td><code>ui_font_size</code> / <code>buffer_font_size</code></td>
+<td>16 / 15</td>
+</tr>
+<tr>
+<td>agent model</td>
+<td><code>MiniMax-M2.7</code> via OpenAI-compatible <code>https://api.minimax.io/v1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Zed brings its own language servers</strong> under <code>~/.local/share/zed/languages/</code>:
+<code>bash-language-server</code>, <code>eslint</code>, <code>json-language-server</code>, <code>vtsls</code>, <code>yaml-language-server</code>,
+<code>tailwindcss-language-server</code>, <code>package-version-server</code>. Those need no separate
+install. Elixir is the exception — see below.</p>
+<p><strong>Gotcha:</strong> <code>settings.json</code> is <strong>JSONC</strong>, not JSON. The real file has <code>//</code> comments
+and a trailing comma after <code>"Catppuccin Frappé",</code>. Anything that parses it as
+strict JSON — a script, a CI step, an agent's config reader — will fail on it.</p>
+<p><strong>Gotcha:</strong> the default agent profile is <code>"ask"</code>, which only reads. Anything that
+should be allowed to change files needs the profile switched to something like
+<code>"edit"</code> first — an agent that silently cannot write looks identical to one that
+chose not to.</p>
+<h3 id="expert-expert-lsp"><code>expert</code> (expert-lsp)</h3>
+<p>Elixir language server built on the BEAM's own debugging tracer, so it indexes
+actual runtime data rather than parsing source. Pairs with Zed via the <code>elixir-ls</code>
+MCP bridge below.</p>
+<ul>
+<li><strong>Install:</strong> <code>brew install expert</code> (Linuxbrew)</li>
+<li><strong>Version:</strong> 0.1.8</li>
+<li><strong>Binary:</strong> <code>/home/linuxbrew/.linuxbrew/bin/expert</code> →
+  <code>Cellar/expert/0.1.8/libexec/expert/bin/start_expert</code></li>
+<li><strong>Install dir:</strong> <code>~/.local/share/Expert/</code></li>
+<li><strong>Per project:</strong> <code>.expert/</code> containing <code>expert.log</code> and a <code>.gitignore</code></li>
+</ul>
+<p>Present in at least these projects:</p>
+<div class="highlight"><pre><span></span><code>Projects/Phoenix/garis_miring      Projects/elixir/garismiring
+Projects/Phoenix/symphony          Projects/Phoenix/prasyarat
+Projects/Phoenix/loomkin
+</code></pre></div>
+<p><strong>Gotcha:</strong> there are <strong>two copies of expert</strong> on this machine and <code>PATH</code> order
+decides which wins:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Version</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homebrew (Linuxbrew)</td>
+<td>0.1.8</td>
+<td>the one currently on <code>PATH</code></td>
+</tr>
+<tr>
+<td>burrito</td>
+<td>0.1.0 (<code>_erts-15.2.7</code>)</td>
+<td><code>~/.local/share/.burrito/expert_erts-15.2.7_0.1.0-9e913f6</code></td>
+</tr>
+</tbody>
+</table>
+<p>The burrito copy targets <strong>erts-15.2.7 (OTP 25)</strong> while the active runtime is
+OTP 29. If expert suddenly reports a version nobody installed, or behaves like a
+much older release, this is why. <code>command -v expert</code> is the check.</p>
+<p><strong>Gotcha:</strong> the install directory <code>~/.local/share/Expert/0.1.0-9e913f6</code> reports
+itself as <code>0.1.8</code> at runtime. The directory name is not a reliable version
+indicator here — ask the binary.</p>
+<p><strong>Gotcha:</strong> <code>.expert/expert.log</code> is <strong>gitignored</strong> in every project. Expert's
+diagnostics are therefore invisible in review and lost on a fresh clone. When
+expert misbehaves, that log is the only evidence, so copy it out before cleaning.</p>
+<h3 id="elixir-ls-the-zed-expert-bridge"><code>elixir-ls</code> — the Zed ↔ expert bridge</h3>
+<p>Expert does not talk to Zed directly. Zed's <code>elixir-ls</code> entry is configured to
+speak <strong>MCP over TCP on port 4328</strong>, which is what actually exposes expert's
+tools to the agent:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;lsp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;elixir-ls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;mcpEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;mcpPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4328</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Gotcha:</strong> <strong>port 4328 is shared with opencode.</strong> <code>~/.config/opencode/opencode.json</code>
+bridges the <em>same</em> elixir-ls MCP server to stdio on 4328. Only one process can
+own that port, so if Zed is open and holding it, the opencode elixir-ls MCP fails
+to connect — and the error points at opencode, not at Zed. Conversely, if
+nothing is listening on 4328 (verified: nothing is, right now), then neither
+editor has expert available and no amount of restarting the agent will help.</p>
+<p><strong>Gotcha:</strong> Serena runs in Zed too, via <code>context_servers.serena-context-server</code>
+with <code>"enabled": true</code>. So the machine has <em>two</em> Serena instances — one inside
+Zed, one as an opencode MCP server — pointed at the same project. Their indices
+can disagree; when an agent gets a stale answer, check which host it was running
+under before suspecting the code.</p>
+<h3 id="hexdocs_mcp-via-burrito"><code>hexdocs_mcp</code> (via burrito)</h3>
+<p>Hex documentation lookup as an MCP server, so an agent can check real API
+signatures instead of guessing or relying on training data.</p>
+<ul>
+<li><strong>Install:</strong> burrito build — <code>~/.local/share/.burrito/hexdocs_mcp_erts-15.2.7_0.6.0/bin/hexdocs_mcp</code></li>
+<li><strong>Version:</strong> 0.6.0, built for erts-15.2.7</li>
+</ul>
+<p><strong>Gotcha:</strong> not on <code>PATH</code> — reachable only through its burrito install path.
+Invoking bare <code>hexdocs_mcp</code> fails. Like expert, it is pinned to an older erts than
+the active OTP 29 runtime.</p>
+<p><strong>Gotcha:</strong> because it is pinned to erts-15.2.7, it can serve docs for a Hex
+version that does not match the OTP/elixir in play. Check the doc version matches
+the project's actual dependency before trusting a signature.</p>
+<h2 id="agent-facing-tools">Agent-Facing Tools</h2>
+<!-- Things that are specifically good for an AI agent to have: structured output,
+     non-interactive, exits nonzero on failure, fast. ast-grep, sg, jq, yq,
+     git, curl, sd, fzf, delta, lsp, serena, codegraph -->
+
+<p>Everything in this section is safe for an agent to invoke unattended. That is
+the selection criterion — a tool lands here only if it does <strong>not</strong> need a TTY,
+does <strong>not</strong> page, and exits nonzero on real failure. Interactive-only tools
+belong in <a href="#tui-reference">TUI Reference</a>.</p>
+<h3 id="serena-mcp"><code>serena</code> (MCP)</h3>
+<p>Semantic code retrieval over a whole repository, exposed to agents as MCP tools.
+Lets an agent jump to a symbol definition or find references without reading the
+tree file by file.</p>
+<ul>
+<li><strong>Install:</strong> <code>pipx install git+https://github.com/oraios/serena</code> (or <code>uv tool install</code>)</li>
+<li><strong>Config:</strong> per-project <code>.serena/project.yml</code> and <code>.serena/project.local.yml</code>,
+  with agent memories in <code>.serena/memories/</code></li>
+<li><strong>Version:</strong> 1.7.0</li>
+</ul>
+<p>Registered in <code>~/.config/opencode/opencode.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;serena&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;serena&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start-mcp-server&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--context&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ide&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--project-from-cwd&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>serena<span class="w"> </span>--version
+</code></pre></div>
+<p><strong>Gotcha:</strong> <code>--project-from-cwd</code> means the project is inferred from the working
+directory, not from a path argument. Launch the agent from the repo root or the
+wrong project gets indexed — and it fails quietly, not loudly.</p>
+<p><strong>Gotcha:</strong> <code>.serena/memories/</code> holds accumulated project knowledge. It is
+gitignored. That means the most valuable accumulated context is the first thing
+lost on a fresh clone, and it cannot be reviewed in a PR.</p>
+<p><strong>Gotcha:</strong> Serena is configured in <strong>two</strong> places — as an opencode MCP server
+(<code>opencode.json</code>) <em>and</em> as a Zed context server (<code>settings.json</code> →
+<code>context_servers.serena-context-server</code>). Two instances, one project, indices that
+can drift apart. See the Editor section.</p>
+<h3 id="dexter"><code>dexter</code></h3>
+<p>Elixir-specific semantic search — the same problem serena solves, but backed by
+a real Elixir compiler index rather than text search. Understands modules,
+functions, and references the way the BEAM does.</p>
+<ul>
+<li><strong>Install:</strong> <code>mise install dexter@0.6.0</code></li>
+<li><strong>Config:</strong> none; indexes into a project-local store on <code>init</code></li>
+<li><strong>Version:</strong> 0.6.0</li>
+</ul>
+<div class="highlight"><pre><span></span><code>dexter<span class="w"> </span>init<span class="w">                       </span><span class="c1"># full index of an Elixir project — run once</span>
+dexter<span class="w"> </span>lookup<span class="w"> </span>&lt;Module&gt;.&lt;fun&gt;<span class="w">      </span><span class="c1"># where is it defined</span>
+dexter<span class="w"> </span>references<span class="w"> </span>&lt;Module&gt;.&lt;fun&gt;<span class="w">  </span><span class="c1"># who calls it</span>
+dexter<span class="w"> </span>reindex<span class="w">                    </span><span class="c1"># check all files for changes</span>
+dexter<span class="w"> </span>lsp<span class="w">                        </span><span class="c1"># expose as an LSP server over stdio</span>
+</code></pre></div>
+<p><strong>Gotcha:</strong> the index is stale until <code>dexter reindex</code> runs. After editing files,
+lookups can return the previous answer — which reads as "the refactor did not
+work" rather than "the index did not update".</p>
+<p><strong>Gotcha:</strong> <code>dexter init</code> is a whole-project operation and is not instant on a
+large umbrella app. <code>reindex</code> afterwards is cheap; re-running <code>init</code> is not.</p>
+<h3 id="elixir-ls"><code>elixir-ls</code></h3>
+<p>The Elixir language server, driven by editors and agents over LSP. This is what
+provides "go to definition", "find references", and diagnostics for Elixir code.</p>
+<ul>
+<li><strong>Install:</strong> <code>mise install elixir-ls@0.31.1</code></li>
+<li><strong>Version:</strong> 0.31.1</li>
+</ul>
+<p>Registered in <code>~/.config/opencode/opencode.json</code> — note it runs as a <strong>TCP</strong> LSP
+bridged to stdio, not as a direct stdio server:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;elixir-ls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;elixir&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;/home/jnkk/.local/share/mise/installs/elixir-ls/0.31.1/tcp_to_stdio_bridge.exs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;4328&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Gotcha:</strong> that config hardcodes the elixir-ls version in the path. When mise
+upgrades elixir-ls, this path breaks and the failure looks like a dead MCP server
+rather than a stale version number. Re-copy the path from <code>mise where elixir-ls</code>
+after upgrading.</p>
+<h3 id="other-mcp-servers-configured">Other MCP servers configured</h3>
+<p>Not Linux tools per se, but part of the same agent harness, so recorded here:</p>
+<table>
+<thead>
+<tr>
+<th>Server</th>
+<th>Transport</th>
+<th>Launched by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tidewave-mcp</code></td>
+<td>local proxy → <code>http://localhost:4000/tidewave/mcp</code></td>
+<td><code>/home/jnkk/mcp/mcp-proxy</code></td>
+</tr>
+<tr>
+<td><code>playwright</code></td>
+<td>local</td>
+<td><code>npx @playwright/mcp@latest</code></td>
+</tr>
+<tr>
+<td><code>backlog</code></td>
+<td>stdio</td>
+<td><code>backlog mcp start</code> (Claude Code only)</td>
+</tr>
+<tr>
+<td><code>stitch</code></td>
+<td>http</td>
+<td><code>https://stitch.googleapis.com/mcp</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gotcha:</strong> <code>@latest</code> on the playwright MCP means the version can change under
+you between sessions. If browser behaviour suddenly shifts, that is the first
+thing to pin.</p>
+<p><strong>Gotcha:</strong> <code>tidewave-mcp</code> proxies to port 4000, so it is dead whenever that
+process is not running — and the MCP client just reports a connection failure
+with no hint that a separate process needs starting first.</p>
+<h2 id="tui-reference">TUI Reference</h2>
+<!-- Interactive tools that need a real terminal. Worth listing separately because
+     they cannot run non-interactively, so an agent must know to avoid them. -->
+
+<p><em>Empty — to be filled.</em></p>
+<hr />
+<h2 id="removed-replaced">Removed / Replaced</h2>
+<p>Tools I dropped and what replaced them. This is the section I read most often,
+because it stops me from re-installing something on a new machine for no reason.</p>
+<table>
+<thead>
+<tr>
+<th>Dropped</th>
+<th>Replaced by</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>TBD</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="still-need-to-check">Still Need to Check</h2>
+<p>Scratchpad — things I might have installed but have not confirmed or written up yet.</p>
+<ul>
+<li>[ ] <strong>hindsight ai-mcp</strong> — <em>not installed.</em> Mentioned as something I want for
+      agent memory/context, but nothing is on the machine yet: no MCP entry in
+      <code>~/.config/opencode/opencode.json</code>, no binary on <code>PATH</code>. Need to confirm the
+      actual project name before writing an entry — do not trust the spelling
+      until a repo or package page is verified.</li>
+<li>[ ] <code>_TBD_</code></li>
+</ul>
+<h2 id="reinstall-gaps">Reinstall Gaps</h2>
+<p>Since rebuilding Debian is this page's main job, these entries are <strong>not yet
+self-sufficient</strong> — an entry that cannot be reinstalled from is a hole in the
+recovery plan. Fix these before the next fresh install.</p>
+<table>
+<thead>
+<tr>
+<th>Entry</th>
+<th>What is missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>herdr</code></td>
+<td>Install method unknown — it self-updates, but the <em>original</em> install path is unrecorded</td>
+</tr>
+<tr>
+<td><code>rust</code></td>
+<td>No install command, only "rustup". Need the exact rustup bootstrap URL + whether a <code>default-toolchain</code> is set</td>
+</tr>
+<tr>
+<td><code>docker</code></td>
+<td>Described as "Docker's own apt repo" but no actual command. Need the repo line, GPG key, and the packages installed</td>
+</tr>
+<tr>
+<td><code>zed</code></td>
+<td>Described as a tarball to <code>~/.local/zed.app</code> but no URL, no version pin, no update procedure</td>
+</tr>
+<tr>
+<td><code>hexdocs_mcp</code></td>
+<td>Burrito path recorded, but not how burrito itself is installed or how the build is triggered</td>
+</tr>
+<tr>
+<td><code>elixir-ls</code></td>
+<td>Config hardcodes the mise install path — need the <code>mise where</code> command to regenerate it after a reinstall</td>
+</tr>
+</tbody>
+</table>
+<p>Also not recorded anywhere yet, and needed to rebuild the harness:</p>
+<ul>
+<li>[ ] The <code>~/.config/opencode/opencode.json</code> MCP block (serena, elixir-ls, playwright, tidewave-mcp) — is it backed up or hand-retyped?</li>
+<li>[ ] The <code>~/.config/zed/settings.json</code> agent block (MiniMax provider, api_url, <code>default_profile</code>)</li>
+<li>[ ] Which of <code>~/.local/bin/*</code> are actually needed: <code>agy</code>, <code>picoclaw</code>, <code>goose</code>, <code>hermes</code>, <code>hermes-acp</code>, <code>beads</code>, <code>shepherd</code>, <code>specify</code>, <code>sp</code>, <code>serena-agent</code>, <code>serena-hooks</code></li>
+<li>[ ] Linuxbrew vs mise vs apt — which of the three owns which binary. Expert comes from Linuxbrew, most things from mise, and the split is currently implicit.</li>
+</ul>
+<hr />
+<h2 id="notes">Notes</h2>
+<p>Scratch space. Anything that does not fit above.</p>
+<p><strong>Version snapshot taken 2026-10-03</strong>, verified by running each tool on this
+machine rather than from memory. If a version here looks stale, that is the
+signal to re-run the command, not to assume the doc drifted.</p>
+<p>Related: <a href="../">Learning Agent Harness</a> · <a href="../../Notes/bashalias/">Bash Aliases</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
